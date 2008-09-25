@@ -210,8 +210,8 @@ keybinding({ modkey }, "less", awful.tag.viewnext):add()
 keybinding({ "Mod1" }, "grave", function () awful.spawn(terminal) end):add()
 keybinding({ "Mod1" }, "asciitilde", function () awful.spawn(terminal) end):add()
 
-keybinding({ modkey, "Mod1" }, "r", awesome.restart):add()
-keybinding({ modkey, "Mod1" }, "q", awesome.quit):add()
+keybinding({ modkey, "Shift" }, "r", awesome.restart):add()
+keybinding({ modkey, "Shift" }, "q", awesome.quit):add()
 
 -- Client manipulation
 keybinding({ modkey, "Mod1" }, "m", awful.client.maximize):add()
