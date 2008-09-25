@@ -203,9 +203,12 @@ end
 
 keybinding({ modkey }, "apostrophe", awful.tag.viewprev):add()
 keybinding({ modkey }, "comma", awful.tag.viewnext):add()
+keybinding({ modkey }, "at", awful.tag.viewprev):add()
+keybinding({ modkey }, "less", awful.tag.viewnext):add()
 
 -- Standard program
 keybinding({ "Mod1" }, "grave", function () awful.spawn(terminal) end):add()
+keybinding({ "Mod1" }, "asciitilde", function () awful.spawn(terminal) end):add()
 
 keybinding({ modkey, "Mod1" }, "r", awesome.restart):add()
 keybinding({ modkey, "Mod1" }, "q", awesome.quit):add()
