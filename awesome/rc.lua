@@ -159,37 +159,36 @@ end
 -- {{{ Key bindings
 
 -- Bind keyboard digits
--- Compute the maximum number of digit we need, limited to 9
+-- Compute the maximum number of digit we need, limited to 20
 keynumber = 0
 for s = 1, screen.count() do
-   keynumber = math.min(9, math.max(#tags[s], keynumber));
+   keynumber = math.min(20, math.max(#tags[s], keynumber));
 end
 
---[[for i = 1, keynumber do
-    keybinding({ modkey }, i,
+-- This is irssi-esque, but very specific to Dvorak.
+bindings = {'0', 'apostrophe', 'comma', 'period', 'p', 'y', 'f', 'g', 'c', 'r', 'l' }
+
+for i = 1, keynumber do
+    bind = i
+    if i > 9 then
+        bind = bindings[i - 9]
+    end
+
+    keybinding({ modkey, "Mod1" }, bind,
                    function ()
                        local screen = mouse.screen
                        if tags[screen][i] then
                            awful.tag.viewonly(tags[screen][i])
                        end
                    end):add()
-    keybinding({ modkey, "Control" }, i,
+    keybinding({ modkey, "Shift" }, bind,
                    function ()
                        local screen = mouse.screen
                        if tags[screen][i] then
                            tags[screen][i].selected = not tags[screen][i].selected
                        end
                    end):add()
-    keybinding({ modkey, "Shift" }, i,
-                   function ()
-                       local sel = client.focus
-                       if sel then
-                           if tags[sel.screen][i] then
-                               awful.client.movetotag(tags[sel.screen][i])
-                           end
-                       end
-                   end):add()
-    keybinding({ modkey, "Control", "Shift" }, i,
+    keybinding({ modkey, "Mod1", "Shift" }, bind,
                    function ()
                        local sel = client.focus
                        if sel then
@@ -199,7 +198,6 @@ end
                        end
                    end):add()
 end
---]]
 
 keybinding({ modkey }, "apostrophe", awful.tag.viewprev):add()
 keybinding({ modkey }, "comma", awful.tag.viewnext):add()
