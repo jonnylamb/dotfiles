@@ -225,15 +225,15 @@ keybinding({ modkey, "Mod1" }, "Return", function () client.focus:swap(awful.cli
 function move_window_cb(trans_fn, post_fn)
     local sel = client.focus_get()
     if not sel then
-	return
+        return
     end
 
     for tagnumber = 1, 16 do
-	tag = tags[sel.screen][tagnumber]
-	if tag.selected then
-	    awful.client.toggletag(tags[sel.screen][trans_fn(tagnumber)])
-	    awful.client.toggletag(tag)
-	end
+        tag = tags[sel.screen][tagnumber]
+        if tag.selected then
+            awful.client.toggletag(tags[sel.screen][trans_fn(tagnumber)])
+            awful.client.toggletag(tag)
+        end
     end
 
     post_fn()
