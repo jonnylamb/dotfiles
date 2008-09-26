@@ -19,6 +19,9 @@ terminal = "x-terminal-emulator"
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Control"
 
+-- Whether we are in Dvorak or not
+dvorak = true
+
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
@@ -165,9 +168,13 @@ for s = 1, screen.count() do
    keynumber = math.min(20, math.max(#tags[s], keynumber));
 end
 
--- This is irssi-esque, but very specific to Dvorak.
-bindings = {'0', 'apostrophe', 'comma', 'period', 'p', 'y', 'f', 'g', 'c', 'r', 'l' }
+if dvorak then
+    bindings = {'0', 'apostrophe', 'comma', 'period', 'p', 'y', 'f', 'g', 'c', 'r', 'l' }
+else
+    bindings = {'0', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' }
+end
 
+-- This is rather irssi-esque
 for i = 1, keynumber do
     bind = i
     if i > 9 then
@@ -199,14 +206,22 @@ for i = 1, keynumber do
                    end):add()
 end
 
-keybinding({ modkey }, "apostrophe", awful.tag.viewprev):add()
-keybinding({ modkey }, "comma", awful.tag.viewnext):add()
-keybinding({ modkey }, "at", awful.tag.viewprev):add()
-keybinding({ modkey }, "less", awful.tag.viewnext):add()
+if dvorak then
+    keybinding({ modkey }, "apostrophe", awful.tag.viewprev):add()
+    keybinding({ modkey }, "comma", awful.tag.viewnext):add()
+    keybinding({ modkey }, "at", awful.tag.viewprev):add()
+    keybinding({ modkey }, "less", awful.tag.viewnext):add()
+else
+    keybinding({ modkey }, "q", awful.tag.viewprev):add()
+    keybinding({ modkey }, "w", awful.tag.viewnext):add()
+end
 
 -- Standard program
 keybinding({ "Mod1" }, "grave", function () awful.spawn(terminal) end):add()
-keybinding({ "Mod1" }, "asciitilde", function () awful.spawn(terminal) end):add()
+
+if dvorak then
+    keybinding({ "Mod1" }, "asciitilde", function () awful.spawn(terminal) end):add()
+end
 
 keybinding({ modkey, "Shift" }, "r", awesome.restart):add()
 keybinding({ modkey, "Shift" }, "q", awesome.quit):add()
