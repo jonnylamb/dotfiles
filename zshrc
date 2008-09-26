@@ -26,7 +26,7 @@ precmd() {
 
 if [ $UID -eq 0 ]; then
 	PROMPT="%{$reset_color$fg_bold[red]%}%n@%B%M%b:%~%# "
-elif [ "$(whoami)" != "jonnylamb" ] && [ "$(whoami)" != "jonny" ] && [ "$(whoami)" != "d71x3w" ] && [ "$(whoami)" != "jdl" ]; then
+elif [ "$whoami" != "jonnylamb" ] && [ "$whoami" != "jonny" ] && [ "$whoami" != "d71x3w" ] && [ "$whoami" != "jdl" ]; then
 	PROMPT="%{$reset_color$fg_bold[red]%}%n@%B%M%b:%~%# "
 else
 	PROMPT="%B%M%b:%~%# "
