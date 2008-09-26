@@ -314,28 +314,6 @@ bp() {
 }
 
 #
-# Getting Telepathy stuff
-#
-
-tp-rsync() {
-	[ -z $1 ] && { echo "$0: Specify a module to get"; return 1; }
-
-	if [ "$(echo "$1" | grep "/" | wc -l)" != 0 ]; then
-		module=$1
-		out=$(echo "$1" | cut -d/ -f2)
-	else
-		module="telepathy/$1"
-		out=$1
-	fi
-
-	rsync -vaP jonny@dhansak.collabora.co.uk:/darcs/telepathy/$1 .
-
-	if [ $? = 0 ] && [ -d "$1" ]; then
-		echo "Jonny Lamb <jonny.lamb@collabora.co.uk>" > $1/_darcs/prefs/author;
-	fi
-}
-
-#
 # Misc.
 #
 
