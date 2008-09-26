@@ -99,8 +99,8 @@ mytaglist:mouse_add(mouse({}, 1, function (object, tag) awful.tag.viewonly(tag) 
 mytaglist:mouse_add(mouse({ modkey }, 1, function (object, tag) awful.client.movetotag(tag) end))
 mytaglist:mouse_add(mouse({}, 3, function (object, tag) tag.selected = not tag.selected end))
 mytaglist:mouse_add(mouse({ modkey }, 3, function (object, tag) awful.client.toggletag(tag) end))
-mytaglist:mouse_add(mouse({ }, 4, awful.tag.viewnext))
-mytaglist:mouse_add(mouse({ }, 5, awful.tag.viewprev))
+mytaglist:mouse_add(mouse({ }, 4, awful.tag.viewprev))
+mytaglist:mouse_add(mouse({ }, 5, awful.tag.viewnext))
 mytaglist.label = awful.widget.taglist.label.all
 
 -- Create a tasklist widget
