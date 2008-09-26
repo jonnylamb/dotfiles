@@ -1,7 +1,8 @@
 #
 # Completion
-# 
-zstyle :compinstall filename '/home/jonnylamb/.zshrc'
+#
+whoami=$(whoami)
+zstyle :compinstall filename "/home/$whoami/.zshrc"
 
 #
 # Prompt
