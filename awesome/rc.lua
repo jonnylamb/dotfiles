@@ -226,6 +226,8 @@ end
 keybinding({ modkey, "Shift" }, "r", awesome.restart):add()
 keybinding({ modkey, "Shift" }, "q", awesome.quit):add()
 
+keybinding({ modkey, "Mod1" }, "l", function () awful.spawn("gnome-screensaver-command -l") end):add()
+
 -- Client manipulation
 keybinding({ modkey, "Mod1" }, "m", awful.client.maximize):add()
 keybinding({ "Mod1" }, "F4", function () client.focus:kill() end):add()
