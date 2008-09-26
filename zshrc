@@ -155,25 +155,9 @@ cdt () {
 	echo "Moved to $(pwd)"
 }
 
-# Push .vimrc .screenrc and .zshrc to known servers via ssh
+# Push .vimrc .screenrc and .zshrc via SSH
 pushdotfiles() {
-	if [ -z $1 ]; then
-		for HOSTNAME in jonnylamb@jonnylamb.com \
-			jonnylamb-guest@alioth.debian.org \
-			jonnylamb@bongovm.osuosl.org \
-			jonnylamb@uwcs.co.uk \
-			jonny@jonnylamb.no-ip.org \
-			d71x3w@vega.dur.ac.uk \
-			jdl@compsoc.dur.ac.uk \
-			jonny@dhansak.collabora.co.uk \
-			jonny@jalfrezi.collabora.co.uk \
-			jonny@madras.collabora.co.uk; do
-			echo "Pushing dotfiles to ${HOSTNAME}..."
-			scp ~/.vimrc ~/.screenrc ~/.zshrc ~/.gitconfig ${HOSTNAME}:
-		done
-	else
-		scp ~/.vimrc ~/.screenrc ~/.zshrc $@:
-	fi
+	scp ~/.vimrc ~/.screenrc ~/.zshrc $@:
 }
 
 # Easy to create diffs on packages.
