@@ -40,7 +40,6 @@ fi
 alias alioth="ssh -v jonnylamb-guest@alioth.debian.org"
 
 # Other misc
-alias bongo="ssh -v jonnylamb@bongovm.osuosl.org"
 alias vega="ssh -v d71x3w@vega2.dur.ac.uk"
 
 # compsocs
