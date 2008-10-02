@@ -3,3 +3,4 @@ all:
 	cp -f zshrc ~/.zshrc
 	cp -f vimrc ~/.vimrc
 	cp -rf awesome ~/.config
+	cp -f gitconfig ~/.gitconfig
