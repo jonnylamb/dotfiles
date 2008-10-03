@@ -213,8 +213,8 @@ if dvorak then
     keybinding({ modkey }, "less", awful.tag.viewnext):add()
 
     -- These bindings are for qwerty keyboards on a dvorak layout (e.g. when using synergy)
-    keybinding({ "Mod4" }, "Left", awful.tag.viewprev):add()
-    keybinding({ "Mod4" }, "Right", awful.tag.viewnext):add()
+    keybinding({ "Mod4" }, "q", awful.tag.viewprev):add()
+    keybinding({ "Mod4" }, "w", awful.tag.viewnext):add()
 
 else
     keybinding({ modkey }, "q", awful.tag.viewprev):add()
