@@ -7,7 +7,7 @@ require("beautiful")
 
 -- {{{ Variable definitions
 -- This is a file path to a theme file which will defines colors.
-theme_path = "/home/jonnylamb/.config/awesome/theme"
+theme_path = "/home/" .. os.getenv("USER") .. "/.config/awesome/theme"
 
 -- This is used later as the default terminal to run.
 terminal = "x-terminal-emulator"
