@@ -272,7 +272,7 @@ git-bare() {
 
 	if [ "$2" = "upload" ]; then
 		echo "Will upload to jonnylamb.com now.."
-		scp -r /tmp/$1.git jonnylamb.com:git/
+		scp -r /tmp/$1.git jonnylamb@jonnylamb.com:git/
 		rm -rf /tmp/$1.git
 	else
 		echo "Repository is at /tmp/$1.git"
