@@ -37,7 +37,7 @@ fi
 #
 
 # Debian
-alias alioth="ssh -v jonnylamb-guest@alioth.debian.org"
+alias alioth="ssh -v jonny@alioth.debian.org"
 
 # Other misc
 alias vega="ssh -v d71x3w@vega2.dur.ac.uk"
