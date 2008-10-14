@@ -132,7 +132,7 @@ alias -g ....="../../.."
 export REAL_NAME="Jonny Lamb"
 export DEBFULLNAME="Jonny Lamb"
 export EMAIL_ADDRESS="jonnylamb@jonnylamb.com"
-export DEBEMAIL="jonnylamb@jonnylamb.com"
+export DEBEMAIL="jonny@debian.org"
 # This /should/ only get picked up by darcs..
 export EMAIL="Jonny Lamb <jonny.lamb@collabora.co.uk>"
 export EDITOR="vim"
