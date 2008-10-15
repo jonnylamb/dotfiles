@@ -1,6 +1,6 @@
 [user]
 	name = Jonny Lamb
-	email = jonnylamb@jonnylamb.com
+	email = jonny@debian.org
 	signingkey = 2E039402
 [giggle]
 	compact-mode = false
