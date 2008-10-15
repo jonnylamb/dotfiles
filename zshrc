@@ -275,8 +275,8 @@ git-pj() {
 	
 	echo "Pushing to: ssh://jonnylamb.com/~/git/$repo..."
 	sleep 2 # Give time to cancel if $repo is wrong.
-	git push --all "ssh://jonnylamb.com/~/git/$repo"
-	git push --tags "ssh://jonnylamb.com/~/git/$repo"
+	git push --all "ssh://jonnylamb@jonnylamb.com/~/git/$repo"
+	git push --tags "ssh://jonnylamb@jonnylamb.com/~/git/$repo"
 	echo "Done."
 }
 
