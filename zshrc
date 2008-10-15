@@ -144,6 +144,52 @@ export PATH="$HOME/bin/:$PATH"
 # Functions
 #
 
+# git
+git () {
+	if [ -z "$GIT_AUTHOR_EMAIL" ] && [ $1 = "commit" ]; then
+
+		one_email=$DEBEMAIL
+		two_email="jonny.lamb@collabora.co.uk"
+		three_email="jonnylamb@jonnylamb.com"
+		four_email="j.d.lamb@durham.ac.uk"
+
+		echo "Which email address do you want to use?"
+		echo " 1. $one_email (default)"
+		echo " 2. $two_email"
+		echo " 3. $three_email"
+		echo " 4. $four_email"
+		echo " 5. other"
+		read number
+
+		case $number in
+			"")
+				email=$one_email
+				;;
+			1)
+				email=$one_email
+				;;
+			2)
+				email=$two_email
+				;;
+			3)
+				email=$three_email
+				;;
+			4)
+				email=$four_email
+				;;
+			5)
+				echo "Enter the email address you want to use:"
+				read email
+				;;
+		esac
+
+		export GIT_AUTHOR_EMAIL=$email
+		export GIT_COMMITTER_EMAIL=$email
+	fi
+
+	/usr/bin/git $@
+}
+
 # Move to new temp dir
 cdt () {
 	cdt_dir=/tmp/
@@ -215,7 +261,8 @@ newproject() {
 	git init
 	wget -OCOPYING http://www.gnu.org/licenses/gpl.txt
 	for FILE in ChangeLog README TODO HACKING; do touch $FILE; done
-	echo "$DEBFULLNAME <$DEBEMAIL>" > AUTHORS
+	# We can use GIT_AUTHOR_EMAIL because the email address will be asked on git init.
+	echo "$DEBFULLNAME <$GIT_AUTHOR_EMAIL>" > AUTHORS
 	git add *
 	git commit -s -m "Initial project creation."
 	echo "Start coding now!"
