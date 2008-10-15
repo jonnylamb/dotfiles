@@ -274,7 +274,6 @@ git-pj() {
 	[ -z $repo ] && { echo "Error: not a Git repository, or origin not found."; return 1; }
 	
 	echo "Pushing to: ssh://jonnylamb.com/~/git/$repo..."
-	sleep 2 # Give time to cancel if $repo is wrong.
 	if [ "$1" = "tags" ]; then
 		git push --tags "ssh://jonnylamb@jonnylamb.com/~/git/$repo"
 	else
