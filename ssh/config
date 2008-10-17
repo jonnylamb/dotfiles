@@ -1,0 +1,54 @@
+# Debian
+
+Host alioth
+    Hostname alioth.debian.org
+    User jonny
+
+Host ravel
+    Hostname ravel.debian.org
+    User jonny
+
+# Durham
+
+Host vega
+    Hostname vega2.dur.ac.uk
+    User d71x3w
+
+Host toast
+    Hostname compsoc.dur.ac.uk
+    User jdl
+
+# Home
+
+Host server
+    Hostname jonnylamb.no-ip.org
+    User jonny
+
+Host server2
+    Hostname jonnylamb.no-ip.org
+    User jonny
+    Port 23
+
+# Collabora
+
+Host jalfrezi
+    Hostname jalfrezi.collabora.co.uk
+    User jonny
+
+Host dhansak
+    Hostname dhansak.collabora.co.uk
+    User jonny
+
+# VPSs
+
+Host byte
+    Hostname jonnylamb.com
+    User jonnylamb
+
+# Misc.
+
+Host codd
+    Hostname uwcs.co.uk
+    User jonnylamb
+
+
