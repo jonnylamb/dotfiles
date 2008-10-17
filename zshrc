@@ -33,37 +33,6 @@ else
 fi
 
 #
-# SSH
-#
-
-# Debian
-alias alioth="ssh -v jonny@alioth.debian.org"
-
-# Other misc
-alias vega="ssh -v d71x3w@vega2.dur.ac.uk"
-
-# compsocs
-alias codd="ssh -v jonnylamb@uwcs.co.uk"
-alias toast="ssh -v jdl@compsoc.dur.ac.uk"
-
-# Home machines
-alias reger="ssh -v jonnylamb@reger"
-alias salieri="ssh -v jonnylamb@192.168.0.5"
-
-# Home servers
-alias server="ssh -v -t jonny@jonnylamb.no-ip.org"
-alias server2="ssh -v -p 23 jonny@jonnylamb.no-ip.org"
-alias rossini="ssh -v jonnylamb@rossini"
-
-# Collabora
-alias dhansak="ssh -v jonny@dhansak.collabora.co.uk"
-alias madras="ssh -v jonny@madras.collabora.co.uk"
-alias jalfrezi="ssh -v jonny@jalfrezi.collabora.co.uk"
-
-# VPSs
-alias byte="ssh -v jonnylamb@jonnylamb.com"
-
-#
 # Command aliases
 #
 
