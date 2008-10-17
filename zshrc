@@ -85,7 +85,6 @@ alias oi="offlineimap"
 alias MAKE="make"
 alias m="PATH=/usr/bin:$PATH make CC=icecc -j6"
 alias j="jobs"
-alias hib="sudo /usr/sbin/pm-hibernate"
 
 # A bit ugly
 alias srcempathy="EMPATHY_SRCDIR=. EMPATHY_DEBUG=all LD_LIBRARY_PATH=$(pwd)/libempathy/.libs:$(pwd)/libempathy-gtk/.libs gdb --args ./src/.libs/empathy --g-fatal-warnings"
@@ -103,7 +102,6 @@ export DEBFULLNAME="Jonny Lamb"
 export EMAIL_ADDRESS="jonnylamb@jonnylamb.com"
 export DEBEMAIL="jonny@debian.org"
 # This /should/ only get picked up by darcs..
-export EMAIL="Jonny Lamb <jonny.lamb@collabora.co.uk>"
 export EDITOR="vim"
 export LESS="-cgiFKx4M"
 export PAGER="most"
@@ -292,9 +290,6 @@ SAVEHIST=1000
 case $HOST in
 	vega*)
 		export http_proxy="http://wwwcache.dur.ac.uk:8080"
-		;;
-	salieri*)
-		#export http_proxy="http://wwwcache.dur.ac.uk:8080"
 		;;
 	compsoc*)
 		export http_proxy="http://wwwcache.dur.ac.uk:8080"
