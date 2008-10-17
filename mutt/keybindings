@@ -1,0 +1,8 @@
+bind generic 		N 	search-opposite
+bind pager		G	bottom
+bind index,pager	|	pipe-message
+bind index,pager	!	flag-message
+
+macro index,pager	I	"<change-folder>=inbox<enter>" "go to inbox folder"
+
+# vim:sw=12:noet:sts=12:ts=12:ft=muttrc

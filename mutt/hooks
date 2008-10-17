@@ -1,0 +1,27 @@
+send-hook '~s "Re: confirm" ~t -request@' 'unset crypt_autosign'
+
+send-hook '~A' 'set from="jonny@debian.org'
+
+# Collabora
+send-hook '~C @collabora\.co\.uk' 'set from=jonny.lamb@collabora.co.uk'
+send-hook '~C @lists\.collabora\.co\.uk' 'set from=jonny.lamb@collabora.co.uk'
+
+# Lists registered to with jonnylamb@jonnylamb.com
+send-hook '~C telepathy@lists\.freedesktop\.org' 'set from=jonnylamb@jonnylamb.com'
+send-hook '~C synce-devel@lists\.sourceforge\.net' 'set from=jonnylamb@jonnylamb.com'
+send-hook '~C soc-coordination@lists\.alioth\.debian\.org' 'set from=jonnylamb@jonnylamb.com'
+send-hook '~C pkg-telepathy-maintainers@lists\.alioth\.debian\.org' 'set from=jonnylamb@jonnylamb.com'
+send-hook '~C pkg-maemo-maintainer@lists\.alioth\.debian\.org' 'set from=jonnylamb@jonnylamb.com'
+send-hook '~C pkg-maemo-devel@lists\.alioth\.debian\.org' 'set from=jonnylamb@jonnylamb.com'
+send-hook '~C google-summer-of-code-students-list@googlegroups\.com' 'set from=jonnylamb@jonnylamb.com'
+send-hook '~C google-summer-of-code-students-announce@googlegroups\.com' 'set from=jonnylamb@jonnylamb.com'
+send-hook '~C debian-uk@chiark\.greenend\.org\.uk' 'set from=jonnylamb@jonnylamb.com'
+send-hook '~C debexpo-devel@workaround\.org' 'set from=jonnylamb@jonnylamb.com'
+send-hook '~C bongo-devel@gna\.org' 'set from=jonnylamb@jonnylamb.com'
+
+# Durham
+send-hook '~C @durham\.ac\.uk' 'set from=j.d.lamb@durham.ac.uk'
+send-hook '~C @compsoc\.dur\.ac\.uk' 'set from=j.d.lamb@durham.ac.uk'
+send-hook '~C @ducs\.org\.uk' 'set from=j.d.lamb@durham.ac.uk'
+
+# vim:ft=muttrc
