@@ -101,7 +101,6 @@ export REAL_NAME="Jonny Lamb"
 export DEBFULLNAME="Jonny Lamb"
 export EMAIL_ADDRESS="jonnylamb@jonnylamb.com"
 export DEBEMAIL="jonny@debian.org"
-# This /should/ only get picked up by darcs..
 export EDITOR="vim"
 export LESS="-cgiFKx4M"
 export PAGER="most"
