@@ -194,14 +194,14 @@ pkg-maemo() {
 	
 	case $1 in
 		push)
-			bzr push bzr+ssh://jonnylamb-guest@alioth.debian.org/srv/bzr.debian.org/bzr/pkg-maemo/$name/debian/
+			bzr push bzr+ssh://jonny@alioth.debian.org/srv/bzr.debian.org/bzr/pkg-maemo/$name/debian/
 			;;
 		branch)
-			bzr branch bzr+ssh://jonnylamb-guest@alioth.debian.org/srv/bzr.debian.org/bzr/pkg-maemo/$name/debian/
+			bzr branch bzr+ssh://jonny@alioth.debian.org/srv/bzr.debian.org/bzr/pkg-maemo/$name/debian/
 			;;
 
 		pull)
-			bzr pull bzr+ssh://jonnylamb-guest@alioth.debian.org/srv/bzr.debian.org/bzr/pkg-maemo/$name/debian/
+			bzr pull bzr+ssh://jonny@alioth.debian.org/srv/bzr.debian.org/bzr/pkg-maemo/$name/debian/
 			;;
 		merge)
 			bzr merge --remember http://bazaar.launchpad.net/~vcs-imports/$name/trunk
