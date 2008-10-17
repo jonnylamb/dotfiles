@@ -26,10 +26,10 @@ precmd() {
 
 if [ $UID -eq 0 ]; then
 	PROMPT="%{$reset_color$fg_bold[red]%}%n@%B%M%b:%~%# "
-elif [ "$whoami" != "jonnylamb" ] && [ "$whoami" != "jonny" ] && [ "$whoami" != "d71x3w" ] && [ "$whoami" != "jdl" ]; then
-	PROMPT="%{$reset_color$fg_bold[red]%}%n@%B%M%b:%~%# "
-else
+elif echo $whoami | grep -E "^(jonnylamb|jonny|d71x3w|jdl)$" 2>&1 > /dev/null; then
 	PROMPT="%B%M%b:%~%# "
+else
+	PROMPT="%{$reset_color$fg_bold[red]%}%n@%B%M%b:%~%# "
 fi
 
 #
