@@ -267,15 +267,7 @@ setopt appendhistory autocd extendedglob nomatch notify
 autoload -Uz compinit
 unsetopt beep
 
-case $HOST in
-	vega*)
-		# do nothing
-		;;
-	
-	*)
-		compinit
-		;;
-esac
+echo $HOST | grep -E "^vega[0-9]$" 2>&1 > /dev/null || compinit;
 
 zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)*.(pyc|o|lo|egg-info|class)'
