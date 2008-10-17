@@ -175,56 +175,6 @@ pushdotfiles() {
 	scp ~/.vimrc ~/.screenrc ~/.zshrc $@:
 }
 
-# Easy to create diffs on packages.
-p() {
-	[[ -z $1 ]] && { echo "$0: error: specify a package"; return 1; }
-	cdt
-	apt-get source $1 || { echo "apt-get failed..."; return 1; }
-
-	target="$(find -maxdepth 1 -mindepth 1 -type d)"
-
-	printf "Copying..."
-	cp -r ${target}{,.orig}
-	echo "Done"
-
-	cd $target
-
-	echo "Entering diff loop for $1..."
-	echo "\n-- \nGo edit $(pwd) \n--"
-
-	while :; do
-		echo "\n\nPress ENTER for new patch" 
-
-		read
-		clear
-
-		if [ -n "${2:-}" ];
-		then
-			echo "From: $DEBFULLNAME <$DEBEMAIL>"
-			echo "To: $2@bugs.debian.org"
-			echo "Cc: control@bugs.debian.org"
-			echo "Bcc: "
-			echo "Subject: Patch attached"
-			echo "Reply-To: "
-			echo
-			echo "tags $2 + patch"
-			echo "kthxbye"
-			echo
-			echo "Hello,"
-			echo 
-		fi
-
-		diff -Nruad ../${target}.orig ../${target}
-
-		if [ -n "${2:-}" ]; then
-			echo
-			echo "-- "
-			cat ~/.signature
-		fi
-
-	done
-}
-
 # Create a new project including nice files and a Git repo.
 newproject() {
 	git init
@@ -235,20 +185,6 @@ newproject() {
 	git add *
 	git commit -s -m "Initial project creation."
 	echo "Start coding now!"
-}
-
-# Push Git repositories back to git.jonnylamb.com
-git-pj() {
-	repo=$(git config --get remote.origin.url | sed -e 's/http:\/\/git.jonnylamb.com\/git\///' -e 's/git:\/\/git.jonnylamb.com\/git\///' -e 's/ssh:\/\/.*jonnylamb.com\/~\/git\///')
-	[ -z $repo ] && { echo "Error: not a Git repository, or origin not found."; return 1; }
-	
-	echo "Pushing to: ssh://jonnylamb.com/~/git/$repo..."
-	if [ "$1" = "tags" ]; then
-		git push --tags "ssh://jonnylamb@jonnylamb.com/~/git/$repo"
-	else
-		git push --all "ssh://jonnylamb@jonnylamb.com/~/git/$repo"
-	fi
-	echo "Done."
 }
 
 # pkg-maemo tools
@@ -294,16 +230,6 @@ git-bare() {
 		rm -rf /tmp/$1.git
 	else
 		echo "Repository is at /tmp/$1.git"
-	fi
-}
-
-# Backup ~ to external disk using rsync
-backup() {
-	if [ -w /mnt/disk ]; then
-		rsync -avh --delete /home/jonnylamb /mnt/disk/jonnylamb/backup
-	else
-		echo "$0: /mnt/disk is not mounted."
-		return 1
 	fi
 }
 
