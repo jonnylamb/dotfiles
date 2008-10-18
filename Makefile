@@ -1,5 +1,5 @@
 all: screen zsh vim git ssh
-mail: signature mutt offlineimap
+mail: signature mutt offlineimap mailplate
 
 screen:
 	cp -f screenrc ~/.screenrc
@@ -38,6 +38,18 @@ offlineimap:
 	    cp -rf offlineimap/* ~/.offlineimap/
 	else
 	    cp -rf offlineimap ~/.offlineimap
+	fi
+
+mailplate:
+	if [ -d ~/.mailplate ]; then
+	     cp -f mailplate/config ~/.mailplate/config
+	     if [ -d ~/.mailplate/templates ]; then
+	         cp -rf mailplate/templates/* ~/.mailplate/templates/
+	     else
+	         cp -rf mailplate/templates ~/.mailplate/
+	     fi
+	else
+	    cp -rf mailplate ~/.mailplate
 	fi
 
 ssh:

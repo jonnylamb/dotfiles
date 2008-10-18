@@ -1,0 +1,7 @@
+# mailplate configuration
+[general]
+default_template = debian
+template_path = ~/.mailplate/templates
+
+[helpers]
+get_quote = fortune -s
