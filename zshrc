@@ -99,7 +99,7 @@ alias -g ....="../../.."
 #
 export REAL_NAME="Jonny Lamb"
 export DEBFULLNAME="Jonny Lamb"
-export EMAIL_ADDRESS="jonnylamb@jonnylamb.com"
+export EMAIL_ADDRESS="jonny@debian.org"
 export DEBEMAIL="jonny@debian.org"
 export EDITOR="vim"
 export LESS="-cgiFKx4M"
