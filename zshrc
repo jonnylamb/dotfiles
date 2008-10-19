@@ -46,6 +46,7 @@ alias sl="ls"
 alias no="ls" # ls in qwerty when the keys are dvorak
 alias Grep="grep"
 alias cd..="cd .."
+alias v-="vim -"
 
 # Helpers: APT
 alias sagi="sudo apt-get install"
