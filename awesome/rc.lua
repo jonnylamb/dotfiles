@@ -217,8 +217,8 @@ if dvorak then
     keybinding({ "Mod4" }, "w", awful.tag.viewnext):add()
 
 else
-    keybinding({ modkey }, "q", awful.tag.viewprev):add()
-    keybinding({ modkey }, "w", awful.tag.viewnext):add()
+    keybinding({ "Mod4" }, "q", awful.tag.viewprev):add()
+    keybinding({ "Mod4" }, "w", awful.tag.viewnext):add()
 end
 
 -- Standard program
