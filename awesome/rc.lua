@@ -20,7 +20,7 @@ terminal = "x-terminal-emulator"
 modkey = "Control"
 
 -- Whether we are in Dvorak or not
-dvorak = true
+dvorak = false
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
