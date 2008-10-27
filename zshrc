@@ -38,6 +38,7 @@ fi
 
 # IRC
 alias irc="ssh -v -t jonnylamb@jonnylamb.com 'screen -ax'"
+alias email="ssh -v -t jonny@geminiani 'mutt'"
 
 # Typos
 alias :q="exit"
