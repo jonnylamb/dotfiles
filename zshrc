@@ -56,6 +56,7 @@ alias sagu="sudo apt-get update"
 alias acs="apt-cache search"
 alias acsh="apt-cache show"
 alias afs="apt-file search -x"
+alias acp="apt-cache policy"
 
 # Helpers: Editors
 alias v="vim"
