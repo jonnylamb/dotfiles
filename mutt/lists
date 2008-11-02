@@ -5,6 +5,7 @@ subscribe debian-announce@lists.debian.org
 subscribe debian-curiosa@lists.debian.org
 subscribe debian-devel@lists.debian.org
 subscribe debian-devel-announce@lists.debian.org
+subscribe debian-java@lists.debian.org
 subscribe debian-mentors@lists.debian.org
 subscribe debian-newmaint@lists.debian.org
 subscribe debian-private@lists.debian.org
@@ -12,8 +13,6 @@ subscribe debian-release@lists.debian.org
 subscribe debian-security-announce@lists.debian.org
 subscribe debian-uk@lists.debian.org
 subscribe durham@mailman.lug.org.uk
-subscribe google-summer-of-code-announce@googlegroups.com
-subscribe google-summer-of-code-students-list@googlegroups.com
 subscribe lamby-xen-announce@lists.chris-lamb.co.uk
 subscribe pkg-maemo-commits@lists.alioth.debian.org
 subscribe pkg-maemo-devel@lists.alioth.debian.org
