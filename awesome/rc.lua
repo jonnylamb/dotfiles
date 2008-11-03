@@ -229,7 +229,7 @@ if dvorak then
 end
 
 keybinding({ modkey, "Shift" }, "r", awesome.restart):add()
-keybinding({ modkey, "Shift" }, "q", awesome.quit):add()
+--keybinding({ modkey, "Shift" }, "q", awesome.quit):add()
 
 keybinding({ modkey, "Mod1" }, "l", function () awful.spawn("gnome-screensaver-command -l") end):add()
 
