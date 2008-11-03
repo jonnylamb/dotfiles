@@ -1,6 +1,6 @@
 # mailplate configuration
 [general]
-default_template = debian
+default_template = default
 template_path = ~/.mailplate/templates
 
 [helpers]
