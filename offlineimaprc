@@ -2,6 +2,7 @@
 metadata = ~/.var/offlineimap
 accounts = jonnylamb, durham, collabora
 pythonfile = ~/.offlineimap/helper.py
+ui = Noninteractive.Basic, Noninteractive.Quiet
 
 [mbnames]
 enabled = yes
