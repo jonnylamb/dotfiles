@@ -724,7 +724,7 @@ set edit_headers=yes
 # It defaults to the value of the VISUAL, or EDITOR, environment
 # variable, or to the string "/usr/bin/editor" if neither of those are set.
 # 
-set editor="vim"
+set editor="mailplate --edit --auto --keep-unknown"
 # 
 # set encode_from=no
 #
