@@ -3922,7 +3922,6 @@ set save_history=100
 # order $sort_aux is reversed again (which is not the right thing to do,
 # but kept to not break any existing configuration setting).
 # 
-set sort_aux=last-date-received
 # 
 # set sort_browser=alpha
 #
