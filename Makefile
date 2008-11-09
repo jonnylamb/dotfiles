@@ -1,3 +1,6 @@
+none:
+	echo "temporarily disabled as symlinks are muuuch nicer"
+
 all: screen zsh vim git ssh
 mail: signature mutt offlineimap mailplate
 
