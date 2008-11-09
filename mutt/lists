@@ -1,4 +1,5 @@
 subscribe bongo-devel@gna.org
+subscribe dbus-cplusplus-devel@lists.sourceforge.net
 subscribe debexpo-devel@workaround.org
 subscribe debexpo-commits@workaround.org
 subscribe debian-announce@lists.debian.org
@@ -14,12 +15,12 @@ subscribe debian-security-announce@lists.debian.org
 subscribe debian-uk@lists.debian.org
 subscribe durham@mailman.lug.org.uk
 subscribe lamby-xen-announce@lists.chris-lamb.co.uk
+subscribe pkg-java-maintainers@lists.alioth.debian.org
 subscribe pkg-maemo-commits@lists.alioth.debian.org
 subscribe pkg-maemo-devel@lists.alioth.debian.org
 subscribe pkg-maemo-maintainers@lists.alioth.debian.org
 subscribe pkg-telepathy-commits@lists.alioth.debian.org
 subscribe pkg-telepathy-maintainers@lists.alioth.debian.org
-subscribe soc-coordination@lists.alioth.debian.org
 subscribe synce-devel@lists.sourceforge.net
 subscribe telepathy@lists.freedesktop.org
 subscribe telepathy-commits@lists.freedesktop.org
