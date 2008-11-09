@@ -84,7 +84,6 @@ alias tf="tail -f"
 alias stf="sudo tail -f"
 alias sup="sudo ifup"
 alias mutt="PATH=$PATH:/usr/lib/mutt mutt"
-alias oi="offlineimap"
 alias MAKE="make"
 alias m="PATH=/usr/bin:$PATH make CC=icecc -j6"
 alias j="jobs"
@@ -157,6 +156,15 @@ git () {
 	fi
 
 	/usr/bin/git $@
+}
+
+# offlineimap wrapper
+oi () {
+	if [ "$HOST" = "geminiani" ]; then
+		offlineimap $@
+	else
+		ssh geminiani offlineimap $@
+	fi
 }
 
 # Move to new temp dir
