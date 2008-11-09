@@ -178,11 +178,6 @@ cdt () {
 	echo "Moved to $(pwd)"
 }
 
-# Push .vimrc .screenrc and .zshrc via SSH
-pushdotfiles() {
-	scp ~/.vimrc ~/.screenrc ~/.zshrc $@:
-}
-
 # Create a new project including nice files and a Git repo.
 newproject() {
 	git init
