@@ -24,7 +24,7 @@ autocmd FileType xhtml   set softtabstop=2|set shiftwidth=2|set expandtab|set li
 autocmd FileType debcopyright set expandtab|set tabstop=4|set softtabstop=4
 
 " Collabora
-autocmd FileType c      set listchars=tab:>-,trail:_ list|setl tw=78 ts=2 sts=2 sw=2 et|set cino=>2s,{1s,n-s,^-s|match Error /\%>79v.\+/
+autocmd FileType c,cpp      set listchars=tab:>-,trail:_ list|setl tw=78 ts=2 sts=2 sw=2 et|set cino=>2s,{1s,n-s,^-s|match Error /\%>79v.\+/
 
 " ctags
 map <F4> :TlistToggle<CR>
