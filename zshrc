@@ -126,29 +126,16 @@ git () {
 		echo " 2. $two_email"
 		echo " 3. $three_email"
 		echo " 4. $four_email"
-		echo " 5. other"
+		echo "or enter the address you want to use."
 		read number
 
 		case $number in
-			"")
-				email=$one_email
-				;;
-			1)
-				email=$one_email
-				;;
-			2)
-				email=$two_email
-				;;
-			3)
-				email=$three_email
-				;;
-			4)
-				email=$four_email
-				;;
-			5)
-				echo "Enter the email address you want to use:"
-				read email
-				;;
+			"") email=$one_email;;
+			1) email=$one_email;;
+			2) email=$two_email;;
+			3) email=$three_email;;
+			4) email=$four_email;;
+			*) email=$number;;
 		esac
 
 		export GIT_AUTHOR_EMAIL=$email
