@@ -379,7 +379,7 @@ function hook_manage(c)
     end
 
     -- Honor size hints
-    c.honorsizehints = true
+    c.honorsizehints = false
 end
 
 -- Hook function to execute when arranging the screen
