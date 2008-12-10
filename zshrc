@@ -114,7 +114,7 @@ export PATH="$HOME/bin/:$PATH"
 
 # git
 git () {
-	if [ -z "$GIT_AUTHOR_EMAIL" ] && [ $1 = "commit" ]; then
+	if [ -z "$GIT_AUTHOR_EMAIL" ] && echo $1 | grep -E "^(commit|merge|rebase)$" 2>&1 > /dev/null; then
 
 		one_email=$DEBEMAIL
 		two_email="jonny.lamb@collabora.co.uk"
