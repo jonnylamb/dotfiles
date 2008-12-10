@@ -1,3 +1,7 @@
+Host *
+    ControlPath ~/.ssh/sock/%r@%h:%p
+    ControlMaster auto
+
 # Laptops
 
 Host geminiani
