@@ -3,7 +3,7 @@ bind pager		G	bottom
 bind index,pager	|	pipe-message
 bind index,pager	!	flag-message
 
-bind index		\#	buffy-list
+bind index,pager \#	buffy-list
 
 macro index,pager	I	"<change-folder>=inbox<enter>" "go to inbox folder"
 
