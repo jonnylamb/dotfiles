@@ -60,18 +60,7 @@ set incsearch
 set backupdir=.backup,/tmp,.
 set directory=.backup,/tmp,.
 
-" Shortcuts
-inoremap <buffer> ``me   <space>-- Jonny Lamb <jonnylamb@jonnylamb.com><space><space><Esc>:r! date -R<CR>i<backspace><end>
-
 " Python stuff
-"python << EOF
-"import os
-"import sys
-"import vim
-"for p in sys.path:
-"    if os.path.isdir(p):
-"        vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
-"EOF
 set tags+=$HOME/.vim/tags/python.ctags
 map <silent><C-S-Left> <C-T>
 map <silent><C-S-Right> <C-]>
