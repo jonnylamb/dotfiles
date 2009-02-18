@@ -27,7 +27,7 @@ remotehost = jonnylamb.com
 remoteuser = jonnylamb@jonnylamb.com
 remotepassfile = ~/.offlineimap/jonnylamb_password
 ssl = yes
-folderfilter = lambda fn: fn not in ['Spam', 'Trash', 'Queue', 'Lists', 'lists']
+folderfilter = lambda fn: fn not in ['Spam', 'Queue', 'Lists', 'lists']
 nametrans = jonnylamb_nametrans
 
 [Account durham]
