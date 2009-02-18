@@ -22,6 +22,12 @@ Host ravel
     Hostname ravel.debian.org
     User jonny
 
+# fdo
+
+Host annarchy
+    Hostname annarchy.freedesktop.org
+    User jonny
+
 # Durham
 
 Host vega
