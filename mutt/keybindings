@@ -7,4 +7,10 @@ bind index,pager \#	buffy-list
 
 macro index,pager	I	"<change-folder>=inbox<enter>" "go to inbox folder"
 
+# TODO: the pager macros do not untag all other messages first yet. <untag-pattern>~A doesn't seem to work. :-(
+macro index		S	"<tag-entry><tag-prefix><clear-flag>N<tag-prefix><save-message>=newspam<enter>" "save message to =newspam"
+macro pager		S	"<save-message>=newspam<enter>" "save message to =newspam"
+macro index		d	"<tag-entry><tag-prefix><clear-flag>N<tag-prefix><save-message>=trash<enter>" "move message to =trash"
+macro pager		d	"<save-message>=trash<enter>" "move message to =trash"
+
 # vim:sw=12:noet:sts=12:ts=12:ft=muttrc
