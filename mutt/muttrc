@@ -4423,7 +4423,6 @@ set wait_key=no
 # When set to a negative value, mutt will wrap text so that there are $wrap
 # characters of empty space on the right side of the terminal.
 # 
-set wrap=80
 # 
 # set wrap_search=yes
 #
