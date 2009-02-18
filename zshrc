@@ -71,6 +71,7 @@ alias ddu="darcs diff -u | most"
 alias dra="darcs record -a"
 alias gis="git --no-pager status"
 alias ds="darcs whatsnew -sl"
+alias gdc="git diff --cached"
 
 # Helpers: Misc.
 alias mcp="moap changelog prepare"
@@ -85,12 +86,9 @@ alias stf="sudo tail -f"
 alias sup="sudo ifup"
 alias mutt="PATH=$PATH:/usr/lib/mutt mutt"
 alias MAKE="make"
-alias m="PATH=/usr/bin:$PATH make CC=icecc -j6"
+alias m="make"
+#alias m="PATH=/usr/bin:$PATH make CC=icecc -j6"
 alias j="jobs"
-
-# A bit ugly
-alias srcempathy="EMPATHY_SRCDIR=. EMPATHY_DEBUG=all LD_LIBRARY_PATH=$(pwd)/libempathy/.libs:$(pwd)/libempathy-gtk/.libs gdb --args ./src/.libs/empathy --g-fatal-warnings"
-alias srcsalut="SALUT_DEBUG=all GIBBER_DEBUG=all SALUT_PERSIST=1 gdb src/telepathy-salut"
 
 # Global aliases.
 alias -g ...="../.."
