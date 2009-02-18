@@ -110,6 +110,14 @@ export PATH="$HOME/bin/:$PATH"
 # Functions
 #
 
+# empathy
+srcempathy () {
+    binary="empathy"
+    [ -f ./src/libs/lt-empathy ] && binary="lt-empathy"
+
+    EMPATHY_SRCDIR=. EMPATHY_DEBUG=all LD_LIBRARY_PATH=$(pwd)/libempathy/.libs:$(pwd)/libempathy-gtk/.libs gdb --args $(binary) --g-fatal-warnings
+}
+
 # git
 git () {
 	if [ -z "$GIT_AUTHOR_EMAIL" ] && echo $1 | grep -E "^(commit|merge|rebase)$" 2>&1 > /dev/null; then
