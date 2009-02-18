@@ -19,7 +19,7 @@ precmd() {
 	fi
 
 	ref=""
-	ref=$(git-symbolic-ref HEAD 2> /dev/null) || return
+	ref=$(git symbolic-ref HEAD 2> /dev/null) || return
 	ref=${ref#refs/heads/}
 	RPROMPT=" %{$reset_color$fg_bold[grey]%}${ref}%{$reset_color%} %(?..%?)"
 }
