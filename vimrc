@@ -65,3 +65,6 @@ set tags+=$HOME/.vim/tags/python.ctags
 map <silent><C-S-Left> <C-T>
 map <silent><C-S-Right> <C-]>
 inoremap <Nul> <C-x><C-o>
+
+" mailplate
+nmap <buffer> <F7>      :w<CR>:%!mailplate --keep-unknown --auto<CR>
