@@ -17,7 +17,6 @@ set spell spelllang=en_gb
 " Default (tabs)
 autocmd FileType *      set tabstop=8|set shiftwidth=4|set noexpandtab
 "autocmd FileType c,cpp      set cindent|set tabstop=8|set shiftwidth=8|set expandtab|set listchars=tab:>-,trail:_ list|set cinoptions=(0|set softtabstop=8|set textwidth=79|match Error /\%>79v.\+/
-autocmd FileType java      set cindent|set tabstop=8|set shiftwidth=8|set expandtab|set listchars=tab:>-,trail:_ list|set cinoptions=(0|set softtabstop=8
 autocmd FileType tex    set tabstop=4|set shiftwidth=4|set expandtab|set listchars=tab:>-,trail:_ list
 autocmd FileType python set softtabstop=4|set shiftwidth=4|set expandtab|set listchars=tab:>-,trail:_ list|match Error /\%>79v.\+/
 autocmd FileType xhtml   set softtabstop=2|set shiftwidth=2|set expandtab|set listchars=tab:>-,trail:_ list
@@ -25,6 +24,10 @@ autocmd FileType debcopyright set expandtab|set tabstop=4|set softtabstop=4
 
 " Collabora
 autocmd FileType c,cpp      set listchars=tab:>-,trail:_ list|setl tw=78 ts=2 sts=2 sw=2 et|set cino=>2s,{1s,n-s,^-s|match Error /\%>79v.\+/
+
+"New
+autocmd FileType java      set listchars=tab:>-,trail:_ list|setl tw=78 ts=8 sts=8 sw=8 et|set cino=:0(sj1|match Error /\%>79v.\+/
+"autocmd FileType java      set cindent|set tabstop=8|set shiftwidth=8|set expandtab|set listchars=tab:>-,trail:_ list|set cinoptions=:0(sj1|set softtabstop=8
 
 " ctags
 map <F4> :TlistToggle<CR>
