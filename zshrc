@@ -176,6 +176,14 @@ oi () {
 	fi
 }
 
+gtimelog () {
+	if [ "$HOST" = "geminiani" ]; then
+		gtimelog $@
+	else
+		ssh -X geminiani gtimelog $@
+	fi
+}
+
 # Move to new temp dir
 cdt () {
 	cdt_dir=/tmp/
