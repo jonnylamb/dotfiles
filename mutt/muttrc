@@ -3681,6 +3681,8 @@ set save_history=100
 # Mutt expects that the specified program interprets additional
 # arguments as recipient addresses.
 # 
+###set sendmail="ssh byte /usr/sbin/sendmail -oem -oi"
+# 
 # set sendmail_wait=0
 #
 # Name: sendmail_wait
