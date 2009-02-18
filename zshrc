@@ -151,6 +151,22 @@ git () {
 	/usr/bin/git $@
 }
 
+coll () {
+	[ -z $1 ] && { echo "E: enter project name"; return 1; }
+
+	case $1 in
+		empathy|emp)
+			cd ~/src/empathy
+			;;
+		nautilus-sendto|nautilus)
+			cd ~/src/nautilus-sendto
+			;;
+		*)
+			cd ~/src/telepathy-$1
+			;;
+	esac
+}
+
 # offlineimap wrapper
 oi () {
 	if [ "$HOST" = "geminiani" ]; then
