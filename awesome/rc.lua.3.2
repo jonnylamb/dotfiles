@@ -107,8 +107,8 @@ mytaglist.buttons = { button({ }, 1, awful.tag.viewonly),
                       button({ modkey }, 1, awful.client.movetotag),
                       button({ }, 3, function (tag) tag.selected = not tag.selected end),
                       button({ modkey }, 3, awful.client.toggletag),
-                      button({ }, 4, awful.tag.viewnext),
-                      button({ }, 5, awful.tag.viewprev) }
+                      button({ }, 5, awful.tag.viewnext),
+                      button({ }, 4, awful.tag.viewprev) }
 mytasklist = {}
 mytasklist.buttons = { button({ }, 1, function (c)
                                           if not c:isvisible() then
