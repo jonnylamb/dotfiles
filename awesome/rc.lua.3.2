@@ -227,7 +227,7 @@ globalkeys =
 -- Client awful tagging: this is useful to tag some clients and then do stuff like move to tag on them
 clientkeys =
 {
-    key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
+    key({ "Mod1", "Control" }, "m",      function (c) c.fullscreen = not c.fullscreen  end),
     key({ "Mod1"            }, "F4",     function (c) c:kill()                         end),
     key({ "Mod1", "Control" }, "space",  awful.client.floating.toggle                     ),
     key({ "Mod1", "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
