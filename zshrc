@@ -118,6 +118,12 @@ srcempathy () {
 
 # git
 git () {
+	if [ ! -z "$GIT_JONNY_EMAIL_BASEDIR" ] && ! echo $(pwd) | grep "$GIT_JONNY_EMAIL_BASEDIR" 2>&1 > /dev/null; then
+		export GIT_AUTHOR_EMAIL=
+		export GIT_COMMITTER_EMAIL=
+		export GIT_JONNY_EMAIL_BASEDIR=
+	fi
+
 	if [ -z "$GIT_AUTHOR_EMAIL" ] && echo $1 | grep -E "^(commit|merge|rebase|am)$" 2>&1 > /dev/null; then
 
 		one_email=$DEBEMAIL
@@ -144,6 +150,7 @@ git () {
 
 		export GIT_AUTHOR_EMAIL=$email
 		export GIT_COMMITTER_EMAIL=$email
+		export GIT_JONNY_EMAIL_BASEDIR=$(pwd)
 	fi
 
 	/usr/bin/git $@
