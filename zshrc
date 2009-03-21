@@ -24,10 +24,17 @@ precmd() {
 	RPROMPT=" %{$reset_color$fg_bold[grey]%}${ref}%{$reset_color%} %(?..%?)"
 }
 
-if [ ! $UID -eq 0 ] && echo $whoami | grep -E "^(jonnylamb|jonny|d71x3w|jdl)$" 2>&1 > /dev/null; then
-	PROMPT="%B%M%b:%~%# "
+if [ -r "/etc/debian_chroot" ]; then
+	local debian_chroot=$(cat /etc/debian_chroot)
+	DEBIAN_CHROOT="${debian_chroot:+/%S$debian_chroot%s}"
 else
-	PROMPT="%{$reset_color$fg_bold[red]%}%n@%B%M%b:%~%# "
+	DEBIAN_CHROOT=""
+fi
+
+if [ ! $UID -eq 0 ] && echo $whoami | grep -E "^(jonnylamb|jonny|d71x3w|jdl)$" 2>&1 > /dev/null; then
+	PROMPT="%B%M%b${DEBIAN_CHROOT}:%~%# "
+else
+	PROMPT="$reset_color$fg_bold[red]%}%n@%B%M%b${DEBIAN_CHROOT}:%~%# "
 fi
 
 #
