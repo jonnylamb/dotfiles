@@ -272,7 +272,7 @@ git-bare() {
 	
 	git clone --bare . /tmp/$1.git
 	git --bare --git-dir=/tmp/$1.git update-server-info
-	git --bare --git-dir=/tmp/$1.git gc --aggressive
+	git --bare --git-dir=/tmp/$1.git gc
 	mv /tmp/$1.git/hooks/post-update{.sample,}
 	chmod +x /tmp/$1.git/hooks/post-update
 	touch /tmp/$1.git/git-daemon-export-ok
