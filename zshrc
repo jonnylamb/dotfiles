@@ -307,16 +307,6 @@ rmtoast() {
 	ssh jdl@compsoc.dur.ac.uk "rm public_html/misc/$1" && echo "jdl@compsoc.dur.ac.uk:public_html/misc/$1 deleted."
 }
 
-#
-# Package building from git.jonnylamb.com
-#
-
-bp() {
-	# EPIC HACK
-	$HOME/bin/bp $@
-	cd $(cat /tmp/.packagedir)
-}
-
 # Generate Packages and Sources
 genpackages() {
 	      dpkg-scanpackages . /dev/null | tee Packages | gzip -9 > Packages.gz
