@@ -317,6 +317,13 @@ bp() {
 	cd $(cat /tmp/.packagedir)
 }
 
+# Generate Packages and Sources
+genpackages() {
+	      dpkg-scanpackages . /dev/null | tee Packages | gzip -9 > Packages.gz
+	      dpkg-scansources . /dev/null | tee Sources | gzip -9 > Sources.gz
+}
+
+
 #
 # Misc.
 #
