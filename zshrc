@@ -81,7 +81,6 @@ alias sl="ls"
 alias no="ls" # ls in qwerty when the keys are dvorak
 alias Grep="grep"
 alias cd..="cd .."
-alias v-="vim -"
 
 # Helpers: APT
 alias sagi="sudo apt-get install"
@@ -93,8 +92,12 @@ alias afs="apt-file search -x"
 alias acp="apt-cache policy"
 
 # Helpers: Editors
-alias v="vim"
-alias sv="sudo vim"
+#alias v="vim"
+#alias sv="sudo vim"
+alias v="emacs -nw"
+alias e="emacs -nw"
+alias sv="sudo emacs -nw"
+alias se="sudo emacs -nw"
 
 # Helpers: VCSs
 alias svn-clean="svn status | grep \"^?\" | cut -c8- | xargs -l1 rm -rf"
@@ -135,7 +138,7 @@ export REAL_NAME="Jonny Lamb"
 export DEBFULLNAME="Jonny Lamb"
 export EMAIL_ADDRESS="jonny@debian.org"
 export DEBEMAIL="jonny@debian.org"
-export EDITOR="vim"
+export EDITOR="emacs -nw"
 export LESS="-cgiFKx4M"
 export PAGER="most"
 export PATH="$HOME/bin/:$PATH"
@@ -285,7 +288,7 @@ git-bare() {
 	chmod +x /tmp/$1.git/hooks/post-update
 	touch /tmp/$1.git/git-daemon-export-ok
 	
-	vim /tmp/$1.git/description
+	$EDITOR /tmp/$1.git/description
 
 	if [ "$2" = "upload" ]; then
 		echo "Will upload to jonnylamb.com now.."
