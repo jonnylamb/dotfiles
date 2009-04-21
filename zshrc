@@ -149,10 +149,7 @@ export PATH="$HOME/bin/:$PATH"
 
 # empathy
 srcempathy () {
-    binary="empathy"
-    [ -f ./src/libs/lt-empathy ] && binary="lt-empathy"
-
-    EMPATHY_SRCDIR=. EMPATHY_DEBUG=all LD_LIBRARY_PATH=$(pwd)/libempathy/.libs:$(pwd)/libempathy-gtk/.libs gdb --args $(binary) --g-fatal-warnings
+    EMPATHY_SRCDIR=. EMPATHY_DEBUG=all libtool --mode=execute gdb --args ./src/empathy --g-fatal-warnings
 }
 
 # git
