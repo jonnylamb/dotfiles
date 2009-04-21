@@ -11,3 +11,5 @@
 	branch = auto
 	diff = auto
 	interactive = auto
+[url "ssh://jonnylamb@git.gnome.org/git/"]
+	insteadof = gnome:
