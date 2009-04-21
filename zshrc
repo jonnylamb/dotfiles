@@ -5,6 +5,27 @@ whoami=$(whoami)
 zstyle :compinstall filename "/home/$whoami/.zshrc"
 
 #
+# Title
+#
+
+title() {
+	case $TERM in
+		screen*)
+			# Use these two for GNU Screen:
+			# status line
+			print -nR $'\033k'$*$'\033'\\\
+
+			# title bar
+			print -nR $'\033]0;'$*$'\a'
+			;;
+		*xterm*|*rxvt*)
+			# Use this one instead for XTerms:
+			print -nR $'\033]0;'$*$'\a'
+			;;
+	esac
+}
+
+#
 # Prompt
 #
 autoload colors && colors
@@ -22,6 +43,8 @@ precmd() {
 	ref=$(git symbolic-ref HEAD 2> /dev/null) || return
 	ref=${ref#refs/heads/}
 	RPROMPT=" %{$reset_color$fg_bold[grey]%}${ref}%{$reset_color%} %(?..%?)"
+
+	title $(print -P '%~')
 }
 
 if [ -r "/etc/debian_chroot" ]; then
@@ -36,6 +59,12 @@ if [ ! $UID -eq 0 ] && echo $whoami | grep -E "^(jonnylamb|jonny|d71x3w|jdl)$" 2
 else
 	PROMPT="$reset_color$fg_bold[red]%}%n@%B%M%b${DEBIAN_CHROOT}:%~%# "
 fi
+
+preexec() {
+	emulate -L zsh
+	local -a cmd; cmd=(${(z)1})
+	title $cmd[1]:t "$cmd[2,-1]"
+}
 
 #
 # Command aliases
