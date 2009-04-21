@@ -3,7 +3,7 @@ require("awful")
 -- Theme handling library
 require("beautiful")
 -- Notification library
-require("naughty")
+--require("naughty")
 
 -- Load Debian menu entries
 require("debian.menu")
