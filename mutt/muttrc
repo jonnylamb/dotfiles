@@ -2071,7 +2071,6 @@ set pager_stop=yes
 # be overridden by use of the smime-menu.
 # (Crypto only)
 # 
-set crypt_autosign=yes
 # 
 # set crypt_autoencrypt=no
 #
