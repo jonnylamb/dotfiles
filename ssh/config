@@ -74,11 +74,3 @@ Host dhansak
 Host byte
     Hostname jonnylamb.com
     User jonnylamb
-
-# Misc.
-
-Host codd
-    Hostname uwcs.co.uk
-    User jonnylamb
-
-
