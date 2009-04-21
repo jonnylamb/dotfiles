@@ -277,7 +277,7 @@ git-bare() {
 	chmod +x /tmp/$1.git/hooks/post-update
 	touch /tmp/$1.git/git-daemon-export-ok
 	
-	$EDITOR /tmp/$1.git/description
+	sensible-editor /tmp/$1.git/description
 
 	if [ "$2" = "upload" ]; then
 		echo "Will upload to jonnylamb.com now.."
