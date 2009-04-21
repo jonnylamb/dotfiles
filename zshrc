@@ -231,7 +231,7 @@ cdt () {
 # Create a new project including nice files and a Git repo.
 newproject() {
 	git init
-	wget -OCOPYING http://www.gnu.org/licenses/gpl.txt
+	cp /usr/share/common-licenses/LGPL-2.1 COPYING
 	for FILE in ChangeLog README TODO HACKING; do touch $FILE; done
 	# We can use GIT_AUTHOR_EMAIL because the email address will be asked on git init.
 	echo "$DEBFULLNAME <$GIT_AUTHOR_EMAIL>" > AUTHORS
