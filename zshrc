@@ -71,7 +71,7 @@ preexec() {
 #
 
 # IRC
-alias irc="ssh -v -t byte'screen -ax'"
+alias irc="ssh -v -t byte 'screen -ax'"
 alias email="ssh -t -X geminiani 'bin/email'"
 
 # Typos
