@@ -198,20 +198,22 @@ git () {
 	/usr/bin/git $@
 }
 
-coll () {
+src () {
 	[ -z $1 ] && { echo "E: enter project name"; return 1; }
 
-	case $1 in
-		empathy|emp)
-			cd ~/src/empathy
-			;;
-		nautilus-sendto|nautilus)
-			cd ~/src/nautilus-sendto
-			;;
-		*)
-			cd ~/src/telepathy-$1
-			;;
-	esac
+	[ "$1" = "emp" ] && { 1=empathy; }
+
+	if [ -d ~/src/telepathy-$1 ]; then
+	    dir=~/src/telepathy-$1
+	else
+	    dir=~/src/$1
+	fi
+
+	if [ -d $dir ]; then
+	    cd $dir
+	else
+	    echo "E: No directory: $dir"
+	fi
 }
 
 # offlineimap wrapper
