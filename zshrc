@@ -9,20 +9,20 @@ zstyle :compinstall filename "/home/$whoami/.zshrc"
 #
 
 title() {
-	case $TERM in
-		screen*)
-			# Use these two for GNU Screen:
-			# status line
-			print -nR $'\033k'$*$'\033'\\\
+    case $TERM in
+	screen*)
+            # Use these two for GNU Screen:
+            # status line
+	    print -nR $'\033k'$*$'\033'\\\
 
-			# title bar
-			print -nR $'\033]0;'$*$'\a'
-			;;
-		*xterm*|*rxvt*)
-			# Use this one instead for XTerms:
-			print -nR $'\033]0;'$*$'\a'
-			;;
-	esac
+	    # title bar
+	    print -nR $'\033]0;'$*$'\a'
+	    ;;
+	*xterm*|*rxvt*)
+	    # Use this one instead for XTerms:
+	    print -nR $'\033]0;'$*$'\a'
+	    ;;
+    esac
 }
 
 #
@@ -31,39 +31,39 @@ title() {
 autoload colors && colors
 
 precmd() {
-	RPROMPT="%(?..%?)"
-	if ! stat "$(pwd)" >/dev/null 2>&1; then
-		if ! cd "$(pwd)" >/dev/null 2>&1; then
-			echo "W: cwd does not exist anymore"
-			return
-		fi
+    RPROMPT="%(?..%?)"
+    if ! stat "$(pwd)" >/dev/null 2>&1; then
+	if ! cd "$(pwd)" >/dev/null 2>&1; then
+	    echo "W: cwd does not exist anymore"
+	    return
 	fi
+    fi
 
-	ref=""
-	ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-	ref=${ref#refs/heads/}
-	RPROMPT=" %{$reset_color$fg_bold[grey]%}${ref}%{$reset_color%} %(?..%?)"
+    ref=""
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+    ref=${ref#refs/heads/}
+    RPROMPT=" %{$reset_color$fg_bold[grey]%}${ref}%{$reset_color%} %(?..%?)"
 
-	title $(print -P '%~')
+    title $(print -P '%~')
 }
 
 if [ -r "/etc/debian_chroot" ]; then
-	local debian_chroot=$(cat /etc/debian_chroot)
-	DEBIAN_CHROOT="${debian_chroot:+/%S$debian_chroot%s}"
+    local debian_chroot=$(cat /etc/debian_chroot)
+    DEBIAN_CHROOT="${debian_chroot:+/%S$debian_chroot%s}"
 else
-	DEBIAN_CHROOT=""
+    DEBIAN_CHROOT=""
 fi
 
 if [ ! $UID -eq 0 ] && echo $whoami | grep -E "^(jonnylamb|jonny|d71x3w|jdl)$" 2>&1 > /dev/null; then
-	PROMPT="%B%M%b${DEBIAN_CHROOT}:%~%# "
+    PROMPT="%B%M%b${DEBIAN_CHROOT}:%~%# "
 else
-	PROMPT="$reset_color$fg_bold[red]%}%n@%B%M%b${DEBIAN_CHROOT}:%~%# "
+    PROMPT="$reset_color$fg_bold[red]%}%n@%B%M%b${DEBIAN_CHROOT}:%~%# "
 fi
 
 preexec() {
-	emulate -L zsh
-	local -a cmd; cmd=(${(z)1})
-	title $cmd[1]:t "$cmd[2,-1]"
+    emulate -L zsh
+    local -a cmd; cmd=(${(z)1})
+    title $cmd[1]:t "$cmd[2,-1]"
 }
 
 #
@@ -160,141 +160,140 @@ g () {
 
 # git
 git () {
-	if [ ! -z "$GIT_JONNY_EMAIL_BASEDIR" ] && ! echo $(pwd) | grep "$GIT_JONNY_EMAIL_BASEDIR" 2>&1 > /dev/null; then
-		export GIT_AUTHOR_EMAIL=
-		export GIT_COMMITTER_EMAIL=
-		export GIT_JONNY_EMAIL_BASEDIR=
-	fi
+    if [ ! -z "$GIT_JONNY_EMAIL_BASEDIR" ] && ! echo $(pwd) | grep "$GIT_JONNY_EMAIL_BASEDIR" 2>&1 > /dev/null; then
+	export GIT_AUTHOR_EMAIL=
+	export GIT_COMMITTER_EMAIL=
+	export GIT_JONNY_EMAIL_BASEDIR=
+    fi
 
-	if [ -z "$GIT_AUTHOR_EMAIL" ] && echo $1 | grep -E "^(commit|merge|rebase|am)$" 2>&1 > /dev/null; then
+    if [ -z "$GIT_AUTHOR_EMAIL" ] && echo $1 | grep -E "^(commit|merge|rebase|am)$" 2>&1 > /dev/null; then
+	one_email=$DEBEMAIL
+	two_email="jonny.lamb@collabora.co.uk"
+	three_email="jonnylamb@jonnylamb.com"
+	four_email="j.d.lamb@durham.ac.uk"
 
-		one_email=$DEBEMAIL
-		two_email="jonny.lamb@collabora.co.uk"
-		three_email="jonnylamb@jonnylamb.com"
-		four_email="j.d.lamb@durham.ac.uk"
+	echo "Which email address do you want to use?"
+	echo " 1. $one_email (default)"
+	echo " 2. $two_email"
+	echo " 3. $three_email"
+	echo " 4. $four_email"
+	echo "or enter the address you want to use."
+	read number
 
-		echo "Which email address do you want to use?"
-		echo " 1. $one_email (default)"
-		echo " 2. $two_email"
-		echo " 3. $three_email"
-		echo " 4. $four_email"
-		echo "or enter the address you want to use."
-		read number
+	case $number in
+	    "") email=$one_email;;
+	    1) email=$one_email;;
+	    2) email=$two_email;;
+	    3) email=$three_email;;
+	    4) email=$four_email;;
+	    *) email=$number;;
+	esac
 
-		case $number in
-			"") email=$one_email;;
-			1) email=$one_email;;
-			2) email=$two_email;;
-			3) email=$three_email;;
-			4) email=$four_email;;
-			*) email=$number;;
-		esac
+	export GIT_AUTHOR_EMAIL=$email
+	export GIT_COMMITTER_EMAIL=$email
+	export GIT_JONNY_EMAIL_BASEDIR=$(pwd)
+    fi
 
-		export GIT_AUTHOR_EMAIL=$email
-		export GIT_COMMITTER_EMAIL=$email
-		export GIT_JONNY_EMAIL_BASEDIR=$(pwd)
-	fi
-
-	/usr/bin/git $@
+    /usr/bin/git $@
 }
 
 src () {
-	[ -z $1 ] && { echo "E: enter project name"; return 1; }
+    [ -z $1 ] && { echo "E: enter project name"; return 1; }
 
-	[ "$1" = "emp" ] && { 1=empathy; }
+    [ "$1" = "emp" ] && { 1=empathy; }
 
-	if [ -d ~/src/telepathy-$1 ]; then
-	    dir=~/src/telepathy-$1
-	else
-	    dir=~/src/$1
-	fi
+    if [ -d ~/src/telepathy-$1 ]; then
+	dir=~/src/telepathy-$1
+    else
+	dir=~/src/$1
+    fi
 
-	if [ -d $dir ]; then
-	    cd $dir
-	else
-	    echo "E: No directory: $dir"
-	fi
+    if [ -d $dir ]; then
+	cd $dir
+    else
+	echo "E: No directory: $dir"
+    fi
 }
 
 # offlineimap wrapper
 oi () {
-	if [ "$HOST" = "geminiani" ]; then
-		offlineimap $@
-	else
-		ssh geminiani offlineimap $@
-	fi
+    if [ "$HOST" = "geminiani" ]; then
+	offlineimap $@
+    else
+	ssh geminiani offlineimap $@
+    fi
 }
 
 # Move to new temp dir
 cdt () {
-	cdt_dir=/tmp/
-	if [ -n "$CDT_PATH" ]; then
-		cdt_dir=$CDT_PATH
-	fi
+    cdt_dir=/tmp/
+    if [ -n "$CDT_PATH" ]; then
+	cdt_dir=$CDT_PATH
+    fi
 
-	cd $(mktemp -p $cdt_dir -td cdt.XXXXXXXX);
-	echo "Moved to $(pwd)"
+    cd $(mktemp -p $cdt_dir -td cdt.XXXXXXXX);
+    echo "Moved to $(pwd)"
 }
 
 # Create a new project including nice files and a Git repo.
 newproject() {
-	git init
-	cp /usr/share/common-licenses/LGPL-2.1 COPYING
-	for FILE in ChangeLog README TODO HACKING; do touch $FILE; done
-	# We can use GIT_AUTHOR_EMAIL because the email address will be asked on git init.
-	echo "$DEBFULLNAME <$GIT_AUTHOR_EMAIL>" > AUTHORS
-	git add *
-	git commit -s -m "Initial project creation."
-	echo "Start coding now!"
+    git init
+    cp /usr/share/common-licenses/LGPL-2.1 COPYING
+    for FILE in ChangeLog README TODO HACKING; do touch $FILE; done
+    # We can use GIT_AUTHOR_EMAIL because the email address will be asked on git init.
+    echo "$DEBFULLNAME <$GIT_AUTHOR_EMAIL>" > AUTHORS
+    git add *
+    git commit -s -m "Initial project creation."
+    echo "Start coding now!"
 }
 
 # Create a new bare Git repo, and perhaps upload it to git.jonnylamb.com
 git-bare() {
-	[ -d .git ] || { echo "$0: Use inside a current Git repository"; return 1; }
-	[ -z $1 ] && { echo "$0: Specify a git repo name"; return 1; }
-	[ -e /tmp/$1.git ] && { echo "$0: /tmp/$1.git already exists"; return 1; }
+    [ -d .git ] || { echo "$0: Use inside a current Git repository"; return 1; }
+    [ -z $1 ] && { echo "$0: Specify a git repo name"; return 1; }
+    [ -e /tmp/$1.git ] && { echo "$0: /tmp/$1.git already exists"; return 1; }
 	
-	git clone --bare . /tmp/$1.git
-	git --bare --git-dir=/tmp/$1.git update-server-info
-	git --bare --git-dir=/tmp/$1.git gc
-	mv /tmp/$1.git/hooks/post-update{.sample,}
-	chmod +x /tmp/$1.git/hooks/post-update
-	touch /tmp/$1.git/git-daemon-export-ok
+    git clone --bare . /tmp/$1.git
+    git --bare --git-dir=/tmp/$1.git update-server-info
+    git --bare --git-dir=/tmp/$1.git gc
+    mv /tmp/$1.git/hooks/post-update{.sample,}
+    chmod +x /tmp/$1.git/hooks/post-update
+    touch /tmp/$1.git/git-daemon-export-ok
 	
-	sensible-editor /tmp/$1.git/description
+    sensible-editor /tmp/$1.git/description
 
-	if [ "$2" = "upload" ]; then
-		echo "Will upload to jonnylamb.com now.."
+    if [ "$2" = "upload" ]; then
+	echo "Will upload to jonnylamb.com now.."
 
-		if grep -i "packag" /tmp/$1.git/description; then
-			scp -r /tmp/$1.git jonnylamb@jonnylamb.com:git/packaging/
-		else
-			scp -r /tmp/$1.git jonnylamb@jonnylamb.com:git/
-		fi
-		rm -rf /tmp/$1.git
+	if grep -i "packag" /tmp/$1.git/description; then
+	    scp -r /tmp/$1.git jonnylamb@jonnylamb.com:git/packaging/
 	else
-		echo "Repository is at /tmp/$1.git"
+	    scp -r /tmp/$1.git jonnylamb@jonnylamb.com:git/
 	fi
+	rm -rf /tmp/$1.git
+    else
+	echo "Repository is at /tmp/$1.git"
+    fi
 }
 
 # Upload a file to my toast public_html/misc/
 stoast() {
-	scp -C $@ jdl@compsoc.dur.ac.uk:public_html/misc/ && echo "\nhttp://jdl.ducs.org.uk/misc/$(basename $1)"
+    scp -C $@ jdl@compsoc.dur.ac.uk:public_html/misc/ && echo "\nhttp://jdl.ducs.org.uk/misc/$(basename $1)"
 }
 
 sdhansak() {
-	scp -C $@ jonny@dhansak.collabora.co.uk:public_html/ && echo "\nhttp://people.collabora.co.uk/~jonny/$(basename $1)"
+    scp -C $@ jonny@dhansak.collabora.co.uk:public_html/ && echo "\nhttp://people.collabora.co.uk/~jonny/$(basename $1)"
 }
 
 # Remove a file from my toast public_html/misc/
 rmtoast() {
-	ssh jdl@compsoc.dur.ac.uk "rm public_html/misc/$1" && echo "jdl@compsoc.dur.ac.uk:public_html/misc/$1 deleted."
+    ssh jdl@compsoc.dur.ac.uk "rm public_html/misc/$1" && echo "jdl@compsoc.dur.ac.uk:public_html/misc/$1 deleted."
 }
 
 # Generate Packages and Sources
 genpackages() {
-	      dpkg-scanpackages . /dev/null | tee Packages | gzip -9 > Packages.gz
-	      dpkg-scansources . /dev/null | tee Sources | gzip -9 > Sources.gz
+    dpkg-scanpackages . /dev/null | tee Packages | gzip -9 > Packages.gz
+    dpkg-scansources . /dev/null | tee Sources | gzip -9 > Sources.gz
 }
 
 re() {
@@ -327,12 +326,12 @@ SAVEHIST=1000
 # Machine-specific stuff
 #
 case $HOST in
-	vega*)
-		export http_proxy="http://wwwcache.dur.ac.uk:8080"
-		;;
-	compsoc*)
-		export http_proxy="http://wwwcache.dur.ac.uk:8080"
-		# This is just silly. sudo reports are there for a reason.
-		alias sudo="/usr/bin/sudo"
-		;;
+    vega*)
+	export http_proxy="http://wwwcache.dur.ac.uk:8080"
+	;;
+    compsoc*)
+	export http_proxy="http://wwwcache.dur.ac.uk:8080"
+	# This is just silly. sudo reports are there for a reason.
+	alias sudo="/usr/bin/sudo"
+	;;
 esac
