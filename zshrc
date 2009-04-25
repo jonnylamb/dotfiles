@@ -321,6 +321,10 @@ genpackages() {
 	      dpkg-scansources . /dev/null | tee Sources | gzip -9 > Sources.gz
 }
 
+re() {
+    source ~/.zshrc
+}
+
 
 #
 # Misc.
