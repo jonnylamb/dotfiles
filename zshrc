@@ -248,30 +248,6 @@ newproject() {
 	echo "Start coding now!"
 }
 
-# pkg-maemo tools
-pkg-maemo() {
-	[ -z $1 ] && { echo "Usage: pkg-maemo {push|branch|pull|merge} branchname"; return 1; }
-	[ -z $2 ] && { echo "Usage: pkg-maemo {push|branch|pull|merge} branchname"; return 1; }
-
-	name=$2
-	
-	case $1 in
-		push)
-			bzr push bzr+ssh://jonny@alioth.debian.org/srv/bzr.debian.org/bzr/pkg-maemo/$name/debian/
-			;;
-		branch)
-			bzr branch bzr+ssh://jonny@alioth.debian.org/srv/bzr.debian.org/bzr/pkg-maemo/$name/debian/
-			;;
-
-		pull)
-			bzr pull bzr+ssh://jonny@alioth.debian.org/srv/bzr.debian.org/bzr/pkg-maemo/$name/debian/
-			;;
-		merge)
-			bzr merge --remember http://bazaar.launchpad.net/~vcs-imports/$name/trunk
-			;;
-	esac
-}
-
 # Create a new bare Git repo, and perhaps upload it to git.jonnylamb.com
 git-bare() {
 	[ -d .git ] || { echo "$0: Use inside a current Git repository"; return 1; }
