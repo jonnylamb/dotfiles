@@ -150,9 +150,12 @@ export PATH="$HOME/bin/:$PATH"
 # Functions
 #
 
-# empathy
-srcempathy () {
-    EMPATHY_SRCDIR=. EMPATHY_DEBUG=all libtool --mode=execute gdb --args ./src/empathy --g-fatal-warnings
+# Telepathy under gdb
+g () {
+    project=$(basename `pwd`)
+    GABBLE_DEBUG=all SALUT_DEBUG=all EMPATHY_DEBUG=all HAZE_DEBUG=all \
+	GABBLE_PERSIST=1 SALUT_PERSIST=1 HAZE_PERSIST=1  EMPATHY_SRCDIR=. \
+	libtool --mode=execute gdb -q --args ./src/$project --g-fatal-warnings
 }
 
 # git
