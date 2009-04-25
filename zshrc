@@ -109,6 +109,9 @@ alias dra="darcs record -a"
 alias gis="git --no-pager status"
 alias ds="darcs whatsnew -sl"
 alias gdc="git diff --cached"
+alias gc="git commit -sv"
+alias gca="git commit -sva"
+alias gco="git checkout"
 
 # Helpers: Misc.
 alias mcp="moap changelog prepare"
