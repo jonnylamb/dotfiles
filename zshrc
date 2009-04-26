@@ -129,6 +129,8 @@ alias MAKE="make"
 alias m="make"
 #alias m="PATH=/usr/bin:$PATH make CC=icecc -j6"
 alias j="jobs"
+alias d="debcommit"
+alias da="debcommit -a"
 
 # Global aliases.
 alias -g ...="../.."
