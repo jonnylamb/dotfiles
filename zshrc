@@ -131,6 +131,7 @@ alias m="make"
 alias j="jobs"
 alias d="debcommit"
 alias da="debcommit -a"
+alias vg='G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind --tool=memcheck --leak-check=full --leak-resolution=high --num-callers=20'
 
 # Global aliases.
 alias -g ...="../.."
