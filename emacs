@@ -12,7 +12,7 @@
 (cw/for-emacs
  (if (string-match "[Uu][Tt][Ff]-?8" (or (getenv "LC_ALL")
                                          (getenv "LANG")
-                                         (format ""))) 
+                                         (format "")))
      (progn
        (set-language-environment "UTF-8") ; UTF-8 mode
        (if (not window-system)
@@ -38,7 +38,7 @@
 
 ;; Various programming settings and languages
 (defun telepathy-c-initialization-hook ()
-  (c-add-style "telepathy" 
+  (c-add-style "telepathy"
   '("gnu"
     (indent-tabs-mode . nil)
     (c-offsets-alist
