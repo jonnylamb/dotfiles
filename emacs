@@ -31,6 +31,7 @@
 
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'debian-changelog-mode-hook 'turn-on-auto-fill)
+(add-hook 'c-mode-hook 'whitespace-mode)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -47,6 +48,9 @@
 
 (add-hook 'c-initialization-hook 'telepathy-c-initialization-hook)
 (setq c-default-style "telepathy")
+
+(setq-default show-trailing-whitespace t)
+(setq whitespace-style '(tabs tab-mark))
 
 (setq european-calendar-style t)
 
