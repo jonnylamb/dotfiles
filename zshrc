@@ -234,7 +234,7 @@ cdt () {
 	cdt_dir=$CDT_PATH
     fi
 
-    cd $(mktemp -p $cdt_dir -td cdt.XXXXXXXX);
+    cd $(mktemp -p $cdt_dir -td cdt.XXXXXX);
     echo "Moved to $(pwd)"
 }
 
