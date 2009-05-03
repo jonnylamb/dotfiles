@@ -27,7 +27,7 @@ remotehost = jonnylamb.com
 remoteuser = jonnylamb@jonnylamb.com
 remotepassfile = ~/.offlineimap/jonnylamb_password
 ssl = yes
-folderfilter = lambda fn: fn not in ['Spam', 'Queue', 'Lists', 'lists']
+folderfilter = jonnylamb_folderfilter
 nametrans = jonnylamb_nametrans
 
 [Account durham]
@@ -37,7 +37,7 @@ remoterepository = remote-durham
 [Repository local-durham]
 type = Maildir
 localfolders = ~/mail
- 	
+
 [Repository remote-durham]
 type = IMAP
 remotehost = compsoc.dur.ac.uk
@@ -61,5 +61,5 @@ remotehost = mail.collabora.co.uk
 remoteuser = jonny
 remotepassfile = ~/.offlineimap/collabora_password
 ssl = yes
-folderfilter = lambda fn: fn not in ['Spam', 'Drafts', 'Trash', 'Queue', 'Lists', 'Sent']
+folderfilter = collabora_folderfilter
 nametrans = collabora_nametrans

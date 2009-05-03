@@ -22,3 +22,17 @@ def durham_nametrans(fn):
     name = re.sub(r'^durham\.INBOX', 'durham', name)
     name = re.sub(r'^durham\.Lists\.', 'lists.', name)
     return name
+
+def collabora_folderfilter(fn):
+    if fn in ['Spam', 'Drafts', 'Trash', 'Queue', 'Lists', 'Sent']:
+        return False
+    if fn.startswith('lists.') or fn.startswith('lists.'):
+        return False
+    return True
+
+def jonnylamb_folderfilter(fn):
+    if fn in ['Spam', 'Queue', 'Lists', 'lists']:
+        return False
+    if fn.startswith('lists.') or fn.startswith('Lists.'):
+        return False
+    return True
