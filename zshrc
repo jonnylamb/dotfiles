@@ -99,19 +99,21 @@ alias e="emacs -nw"
 alias sv="sudo emacs -nw"
 alias se="sudo emacs -nw"
 
-# Helpers: VCSs
+# Helpers: vcs
 alias svn-clean="svn status | grep \"^?\" | cut -c8- | xargs -l1 rm -rf"
-alias gd="git diff"
-alias gcsm="git commit -s -m"
 alias pc="moap changelog prepare"
-alias ddu="darcs diff -u | most"
-alias dra="darcs record -a"
+
+# Helpers: git
+alias gd="git diff"
 alias gis="git --no-pager status"
-alias ds="darcs whatsnew -sl"
 alias gdc="git diff --cached"
 alias gc="git commit -sv"
 alias gca="git commit -sva"
 alias gco="git checkout"
+alias gcb="git checkout -b"
+alias gcm="git checkout master"
+alias gl="git log"
+alias ga="git add"
 
 # Helpers: Misc.
 alias mcp="moap changelog prepare"
@@ -132,6 +134,7 @@ alias j="jobs"
 alias d="debcommit"
 alias da="debcommit -a"
 alias vg='G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind --tool=memcheck --leak-check=full --leak-resolution=high --num-callers=20'
+alias fn="find -name"
 
 # Global aliases.
 alias -g ...="../.."
