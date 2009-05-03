@@ -6,5 +6,8 @@ alternates jdl@ducs\.org\.uk
 alternates jonny\.lamb@collabora\.co\.uk
 alternates j\.d\.lamb@durham\.ac\.uk
 alternates jonathan@the-lamb-family\.co\.uk
+alternates jonnylamb@gnome.org
+alternates jonnylamb@src.gnome.org
+alternates jonnylamb@svn.gnome.org
 
 # vim:ft=muttrc
