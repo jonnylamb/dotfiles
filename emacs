@@ -40,6 +40,10 @@
       browse-url-browser-function gnus-button-url)
 (global-set-key "\M-n" 'browse-url-at-point)
 
+;; Clipboard
+(setq x-select-enable-clipboard t)
+(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
+
 ;; Various programming settings and languages
 (defun telepathy-c-initialization-hook ()
   (c-add-style "telepathy"
