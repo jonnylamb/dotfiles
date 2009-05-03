@@ -35,6 +35,9 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
+(setq gnus-button-url 'browse-url-generic
+      browse-url-generic-program "gnome-open"
+      browse-url-browser-function gnus-button-url)
 (global-set-key "\M-n" 'browse-url-at-point)
 
 ;; Various programming settings and languages
