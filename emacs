@@ -31,8 +31,9 @@
 
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'debian-changelog-mode-hook 'turn-on-auto-fill)
-(add-hook 'c-mode-hook 'whitespace-mode)
+(add-hook 'c-mode-hook 'linum-mode)
 
+(column-number-mode t)
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (setq gnus-button-url 'browse-url-generic
