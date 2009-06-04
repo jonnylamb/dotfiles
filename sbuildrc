@@ -20,7 +20,7 @@
 #$debug = 0;
 
 # Set to 1 to disable logging.
-$nolog = 1;
+#$nolog = 1;
 
 # Mail address where logs are sent to (mandatory, no default)
 #$mailto = "frankie";
