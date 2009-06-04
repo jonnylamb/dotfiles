@@ -24,4 +24,4 @@
 [url "ssh://alioth/git/"]
 	insteadof = alioth:
 [url "ssh://byte/~/git/"]
-	insteadof = byte
+	insteadof = byte:
