@@ -69,6 +69,15 @@ preexec() {
 }
 
 #
+# Editor: should probably be done early
+#
+if [ -f "/home/jonny/bin/ec" ]; then
+    export EDITOR="/home/jonny/bin/ec"
+else
+    export EDITOR="emacs -nw"
+fi
+
+#
 # Command aliases
 #
 
@@ -94,10 +103,8 @@ alias afs="apt-file search -x"
 alias acp="apt-cache policy"
 
 # Helpers: Editors
-alias v="emacsclient"
-alias e="emacsclient"
-alias sv="sudo emacsclient"
-alias se="sudo emacsclient"
+alias e="$EDITOR"
+alias se="sudo emacs -nw"
 
 # Helpers: vcs
 alias svn-clean="svn status | grep \"^?\" | cut -c8- | xargs -l1 rm -rf"
@@ -147,7 +154,6 @@ export REAL_NAME="Jonny Lamb"
 export DEBFULLNAME="Jonny Lamb"
 export EMAIL_ADDRESS="jonny@debian.org"
 export DEBEMAIL="jonny@debian.org"
-export EDITOR="emacsclient"
 export LESS="-cgiFKx4M"
 export PAGER="most"
 export PATH="$HOME/bin/:$PATH"
