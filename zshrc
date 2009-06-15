@@ -318,6 +318,60 @@ re() {
     source ~/.zshrc
 }
 
+cmk() {
+    [ -z "$1" ] && { echo "fatal: select directory name"; exit 1 }
+    mkdir $1 && cd $1
+}
+
+fne() {
+    if [ -z "$1" ]; then
+        find
+    else
+        find -name "*.$1"
+    fi
+}
+
+tfn() {
+    [ -z "$1" ] && { echo "fatal: select file name"; exit 1 }
+    prevwd="$(pwd)"
+    cd /tmp/
+    ans=$(find -name "$1")
+    l=$(echo $ans | wc -l)
+
+    # sigh
+    [ "$ans" = "" ] && l=0
+
+    case $l in
+        0)
+            echo "No matches found."
+            cd "$prevwd"
+            ;;
+        1)
+            cd `dirname $ans`
+            ;;
+        *)
+            echo $ans
+            cd $prevwd
+            ;;
+    esac
+}
+
+# lazy
+x() {
+    [ -z "$1" ] && { echo "fatal: specify file name"; exit 1 }
+    [ -r "$1" ] || { echo "fatal: not a regular file"; exit 1 }
+
+    case $1 in
+        *.tar.bz2) tar jxf $1 ;;
+        *.tar.gz) tar zxf $1 ;;
+        *.rar) unrar e $1 ;;
+        *.bz2) bzip2 -d $1 ;;
+        *.gz) gunzip -d $1 ;;
+        *.zip) unzip $1 ;;
+        *) echo "fatal: unknown file type" ;;
+    esac
+}
+
 
 #
 # Misc.
