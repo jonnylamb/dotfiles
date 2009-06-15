@@ -155,7 +155,7 @@ export DEBFULLNAME="Jonny Lamb"
 export EMAIL_ADDRESS="jonny@debian.org"
 export DEBEMAIL="jonny@debian.org"
 export LESS="-cgiFKx4M"
-export PATH="$HOME/bin/:$PATH"
+export PATH="$HOME/bin/:$PATH:/usr/local/android/tools"
 
 # Some sucky systems don't have awesome pagers.
 if which most 2>&1 > /dev/null; then
