@@ -1,6 +1,7 @@
 [general]
 metadata = ~/.var/offlineimap
-accounts = jonnylamb, durham, collabora
+#accounts = jonnylamb, durham, collabora
+accounts = jonnylamb, collabora
 pythonfile = ~/.offlineimap/helper.py
 ui = Noninteractive.Basic, Noninteractive.Quiet
 
