@@ -4521,6 +4521,7 @@ source $my_confdir/alternates
 source $my_confdir/hooks
 source $my_confdir/keybindings
 source $my_confdir/lists
+source $my_confdir/private
 
 source ~/.var/offlineimap/mailboxes
 
