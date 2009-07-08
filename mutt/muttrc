@@ -1578,7 +1578,6 @@ set index_format="%4C %Z %{%b %d} %-15.15F %4c %?H?[%H] ?%s"
 # reverse date much more useful. People with maildirs over NFS may
 # wish to leave this option unset.
 # 
-set maildir_mtime=yes
 # 
 # set header_cache=""
 #
