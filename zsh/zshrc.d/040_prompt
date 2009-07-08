@@ -1,22 +1,8 @@
 #!/bin/zsh
 # -*- sh -*-
 
-precmd() {
-    RPROMPT="%(?..%?)"
-    if ! stat "$(pwd)" >/dev/null 2>&1; then
-	if ! cd "$(pwd)" >/dev/null 2>&1; then
-	    echo "W: cwd does not exist anymore"
-	    return
-	fi
-    fi
-
-    ref=""
-    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-    ref=${ref#refs/heads/}
-    RPROMPT=" %{$reset_color$fg_bold[grey]%}${ref}%{$reset_color%} %(?..%?)"
-
-    title $(print -P '%~')
-}
+autoload -Uz vcs_info
+setopt PROMPT_SUBST
 
 if [ -r "/etc/debian_chroot" ]; then
     local debian_chroot=$(cat /etc/debian_chroot)
@@ -30,3 +16,17 @@ if [ ! $UID -eq 0 ] && echo $(whoami) | grep -E "^(jonnylamb|jonny|d71x3w|jdl)$"
 else
     PROMPT="$reset_color$fg_bold[red]%}%n@%B%M%b${DEBIAN_CHROOT}:%~%# "
 fi
+
+zstyle ':vcs_info:*' formats '%u%F{0}%b%f%c'
+zstyle ':vcs_info:*' actionformats '%u%F{1}%b/%a%f%c'
+
+zstyle ':vcs_info:bzr:*' use-simple true
+
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr '*'
+zstyle ':vcs_info:*' unstagedstr '*'
+
+precmd () {
+    vcs_info
+    RPROMPT=' %B${vcs_info_msg_0_}%b %(?..%?)'
+}
