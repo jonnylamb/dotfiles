@@ -234,6 +234,18 @@ src () {
     fi
 }
 
+b () {
+    ref=$1
+    if [ -z $1 ]; then
+        ref=$(git symbolic-ref HEAD 2> /dev/null) || { echo "E: couldn't detect branch"; return 1; }
+        ref=${ref#refs/heads/}
+    fi
+
+    repo=$(basename `pwd`)
+    echo "http://git.collabora.co.uk/?p=user/jonny/$repo.git;a=shortlog;h=refs/heads/$ref"
+    gnome-open "http://git.collabora.co.uk/?p=user/jonny/$repo.git;a=shortlog;h=refs/heads/$ref"
+}
+
 # offlineimap wrapper
 oi () {
     if [ "$HOST" = "geminiani" ]; then
