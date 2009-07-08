@@ -70,6 +70,6 @@ alias -g ....="../../.."
 
 # Globbing
 alias curl="noglob curl"
-alias wget="noglob curl"
+alias wget="noglob wget"
 alias epiphany="noglob epiphany"
 alias find="noglob find"
