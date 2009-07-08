@@ -1,0 +1,25 @@
+#!/bin/zsh
+# -*- sh -*-
+
+title() {
+    case $TERM in
+	screen*)
+            # Use these two for GNU Screen:
+            # status line
+	    print -nR $'\033k'$*$'\033'\\\
+
+	    # title bar
+	    print -nR $'\033]0;'$*$'\a'
+	    ;;
+	*xterm*|*rxvt*)
+	    # Use this one instead for XTerms:
+	    print -nR $'\033]0;'$*$'\a'
+	    ;;
+    esac
+}
+
+preexec() {
+    emulate -L zsh
+    local -a cmd; cmd=(${(z)1})
+    title $cmd[1]:t "$cmd[2,-1]"
+}

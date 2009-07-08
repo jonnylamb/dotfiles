@@ -1,0 +1,32 @@
+#!/bin/zsh
+# -*- sh -*-
+
+precmd() {
+    RPROMPT="%(?..%?)"
+    if ! stat "$(pwd)" >/dev/null 2>&1; then
+	if ! cd "$(pwd)" >/dev/null 2>&1; then
+	    echo "W: cwd does not exist anymore"
+	    return
+	fi
+    fi
+
+    ref=""
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+    ref=${ref#refs/heads/}
+    RPROMPT=" %{$reset_color$fg_bold[grey]%}${ref}%{$reset_color%} %(?..%?)"
+
+    title $(print -P '%~')
+}
+
+if [ -r "/etc/debian_chroot" ]; then
+    local debian_chroot=$(cat /etc/debian_chroot)
+    DEBIAN_CHROOT="${debian_chroot:+/%S$debian_chroot%s}"
+else
+    DEBIAN_CHROOT=""
+fi
+
+if [ ! $UID -eq 0 ] && echo $(whoami) | grep -E "^(jonnylamb|jonny|d71x3w|jdl)$" 2>&1 > /dev/null; then
+    PROMPT="%B%M%b${DEBIAN_CHROOT}:%~%# "
+else
+    PROMPT="$reset_color$fg_bold[red]%}%n@%B%M%b${DEBIAN_CHROOT}:%~%# "
+fi

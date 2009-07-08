@@ -1,0 +1,6 @@
+#!/bin/zsh
+# -*- sh -*-
+
+unset mailpath MAILCHECK
+
+setopt appendhistory autocd extendedglob nomatch notify

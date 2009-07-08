@@ -1,0 +1,75 @@
+#!/bin/zsh
+# -*- sh -*-
+
+# IRC
+alias irc="ssh -v -t byte 'screen -ax'"
+alias email="ssh -t -X geminiani 'bin/email'"
+
+# Typos
+alias :q="exit"
+alias EXIT="exit"
+alias sl="ls"
+alias no="ls" # ls in qwerty when the keys are dvorak
+alias Grep="grep"
+alias cd..="cd .."
+
+# Helpers: APT
+alias sagi="sudo apt-get install"
+alias sagr="sudo apt-get remove"
+alias sagu="sudo apt-get update"
+alias acs="apt-cache search"
+alias acsh="apt-cache show"
+alias afs="apt-file search -x"
+alias acp="apt-cache policy"
+
+# Helpers: Editors
+alias e=$EDITOR
+alias se="sudo emacs -nw"
+
+# Helpers: vcs
+alias svn-clean="svn status | grep \"^?\" | cut -c8- | xargs -l1 rm -rf"
+alias pc="moap changelog prepare"
+
+# Helpers: git
+alias gd="git diff"
+alias gis="git --no-pager status"
+alias gdc="git diff --cached"
+alias gc="git commit -sv"
+alias gca="git commit -sva"
+alias gco="git checkout"
+alias gcb="git checkout -b"
+alias gcm="git checkout master"
+alias gl="git log"
+alias ga="git add"
+
+# Helpers: Misc.
+alias mcp="moap changelog prepare"
+alias s="sudo"
+alias ls="ls --color"
+alias l="ls"
+alias ll="ls -lh"
+alias la="ls -lha"
+alias diff="diff -Nruad"
+alias tf="tail -f"
+alias stf="sudo tail -f"
+alias sup="sudo ifup"
+alias mutt="PATH=$PATH:/usr/lib/mutt mutt"
+alias MAKE="make"
+alias m="make"
+alias mc="make check"
+#alias m="PATH=/usr/bin:$PATH make CC=icecc -j6"
+alias j="jobs"
+alias d="debcommit"
+alias da="debcommit -a"
+alias vg='G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind --tool=memcheck --leak-check=full --leak-resolution=high --num-callers=20'
+alias fn="find -name"
+
+# Global aliases.
+alias -g ...="../.."
+alias -g ....="../../.."
+
+# Globbing
+alias curl="noglob curl"
+alias wget="noglob curl"
+alias epiphany="noglob epiphany"
+alias find="noglob find"

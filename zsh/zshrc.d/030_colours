@@ -1,0 +1,4 @@
+#!/bin/zsh
+# -*- sh -*-
+
+autoload colors && colors

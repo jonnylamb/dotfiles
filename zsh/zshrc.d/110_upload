@@ -1,0 +1,15 @@
+#!/bin/zsh
+# -*- sh -*-
+
+stoast() {
+    scp -C $@ jdl@compsoc.dur.ac.uk:public_html/misc/ && echo "\nhttp://jdl.ducs.org.uk/misc/$(basename $1)"
+}
+
+sdhansak() {
+    scp -C $@ jonny@dhansak.collabora.co.uk:public_html/ && echo "\nhttp://people.collabora.co.uk/~jonny/$(basename $1)"
+}
+
+# Remove a file from my toast public_html/misc/
+rmtoast() {
+    ssh jdl@compsoc.dur.ac.uk "rm public_html/misc/$1" && echo "jdl@compsoc.dur.ac.uk:public_html/misc/$1 deleted."
+}

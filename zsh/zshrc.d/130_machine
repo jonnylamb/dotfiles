@@ -1,0 +1,13 @@
+#!/bin/zsh
+# -*- sh -*-
+
+case $HOST in
+    vega*)
+	export http_proxy="http://wwwcache.dur.ac.uk:8080"
+	;;
+    compsoc*)
+	export http_proxy="http://wwwcache.dur.ac.uk:8080"
+	# This is just silly. sudo reports are there for a reason.
+	alias sudo="/usr/bin/sudo"
+	;;
+esac

@@ -1,0 +1,6 @@
+#!/bin/zsh
+# -*- sh -*-
+
+re() {
+    source ~/.zshrc
+}

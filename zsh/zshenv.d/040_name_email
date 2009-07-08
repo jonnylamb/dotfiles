@@ -1,0 +1,7 @@
+#!/bin/zsh
+# -*- sh -*-
+
+export REAL_NAME="Jonny Lamb"
+export DEBFULLNAME="Jonny Lamb"
+export EMAIL_ADDRESS="jonny@debian.org"
+export DEBEMAIL="jonny@debian.org"

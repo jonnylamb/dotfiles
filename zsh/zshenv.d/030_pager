@@ -1,0 +1,11 @@
+#!/bin/zsh
+# -*- sh -*-
+
+export LESS="-cgiFKx4M"
+
+# Some sucky systems don't have awesome pagers.
+if which most 2>&1 > /dev/null; then
+    export PAGER="most"
+else
+    export PAGER="more"
+fi

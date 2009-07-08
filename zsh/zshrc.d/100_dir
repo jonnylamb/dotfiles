@@ -1,0 +1,12 @@
+#!/bin/zsh
+# -*- sh -*-
+
+cdt () {
+    cdt_dir=/tmp/
+    if [ -n "$CDT_PATH" ]; then
+	cdt_dir=$CDT_PATH
+    fi
+
+    cd $(mktemp -p $cdt_dir -td cdt.XXXXXX);
+    echo "Moved to $(pwd)"
+}

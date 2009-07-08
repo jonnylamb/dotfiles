@@ -1,0 +1,14 @@
+#!/bin/zsh
+# -*- sh -*-
+
+oi () {
+    if [ "$HOST" = "geminiani" ]; then
+	offlineimap $@
+    else
+	ssh geminiani offlineimap $@
+    fi
+}
+
+re() {
+    source ~/.zshrc
+}
