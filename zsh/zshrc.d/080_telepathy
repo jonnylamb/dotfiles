@@ -1,6 +1,13 @@
 #!/bin/zsh
 # -*- sh -*-
 
+g () {
+    project=$(basename `pwd`)
+    GABBLE_DEBUG=all SALUT_DEBUG=all EMPATHY_DEBUG=all HAZE_DEBUG=all \
+        GABBLE_PERSIST=1 SALUT_PERSIST=1 HAZE_PERSIST=1  EMPATHY_SRCDIR=. \
+        libtool --mode=execute gdb -q --args ./src/$project --g-fatal-warnings
+}
+
 b () {
     ref=$1
     if [ -z $1 ]; then
