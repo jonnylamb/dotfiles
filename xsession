@@ -1,5 +1,6 @@
 gnome-settings-daemon &
 gnome-power-manager &
+/usr/bin/pulseaudio --start --log-target=syslog &
 nm-applet &
 xset b off
 tomboy &
@@ -11,4 +12,4 @@ export `gnome-keyring-daemon --start --daemonize`
 
 [ "$(hostname)" = "bruch" ] && xrandr --output VGA2 --right-of VGA1 --auto
 
-awesome
+exec awesome
