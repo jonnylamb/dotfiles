@@ -26,7 +26,21 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '*'
 zstyle ':vcs_info:*' unstagedstr '*'
 
+ENABLE_VCS_INFO="yes"
+
+togglegit () {
+    if [ "$ENABLE_VCS_INFO" = "yes" ]; then
+        ENABLE_VCS_INFO="no"
+    else
+        ENABLE_VCS_INFO="yes"
+    fi
+}
+
 precmd () {
-    vcs_info
+    if [ ! -f /etc/debian_chroot ] && [ $ENABLE_VCS_INFO = "yes" ]; then
+        vcs_info
+    else
+        vcs_info_msg_0_=""
+    fi
     RPROMPT=' %B${vcs_info_msg_0_}%b %(?..%?)'
 }
