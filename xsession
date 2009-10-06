@@ -1,7 +1,7 @@
 gnome-settings-daemon &
 gnome-power-manager &
 gnome-screensaver &
-pulseaudio --start --log-target=syslog &
+start-pulseaudio-x11 &
 nm-applet &
 xset b off
 tomboy &
