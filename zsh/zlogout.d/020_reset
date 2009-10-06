@@ -1,4 +1,5 @@
 #!/bin/zsh
 # -*- sh -*-
 
-reset
+# Only reset if we're not in an SSH session.
+[ "x$SSH_CLIENT" = "x" ] && reset
