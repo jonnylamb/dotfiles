@@ -11,6 +11,8 @@ export OOO_FORCE_DESKTOP=gnome # sigh
 
 export `gnome-keyring-daemon --start --daemonize`
 
+eval `gpg-agent --daemon`
+
 [ "$(hostname)" = "bruch" ] && xrandr --output VGA2 --right-of VGA1 --auto
 
 exec awesome
