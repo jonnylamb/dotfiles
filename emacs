@@ -63,6 +63,8 @@
 
 (setq european-calendar-style t)
 
+(global-set-key (kbd "RET") 'newline-and-indent)
+
 ;(setq py-honor-comment-indentation nil)
 
 ; Highlight matching/nonmatching parens
