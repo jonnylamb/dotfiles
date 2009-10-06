@@ -1,9 +1,9 @@
 #!/bin/zsh
 # -*- sh -*-
 
-# IRC
 alias irc="ssh -v -t byte 'screen -ax'"
 alias email="ssh -t -X geminiani 'bin/email'"
+alias koi="killall offlineimap" # sigh
 
 # Typos
 alias :q="exit"
