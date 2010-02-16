@@ -32,6 +32,7 @@
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'debian-changelog-mode-hook 'turn-on-auto-fill)
 (add-hook 'c-mode-hook 'linum-mode)
+(add-hook 'c++-mode-hook 'linum-mode)
 (add-hook 'python-mode-hook 'linum-mode)
 
 (column-number-mode t)
@@ -101,3 +102,5 @@
 (add-to-list 'window-size-change-functions
              (lambda (frame) (setq org-tags-column (* -1 (- (frame-width) 10))
                                    org-agenda-align-tags-to-column (- (frame-width) 10))))
+
+(set-scroll-bar-mode 'right)
