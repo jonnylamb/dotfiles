@@ -11,6 +11,7 @@
 	branch = auto
 	diff = auto
 	interactive = auto
+        grep = auto
 [url "ssh://jonnylamb@git.gnome.org/git/"]
 	insteadof = gnome:
 [url "git://git.collabora.co.uk/git/"]
@@ -25,3 +26,6 @@
 	insteadof = alioth:
 [url "ssh://byte/~/git/"]
 	insteadof = byte:
+[alias]
+	wdiff = diff --color-words
+	wshow = show --color-words
