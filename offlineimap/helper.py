@@ -1,5 +1,7 @@
 import re
 
+filter_lists = False
+
 def collabora_nametrans(fn):
     name = 'collabora.%s' % fn
     name = re.sub(r'^collabora\.INBOX', 'collabora', name)
@@ -26,13 +28,13 @@ def durham_nametrans(fn):
 def collabora_folderfilter(fn):
     if fn in ['Spam', 'Drafts', 'Trash', 'Queue', 'Lists', 'Sent']:
         return False
-#    if fn.startswith('lists.') or fn.startswith('lists.'):
-#        return False
+    if filter_lists and (fn.startswith('lists.') or fn.startswith('lists.')):
+        return False
     return True
 
 def jonnylamb_folderfilter(fn):
     if fn in ['Spam', 'Queue', 'Lists', 'lists']:
         return False
-#    if fn.startswith('lists.') or fn.startswith('Lists.'):
-#        return False
+    if filter_lists and (fn.startswith('lists.') or fn.startswith('Lists.')):
+        return False
     return True
