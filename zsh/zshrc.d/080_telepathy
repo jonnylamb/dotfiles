@@ -3,6 +3,7 @@
 
 g () {
     project=$(basename `pwd`)
+    [ -x src/$project ] || return 1
     GABBLE_DEBUG=all SALUT_DEBUG=all EMPATHY_DEBUG=all HAZE_DEBUG=all \
         GABBLE_PERSIST=1 SALUT_PERSIST=1 HAZE_PERSIST=1  EMPATHY_SRCDIR=. \
         libtool --mode=execute gdb -q --args ./src/$project --g-fatal-warnings
@@ -17,5 +18,8 @@ b () {
 
     repo=$(basename `pwd`)
     echo "http://git.collabora.co.uk/?p=user/jonny/$repo.git;a=shortlog;h=refs/heads/$ref"
-    gnome-open "http://git.collabora.co.uk/?p=user/jonny/$repo.git;a=shortlog;h=refs/heads/$ref"
+
+    # Don't load a web browser if we're in an SSH session, or don't even
+    # have a display.
+    [ "$SSH_CLIENT" = "" ] && [ ! "$DISPLAY" = "" ] && gnome-open "http://git.collabora.co.uk/?p=user/jonny/$repo.git;a=shortlog;h=refs/heads/$ref"
 }
