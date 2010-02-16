@@ -749,7 +749,6 @@ set editor="mailplate --edit --auto --keep-unknown"
 # Manually sets the envelope sender for outgoing messages.
 # This value is ignored if ``$use_envelope_from'' is unset.
 #
-set envelope_from_address="jonnylamb@jonnylamb.com"
 # 
 # set escape="~"
 #
@@ -1658,7 +1657,8 @@ set mark_old=no
 # Controls the display of wrapped lines in the internal pager. If set, a
 # ``+'' marker is displayed at the beginning of wrapped lines. Also see
 # the ``$smart_wrap'' variable.
-# 
+#
+set markers=no
 # 
 # set mask="!^\\.[^.]"
 #
@@ -3274,7 +3274,8 @@ set print=no
 # Name: query_command
 # Type: path
 # Default: ""
-# 
+#
+set query_command="lbdbq '%s'"
 # 
 # This specifies the command that mutt will use to make external address
 # queries.  The string should contain a %s, which will be substituted
