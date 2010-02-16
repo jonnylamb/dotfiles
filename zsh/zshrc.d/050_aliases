@@ -54,13 +54,12 @@ alias tf="tail -f"
 alias stf="sudo tail -f"
 alias sup="sudo ifup"
 alias mutt="PATH=$PATH:/usr/lib/mutt mutt"
+alias utt="mutt" # oh dear
 alias MAKE="make"
 alias m="make"
 alias mc="make check"
 alias icemake="PATH=/usr/bin:$PATH make CC=icecc -j6"
 alias j="jobs"
-alias d="debcommit"
-alias da="debcommit -a"
 alias vg='G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind --tool=memcheck --leak-check=full --leak-resolution=high --num-callers=20'
 alias fn="find -name"
 
