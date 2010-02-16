@@ -8,17 +8,19 @@ git () {
 	export GIT_JONNY_EMAIL_BASEDIR=
     fi
 
-    if [ -z "$GIT_AUTHOR_EMAIL" ] && echo $1 | grep -E "^(commit|merge|rebase|am)$" 2>&1 > /dev/null; then
-	one_email=$DEBEMAIL
+    if [ -z "$GIT_AUTHOR_EMAIL" ] && echo $1 | grep -E "^(commit|merge|rebase|am|cherry-pick|dummy)$" 2>&1 > /dev/null; then
+	one_email=$EMAIL_ADDRESS
 	two_email="jonny.lamb@collabora.co.uk"
 	three_email="jonnylamb@jonnylamb.com"
 	four_email="j.d.lamb@durham.ac.uk"
+        five_email="jonnylamb@gnome.org"
 
 	echo "Which email address do you want to use?"
 	echo " 1. $one_email (default)"
 	echo " 2. $two_email"
 	echo " 3. $three_email"
 	echo " 4. $four_email"
+        echo " 5. $five_email"
 	echo "or enter the address you want to use."
 	read number
 
@@ -28,6 +30,7 @@ git () {
 	    2) email=$two_email;;
 	    3) email=$three_email;;
 	    4) email=$four_email;;
+            5) email=$five_email;;
 	    *) email=$number;;
 	esac
 
@@ -36,7 +39,20 @@ git () {
 	export GIT_JONNY_EMAIL_BASEDIR=$(pwd)
     fi
 
-    /usr/bin/git $@
+    [ "$1" = "dummy" ] || /usr/bin/git $@
+}
+
+d() {
+    git dummy
+    /usr/bin/debcommit $@
+}
+
+git-buildpackage() {
+    export GIT_AUTHOR_EMAIL=$DEBEMAIL
+    export GIT_COMMITTER_EMAIL=$DEBEMAIL
+    export GIT_JONNY_EMAIL_BASEDIR=$(pwd)
+
+    /usr/bin/git-buildpackage $@
 }
 
 git-bare() {
