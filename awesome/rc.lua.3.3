@@ -367,7 +367,7 @@ awful.hooks.manage.register(function (c, startup)
     c:buttons(awful.util.table.join(
         awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
         awful.button({ "Mod1" }, 1, awful.mouse.client.move),
-        awful.button({ "Mod1" }, 2, awful.mouse.client.resize)
+        awful.button({ "Mod1" }, 3, awful.mouse.client.resize)
     ))
     -- New client may not receive focus
     -- if they're not focusable, so set border anyway.
