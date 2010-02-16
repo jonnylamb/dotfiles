@@ -11,3 +11,16 @@ case $HOST in
 	alias sudo="/usr/bin/sudo"
 	;;
 esac
+
+# TODO: clean up thoroughly. :-(
+bt() {
+    host="corelli"
+
+    if [ "`/sbin/ifconfig eth0 | grep "inet addr" | awk '{print $2}'`" != "addr:192.168.0.101" ]; then
+        if [ "`/sbin/ifconfig wlan0 | grep "inet addr" | awk '{print $2}'`" != "addr:192.168.0.102" ]; then
+            host="corelli.jonnylamb.com"
+        fi
+    fi
+
+    ssh -v -t "jonny@$host" "screen -ax"
+}
