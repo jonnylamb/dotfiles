@@ -3,6 +3,7 @@
 
 alias irc="ssh -v -t byte 'screen -ax'"
 alias email="ssh -t -X geminiani mutt"
+alias bt="ssh -v -t corelli.jonnylamb.com 'screen -ax'"
 alias koi="killall offlineimap" # sigh
 
 # Typos

@@ -1,3 +1,5 @@
+# -*- muttrc -*-
+
 unhdr_order *
 hdr_order date
 hdr_order from
@@ -5,6 +7,7 @@ hdr_order organization organisation
 hdr_order to cc
 hdr_order subject
 hdr_order message-id
+hdr_order x-spam-score
 hdr_order user-agent x-mailer x-newsreader
 
 ignore *
@@ -14,7 +17,5 @@ unignore to cc
 unignore subject
 unignore message-id
 unignore mail-follow-up-to
+unignore x-spam-score
 unignore x-mailer user-agent
-
-
-# vim:ft=muttrc

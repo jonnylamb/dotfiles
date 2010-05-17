@@ -1,3 +1,5 @@
+# -*- muttrc -*-
+
 alternates jonnylamb@jonnylamb\.com
 alternates jonny@jonnylamb\.com
 alternates jonny@debian\.org
@@ -9,5 +11,3 @@ alternates jonathan@the-lamb-family\.co\.uk
 alternates jonnylamb@gnome.org
 alternates jonnylamb@src.gnome.org
 alternates jonnylamb@svn.gnome.org
-
-# vim:ft=muttrc
