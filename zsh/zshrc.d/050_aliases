@@ -41,6 +41,9 @@ alias gcb="git checkout -b"
 alias gcm="git checkout master"
 alias gl="git log"
 alias ga="git add"
+alias gwd="git wdiff"
+alias gcp="EDITOR=true git commit --amend"
+alias gcpa="EDITOR=true git commit -a --amend"
 
 # Helpers: Misc.
 alias mcp="moap changelog prepare"
