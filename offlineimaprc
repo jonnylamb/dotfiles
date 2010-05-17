@@ -4,6 +4,8 @@ accounts = jonnylamb, durham, collabora
 #accounts = collabora, durham, jonnylamb
 pythonfile = ~/.offlineimap/helper.py
 ui = Noninteractive.Basic, Noninteractive.Quiet
+maxsyncaccounts = 3
+maxconnections = 3
 
 [mbnames]
 enabled = yes
