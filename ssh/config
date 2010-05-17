@@ -5,7 +5,7 @@ Host *
 # Laptops
 
 Host geminiani
-    Hostname geminiani.local
+    Hostname geminiani.jonnylamb.com
     User jonny
 
 Host salieri
@@ -52,11 +52,12 @@ Host server2
 # Other home
 
 Host corelli
-    Hostname 192.168.0.1
+    Hostname corelli.jonnylamb.com
+#192.168.0.1
     User jonny
 
 Host bruch
-    Hostname bruch.local
+    Hostname bruch.jonnylamb.com
     User jonny
 
 # Collabora
