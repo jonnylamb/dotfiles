@@ -1,4 +1,4 @@
-send-hook '~s "Re: confirm" ~t -request@' 'unset crypt_autosign'
+# -*- muttrc -*-
 
 send-hook '~A' 'set from="jonny@debian.org'
 
@@ -9,9 +9,7 @@ send-hook '~C telepathy@lists\.freedesktop\.org' 'set from=jonny.lamb@collabora.
 
 # Lists registered to with jonnylamb@jonnylamb.com
 send-hook '~C synce-devel@lists\.sourceforge\.net' 'set from=jonnylamb@jonnylamb.com'
-send-hook '~C pkg-maemo-devel@lists\.alioth\.debian\.org' 'set from=jonnylamb@jonnylamb.com'
 send-hook '~C debian-uk@chiark\.greenend\.org\.uk' 'set from=jonnylamb@jonnylamb.com'
-send-hook '~C bongo-devel@gna\.org' 'set from=jonnylamb@jonnylamb.com'
 send-hook '~C gtkmm-list@gnome\.org' 'set from=jonnylamb@jonnylamb.com'
 send-hook '~C maemo-developers@maemo\.org' 'set from=jonnylamb@jonnylamb.com'
 
@@ -23,5 +21,3 @@ send-hook '~C @ducs\.org\.uk' 'set from=j.d.lamb@durham.ac.uk'
 
 # GNOME
 send-hook '~C @gnome\.org' 'set from=jonnylamb@gnome.org'
-
-# vim:ft=muttrc

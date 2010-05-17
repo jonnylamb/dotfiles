@@ -1,3 +1,5 @@
+# -*- muttrc -*-
+
 bind generic 		N 	search-opposite
 bind pager		G	bottom
 bind index,pager	|	pipe-message
@@ -9,9 +11,18 @@ bind index,pager e      buffy-list
 macro index,pager	I	"<change-folder>=inbox<enter>" "go to inbox folder"
 
 # TODO: the pager macros do not untag all other messages first yet. <untag-pattern>~A doesn't seem to work. :-(
-macro index		S	"<tag-entry><tag-prefix><clear-flag>N<tag-prefix><save-message>=newspam<enter>" "save message to =newspam"
-macro pager		S	"<save-message>=newspam<enter>" "save message to =newspam"
-macro index		d	"<tag-entry><tag-prefix><clear-flag>N<tag-prefix><save-message>=trash<enter>" "move message to =trash"
-macro pager		d	"<save-message>=trash<enter>" "move message to =trash"
 
-# vim:sw=12:noet:sts=12:ts=12:ft=muttrc
+macro index S "<tag-entry><tag-prefix><clear-flag>N<tag-prefix><save-message>=spam<enter>" "save message to =spam"
+macro pager S "<save-message>=spam<enter>" "save message to =spam"
+
+folder-hook =quarantine 'macro index A "<tag-entry><tag-prefix><clear-flag>N<tag-prefix><save-message>=recovery<enter><previous-entry><tag-entry><tag-prefix><set-flag>N<tag-prefix><save-message>=inbox<enter>" "save message to =recovery and =inbox"'
+folder-hook =quarantine 'macro pager A "<save-message>=recovery<enter><previous-entry><save-message>=inbox<enter>" "save message to =recovery and =inbox"'
+
+folder-hook =quarantine 'macro index Q "<tag-entry><tag-prefix><clear-flag>N<tag-prefix><save-message>=recovery<enter>" "save message to =recovery only"'
+folder-hook =quarantine 'macro pager Q "<save-message>=recovery<enter>" "save message to =recovery only"'
+
+folder-hook . 'macro index X "<buffy-list>" "dummy macro"'
+folder-hook =quarantine 'macro index X "<tag-pattern>~A<enter><tag-prefix><clear-flag>N<tag-prefix><save-message>=spam<enter>" "move all mail to =spam"'
+
+macro index d "<tag-entry><tag-prefix><clear-flag>N<tag-prefix><save-message>=trash<enter>" "move message to =trash"
+macro pager d "<save-message>=trash<enter>" "move message to =trash"

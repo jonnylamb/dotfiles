@@ -1,3 +1,5 @@
+# -*- muttrc -*-
+
 # color terminals:
 # (default, white, black, green, magenta, blue, cyan, yellow, red)
 # (bright...)
@@ -28,5 +30,3 @@ color underline brightgreen default
 # attributes when using a mono terminal
 #mono header underline ^(From|Subject):
 mono quoted bold
-
-# vim:sw=9:noet:sts=9:ts=9:ft=muttrc
