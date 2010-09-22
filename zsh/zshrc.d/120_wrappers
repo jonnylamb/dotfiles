@@ -3,9 +3,9 @@
 
 oi () {
     if [ "$HOST" = "geminiani" ]; then
-	offlineimap $@
+	/home/jonny/bin/offlineimap $@
     else
-	ssh geminiani offlineimap $@
+	ssh geminiani /home/jonny/bin/offlineimap $@
     fi
 }
 
