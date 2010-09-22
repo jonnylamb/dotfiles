@@ -1,7 +1,7 @@
 [user]
 	name = Jonny Lamb
 	email = jonny@debian.org
-	signingkey = 2E039402
+	signingkey = AD289755
 [giggle]
 	compact-mode = false
 	main-window-maximized = true
