@@ -28,16 +28,6 @@ Host annarchy
     Hostname annarchy.freedesktop.org
     User jonny
 
-# Durham
-
-Host vega
-    Hostname vega2.dur.ac.uk
-    User d71x3w
-
-Host toast
-    Hostname compsoc.dur.ac.uk
-    User jdl
-
 # Home
 
 Host server
@@ -73,5 +63,5 @@ Host dhansak
 # VPSs
 
 Host byte
-    Hostname jonnylamb.com
+    Hostname 89.16.166.14
     User jonnylamb
