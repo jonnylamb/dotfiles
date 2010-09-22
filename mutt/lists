@@ -7,9 +7,7 @@ subscribe debian-devel-announce@lists.debian.org
 subscribe debian-private@lists.debian.org
 subscribe debian-security-announce@lists.debian.org
 subscribe debian-uk@chiark.greenend.org.uk
-subscribe gtkmm-list@mail.gnome.org
 subscribe lamby-xen-announce@lists.chris-lamb.co.uk
-subscribe maemo-developers@maemo.org
 subscribe pkg-maemo-maintainers@lists.alioth.debian.org
 subscribe pkg-telepathy-maintainers@lists.alioth.debian.org
 subscribe synce-devel@lists.sourceforge.net
@@ -17,18 +15,3 @@ subscribe telepathy@lists.freedesktop.org
 subscribe telepathy-bugs@lists.freedesktop.org
 subscribe xorg@lists.freedesktop.org
 subscribe xorg-devel@lists.freedesktop.org
-
-subscribe cas-student-link@durham.ac.uk
-subscribe cs-atca@durham.ac.uk
-subscribe cs-atcb@durham.ac.uk
-subscribe cs-atcc@durham.ac.uk
-subscribe cs-atcd@durham.ac.uk
-subscribe cs-year3@durham.ac.uk
-subscribe ds-computing@durham.ac.uk
-subscribe ds-chamber@durham.ac.uk
-subscribe ds-orchestral-society@durham.ac.uk
-subscribe ds-symphony@durham.ac.uk
-subscribe gr-livers-out@durham.ac.uk
-subscribe gr-squash@durham.ac.uk
-subscribe toast-users@compsoc.dur.ac.uk
-subscribe ug-year3@durham.ac.uk
