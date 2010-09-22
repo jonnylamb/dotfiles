@@ -6,18 +6,14 @@ send-hook '~A' 'set from="jonny@debian.org'
 send-hook '~C @collabora\.co\.uk' 'set from=jonny.lamb@collabora.co.uk'
 send-hook '~C @lists\.collabora\.co\.uk' 'set from=jonny.lamb@collabora.co.uk'
 send-hook '~C telepathy@lists\.freedesktop\.org' 'set from=jonny.lamb@collabora.co.uk'
+send-hook '~C papyon@lists\.freedesktop\.org' 'set from=jonny.lamb@collabora.co.uk'
+send-hook '~C standards@xmpp\.org' 'set from=jonny.lamb@collabora.co.uk'
 
 # Lists registered to with jonnylamb@jonnylamb.com
 send-hook '~C synce-devel@lists\.sourceforge\.net' 'set from=jonnylamb@jonnylamb.com'
 send-hook '~C debian-uk@chiark\.greenend\.org\.uk' 'set from=jonnylamb@jonnylamb.com'
 send-hook '~C gtkmm-list@gnome\.org' 'set from=jonnylamb@jonnylamb.com'
 send-hook '~C maemo-developers@maemo\.org' 'set from=jonnylamb@jonnylamb.com'
-
-# Durham
-send-hook '~C @durham\.ac\.uk' 'set from=j.d.lamb@durham.ac.uk'
-send-hook '~C @dur\.ac\.uk' 'set from=j.d.lamb@durham.ac.uk'
-send-hook '~C @compsoc\.dur\.ac\.uk' 'set from=j.d.lamb@durham.ac.uk'
-send-hook '~C @ducs\.org\.uk' 'set from=j.d.lamb@durham.ac.uk'
 
 # GNOME
 send-hook '~C @gnome\.org' 'set from=jonnylamb@gnome.org'
