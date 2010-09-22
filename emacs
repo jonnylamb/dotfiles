@@ -33,6 +33,9 @@
 ; use "y" and "n" instead of "yes" and "no"
 (fset 'yes-or-no-p 'y-or-n-p)
 
+; this is nice
+(delete-selection-mode 1)
+
 ; M-n to open a link at the cursor
 (setq gnus-button-url 'browse-url-generic
       browse-url-generic-program "gnome-open"
