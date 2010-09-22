@@ -12,15 +12,13 @@ git () {
 	one_email=$EMAIL_ADDRESS
 	two_email="jonny.lamb@collabora.co.uk"
 	three_email="jonnylamb@jonnylamb.com"
-	four_email="j.d.lamb@durham.ac.uk"
-        five_email="jonnylamb@gnome.org"
+        four_email="jonnylamb@gnome.org"
 
 	echo "Which email address do you want to use?"
 	echo " 1. $one_email (default)"
 	echo " 2. $two_email"
 	echo " 3. $three_email"
 	echo " 4. $four_email"
-        echo " 5. $five_email"
 	echo "or enter the address you want to use."
 	read number
 
