@@ -19,12 +19,6 @@ def jonnylamb_nametrans(fn):
     name = re.sub(r'^Trash', 'trash', name)
     return name
 
-def durham_nametrans(fn):
-    name = 'durham.%s' % fn
-    name = re.sub(r'^durham\.INBOX', 'durham', name)
-    name = re.sub(r'^durham\.Lists\.', 'lists.', name)
-    return name
-
 def collabora_folderfilter(fn):
     if fn in ['Spam', 'Drafts', 'Trash', 'Queue', 'Lists', 'Sent']:
         return False
