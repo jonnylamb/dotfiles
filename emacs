@@ -119,3 +119,6 @@
   )
 (add-to-list 'auto-mode-alist '("/mutt-" . mail-mode))
 (add-hook 'mail-mode-hook 'axels-mail-mode-hook)
+
+; git stuff
+(setq auto-mode-alist (cons '("COMMIT_EDITMSG" . diff-mode) auto-mode-alist))
