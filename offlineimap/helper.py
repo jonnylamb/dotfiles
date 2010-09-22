@@ -27,7 +27,7 @@ def collabora_folderfilter(fn):
     return True
 
 def jonnylamb_folderfilter(fn):
-    if fn in ['Spam', 'Queue', 'Lists', 'lists']:
+    if fn in ['spam', 'Queue', 'Lists', 'lists', 'oldSpam', 'oldnewspam']:
         return False
     if filter_lists and (fn.startswith('lists.') or fn.startswith('Lists.')):
         return False
