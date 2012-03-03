@@ -18,14 +18,10 @@
 	insteadof = collabora:
 [url "git://git.debian.org/git/"]
 	insteadof = debian:
-[url "git://git.jonnylamb.com/git/"]
-	insteadof = jonnylamb:
 [url "ssh://dhansak/git/"]
 	insteadof = dhansak:
 [url "ssh://alioth/git/"]
 	insteadof = alioth:
-[url "ssh://byte/~/git/"]
-	insteadof = byte:
 [alias]
 	wdiff = diff --color-words
 	wshow = show --color-words
