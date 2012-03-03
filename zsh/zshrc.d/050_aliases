@@ -63,7 +63,7 @@ alias sup="sudo ifup"
 alias mutt="PATH=$PATH:/usr/lib/mutt mutt"
 alias utt="mutt" # oh dear
 alias MAKE="make"
-alias m="make"
+alias m="colormake V=0"
 alias mc="make check"
 alias icemake="PATH=/usr/bin:$PATH make CC=icecc -j6"
 alias j="jobs"
