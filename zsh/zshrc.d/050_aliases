@@ -2,15 +2,10 @@
 # -*- sh -*-
 
 alias irc="ssh -v -t byte 'screen -ax'"
-alias email="ssh -t -X geminiani mutt"
-alias bt="ssh -v -t corelli.jonnylamb.com 'screen -ax'"
-alias koi="killall offlineimap" # sigh
 
 # Typos
-alias :q="exit"
 alias EXIT="exit"
 alias sl="ls"
-alias no="ls" # ls in qwerty when the keys are dvorak
 alias Grep="grep"
 alias cd..="cd .."
 
@@ -27,10 +22,6 @@ alias acp="apt-cache policy"
 alias e=$EDITOR
 alias se="sudo emacs -nw"
 
-# Helpers: vcs
-alias svn-clean="svn status | grep \"^?\" | cut -c8- | xargs -l1 rm -rf"
-alias pc="moap changelog prepare"
-
 # Helpers: git
 alias gd="git diff"
 alias gis="git --no-pager status"
@@ -42,7 +33,6 @@ alias gcb="git checkout -b"
 alias gcm="git checkout master"
 alias gl="git log"
 alias ga="git add"
-alias gwd="git wdiff"
 alias gcp="EDITOR=true git commit --amend"
 alias gcpa="EDITOR=true git commit -a --amend"
 alias gpom="git pull --ff-only origin master"
@@ -50,7 +40,6 @@ alias gpon="git pull --ff-only origin next"
 alias gpmm="git push annarchy master:master"
 
 # Helpers: Misc.
-alias mcp="moap changelog prepare"
 alias s="sudo"
 alias ls="ls --color"
 alias l="ls"
@@ -59,14 +48,10 @@ alias la="ls -lha"
 alias diff="diff -Nruad"
 alias tf="tail -f"
 alias stf="sudo tail -f"
-alias sup="sudo ifup"
-alias mutt="PATH=$PATH:/usr/lib/mutt mutt"
-alias utt="mutt" # oh dear
 alias MAKE="make"
 alias m="colormake V=0"
 alias mc="make check"
 alias icemake="PATH=/usr/bin:$PATH make CC=icecc -j6"
-alias j="jobs"
 alias vg='G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind --tool=memcheck --leak-check=full --leak-resolution=high --num-callers=20'
 alias fn="find -name"
 
