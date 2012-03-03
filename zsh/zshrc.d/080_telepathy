@@ -17,9 +17,11 @@ b () {
     fi
 
     repo=$(basename `pwd`)
-    echo "http://git.collabora.co.uk/?p=user/jonny/$repo.git;a=shortlog;h=refs/heads/$ref"
+
+    url="http://cgit.freedesktop.org/~jonny/$repo/log/?h=$ref"
+    echo $url
 
     # Don't load a web browser if we're in an SSH session, or don't even
     # have a display.
-    [ "$SSH_CLIENT" = "" ] && [ ! "$DISPLAY" = "" ] && gnome-open "http://git.collabora.co.uk/?p=user/jonny/$repo.git;a=shortlog;h=refs/heads/$ref"
+    [ "$SSH_CLIENT" = "" ] && [ ! "$DISPLAY" = "" ] && gnome-open $url
 }
