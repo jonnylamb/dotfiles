@@ -1,4 +1,4 @@
 #!/bin/zsh
 # -*- sh -*-
 
-export PATH="$HOME/bin/:$PATH:/usr/local/android/tools"
+export PATH="$HOME/bin/:$PATH"
