@@ -45,6 +45,9 @@ alias ga="git add"
 alias gwd="git wdiff"
 alias gcp="EDITOR=true git commit --amend"
 alias gcpa="EDITOR=true git commit -a --amend"
+alias gpom="git pull --ff-only origin master"
+alias gpon="git pull --ff-only origin next"
+alias gpmm="git push annarchy master:master"
 
 # Helpers: Misc.
 alias mcp="moap changelog prepare"
