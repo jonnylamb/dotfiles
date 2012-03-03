@@ -5,6 +5,6 @@ sdhansak() {
     scp -C $@ jonny@dhansak.collabora.co.uk:public_html/ && echo "\nhttp://people.collabora.co.uk/~jonny/$(basename $1)"
 }
 
-sbyte() {
-    scp -C $@ jonnylamb@jonnylamb.com:jonnylamb.com/htdocs/uploads/ && echo "\nhttp://jonnylamb.com/uploads/$(basename $1)"
+slalo() {
+    scp -C $@ jonny@lalo.jonnylamb.com:/srv/jonnylamb.com/www/uploads/ && echo "\nhttp://jonnylamb.com/porn/$(basename $1)"
 }
