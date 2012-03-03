@@ -1,14 +1,6 @@
 #!/bin/zsh
 # -*- sh -*-
 
-oi () {
-    if [ "$HOST" = "geminiani" ]; then
-	/home/jonny/bin/offlineimap $@
-    else
-	ssh geminiani /home/jonny/bin/offlineimap $@
-    fi
-}
-
 re() {
     source ~/.zshrc
 }
