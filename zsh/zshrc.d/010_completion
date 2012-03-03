@@ -3,8 +3,6 @@
 
 autoload -Uz compinit
 
-echo $HOST | grep -E "^vega[0-9]$" 2>&1 > /dev/null || compinit;
-
 zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)*.(pyc|o|lo|egg-info|class)'
 
