@@ -2,16 +2,6 @@ Host *
     ControlPath ~/.ssh/sock/%r@%h:%p
     ControlMaster auto
 
-# Laptops
-
-Host geminiani
-    Hostname geminiani.jonnylamb.com
-    User jonny
-
-Host salieri
-    Hostname salieri.local
-    User jonnylamb
-
 # Debian
 
 Host alioth
@@ -34,20 +24,8 @@ Host server
     Hostname jonnylamb.no-ip.org
     User jonny
 
-Host server2
-    Hostname jonnylamb.no-ip.org
-    User jonny
-    Port 23
-
-# Other home
-
 Host corelli
-    Hostname corelli.jonnylamb.com
-#192.168.0.1
-    User jonny
-
-Host bruch
-    Hostname bruch.jonnylamb.com
+    Hostname corelli.local
     User jonny
 
 # Collabora
