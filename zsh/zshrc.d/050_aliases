@@ -24,7 +24,7 @@ alias se="sudo emacs -nw"
 
 # Helpers: git
 alias gd="git diff"
-alias gis="git --no-pager status"
+alias gis="git --no-pager status -sb"
 alias gdc="git diff --cached"
 alias gc="git commit -sv"
 alias gca="git commit -sva"
