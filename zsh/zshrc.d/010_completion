@@ -1,7 +1,8 @@
 #!/bin/zsh
 # -*- sh -*-
 
-autoload -Uz compinit
+autoload -U compinit
+compinit
 
 zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)*.(pyc|o|lo|egg-info|class)'
