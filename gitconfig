@@ -25,3 +25,6 @@
 [alias]
 	wdiff = diff --color-words
 	wshow = show --color-words
+[core]
+	autocrlf = false
+	filemode = false
