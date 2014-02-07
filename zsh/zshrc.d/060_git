@@ -23,11 +23,3 @@ git () {
 
     /usr/bin/git $@
 }
-
-tun() {
-    EDITOR=true dch --no-force-save-on-release -r && git add debian/changelog && git commit -m "Target unstable."
-}
-
-texperimental() {
-    EDITOR=true dch -D experimental --no-force-save-on-release -r && git add debian/changelog && git commit -m "Target experimental."
-}
