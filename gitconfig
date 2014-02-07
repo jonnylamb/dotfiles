@@ -28,3 +28,8 @@
 [core]
 	autocrlf = false
 	filemode = false
+[sendemail]
+        smtpencryption = ssl
+        smtpserver = mail.messagingengine.com
+        smtpuser = jonnylamb@fastmail.fm
+        smtpserverport = 465
