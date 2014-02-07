@@ -4,25 +4,29 @@
 autoload -Uz vcs_info
 setopt PROMPT_SUBST
 
+DEBIAN_CHROOT=""
+JHBUILD=""
+
+# chroot
 if [ -r "/etc/debian_chroot" ]; then
     local debian_chroot=$(cat /etc/debian_chroot)
     DEBIAN_CHROOT="${debian_chroot:+/%S$debian_chroot%s}"
-else
-    DEBIAN_CHROOT=""
 fi
 
+# jhbuild
 if [ "$UNDER_JHBUILD" = "true" ]; then
     JHBUILD="/%{$fg_bold[green]%}jhbuild%{$reset_color%}"
-else
-    JHBUILD=""
 fi
 
-if [ ! $UID -eq 0 ] && echo $(whoami) | grep -E "^(jonnylamb|jonny|d71x3w|jdl)$" 2>&1 > /dev/null; then
+# show a normal prompt for normal sessions, otherwise include username
+# and make it red and bold in all other cases
+if [ $UID != 0 ] && [ $USER = jonny ]; then
     PROMPT="%B%M%b${DEBIAN_CHROOT}${JHBUILD}:%~%# "
 else
     PROMPT="%{$fg_bold[red]%}%n@%B%M%b${DEBIAN_CHROOT}${JHBUILD}:%~%# "
 fi
 
+# I can't remember what any of these do
 zstyle ':vcs_info:*' formats '%u%F{0}%b%f%c'
 zstyle ':vcs_info:*' actionformats '%u%F{1}%b/%a%f%c'
 
@@ -32,8 +36,8 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '*'
 zstyle ':vcs_info:*' unstagedstr '*'
 
+# toggle so vcs_info can be switched off
 ENABLE_VCS_INFO="yes"
-
 togglegit () {
     if [ "$ENABLE_VCS_INFO" = "yes" ]; then
         ENABLE_VCS_INFO="no"
@@ -43,6 +47,7 @@ togglegit () {
 }
 
 precmd () {
+    # don't vcs_info if we're in a chroot or if it's been disabled
     if [ ! -f /etc/debian_chroot ] && [ $ENABLE_VCS_INFO = "yes" ]; then
         vcs_info
     else
