@@ -11,10 +11,17 @@ else
     DEBIAN_CHROOT=""
 fi
 
-if [ ! $UID -eq 0 ] && echo $(whoami) | grep -E "^(jonnylamb|jonny|d71x3w|jdl)$" 2>&1 > /dev/null; then
-    PROMPT="%B%M%b${DEBIAN_CHROOT}:%~%# "
+if [ "$UNDER_JHBUILD" = "true" ]; then
+    JHBUILD="/%{$fg_bold[green]%}jhbuild%{$reset_color%}"
 else
-    PROMPT="$reset_color$fg_bold[red]%}%n@%B%M%b${DEBIAN_CHROOT}:%~%# "
+    JHBUILD=""
+fi
+
+if [ ! $UID -eq 0 ] && echo $(whoami) | grep -E "^(jonnylamb|jonny|d71x3w|jdl)$" 2>&1 > /dev/null; then
+    PROMPT="%B%M%b${DEBIAN_CHROOT}${JHBUILD}:%~%# "
+else
+#    PROMPT="$reset_color$fg_bold[red]%}%n@%B%M%b${DEBIAN_CHROOT}${JHBUILD}:%~%# "
+    PROMPT="%{$fg_bold[red]%}%n@%B%M%b${DEBIAN_CHROOT}${JHBUILD}:%~%# "
 fi
 
 zstyle ':vcs_info:*' formats '%u%F{0}%b%f%c'
