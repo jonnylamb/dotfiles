@@ -24,10 +24,6 @@ git () {
     /usr/bin/git $@
 }
 
-d() {
-    /usr/bin/debcommit $@
-}
-
 tun() {
     EDITOR=true dch --no-force-save-on-release -r && git add debian/changelog && git commit -m "Target unstable."
 }
