@@ -6,19 +6,6 @@ genpackages() {
     dpkg-scansources . /dev/null | tee Sources | gzip -9 > Sources.gz
 }
 
-# stolen from madduck
-bugsub() {
-    [ -z "$1" ] && { echo "usage: $0 bugno"; return 1; }
-
-    echo X-debbugs-autosubscribe: jonny | \
-        sendmail -f $DEBEMAIL $1-subscribe@bugs.debian.org
-}
-bugunsub() {
-    [ -z "$1" ] && { echo "usage: $0 bugno"; return 1; }
-
-    sendmail -f $DEBEMAIL $1-unsubscribe@bugs.debian.org </dev/null
-}
-
 tun() {
     EDITOR=true dch --no-force-save-on-release -r \
         && git add debian/changelog \
