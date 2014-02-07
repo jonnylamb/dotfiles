@@ -42,17 +42,18 @@
 
 ; telepathy coding style
 ; http://telepathy.freedesktop.org/wiki/Style
-(defun telepathy-c-initialization-hook ()
-  (c-add-style "telepathy"
-  '("gnu"
-    (indent-tabs-mode . nil)
-    (c-offsets-alist
-     (arglist-intro . 4)
-     (arglist-cont-nonempty . 4)))))
-(add-hook 'c-initialization-hook 'telepathy-c-initialization-hook)
+(c-add-style "telepathy"
+'("gnu"
+  (indent-tabs-mode . nil)
+  (c-offsets-alist
+   (arglist-intro . 4)
+   (arglist-cont-nonempty . 4))))
 
-; default c coding style
-(setq c-default-style "telepathy")
+(c-add-style "wayland"
+'("linux"
+  (indent-tabs-mode . t)))
+
+(setq c-default-style "wayland")
 
 ; show trailing whitespace
 (setq-default show-trailing-whitespace t)
