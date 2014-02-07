@@ -28,34 +28,6 @@ d() {
     /usr/bin/debcommit $@
 }
 
-git-bare() {
-    [ -d .git ] || { echo "$0: Use inside a current Git repository"; return 1; }
-    [ -z $1 ] && { echo "$0: Specify a git repo name"; return 1; }
-    [ -e /tmp/$1.git ] && { echo "$0: /tmp/$1.git already exists"; return 1; }
-
-    git clone --bare . /tmp/$1.git
-    git --bare --git-dir=/tmp/$1.git update-server-info
-    git --bare --git-dir=/tmp/$1.git gc
-    mv /tmp/$1.git/hooks/post-update{.sample,}
-    chmod +x /tmp/$1.git/hooks/post-update
-    touch /tmp/$1.git/git-daemon-export-ok
-
-    sensible-editor /tmp/$1.git/description
-
-    if [ "$2" = "upload" ]; then
-	echo "Will upload to jonnylamb.com now.."
-
-	if grep -i "packag" /tmp/$1.git/description; then
-	    scp -r /tmp/$1.git jonnylamb@jonnylamb.com:git/packaging/
-	else
-	    scp -r /tmp/$1.git jonnylamb@jonnylamb.com:git/
-	fi
-	rm -rf /tmp/$1.git
-    else
-	echo "Repository is at /tmp/$1.git"
-    fi
-}
-
 tun() {
     EDITOR=true dch --no-force-save-on-release -r && git add debian/changelog && git commit -m "Target unstable."
 }
