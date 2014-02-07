@@ -20,10 +20,6 @@ Host dhansak
 
 # VPSs
 
-Host byte
-    Hostname 89.16.166.14
-    User jonnylamb
-
 Host lalo
     Hostname 212.110.189.148
     User jonny
