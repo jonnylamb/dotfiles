@@ -28,21 +28,6 @@ d() {
     /usr/bin/debcommit $@
 }
 
-_gbp() {
-    export GIT_AUTHOR_EMAIL=$DEBEMAIL
-    export GIT_COMMITTER_EMAIL=$DEBEMAIL
-    export GIT_JONNY_EMAIL_BASEDIR=$(pwd)
-}
-
-gbp-pull() { _gbp ; /usr/bin/gbp-pull $@ }
-git-buildpackage() { _gbp ; /usr/bin/git-buildpackage $@ }
-git-dch() { _gbp ; /usr/bin/git-dch $@ }
-gbp-pq() { _gbp ; /usr/bin/gbp-pq $@ }
-gbp-clone() { _gbp ; /usr/bin/gbp-clone $@ }
-git-import-dsc() { _gbp ; /usr/bin/git-import-dsc $@ }
-git-import-orig() { _gbp ; /usr/bin/git-import-orig $@ }
-git-import-dscs() { _gbp ; /usr/bin/git-import-dscs $@ }
-
 git-bare() {
     [ -d .git ] || { echo "$0: Use inside a current Git repository"; return 1; }
     [ -z $1 ] && { echo "$0: Specify a git repo name"; return 1; }
