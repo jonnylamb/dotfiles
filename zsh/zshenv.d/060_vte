@@ -1,0 +1,4 @@
+#!/bin/zsh
+# -*- sh -*-
+
+. /etc/profile.d/vte.sh
