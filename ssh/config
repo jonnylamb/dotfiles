@@ -2,16 +2,6 @@ Host *
     ControlPath ~/.ssh/sock/%r@%h:%p
     ControlMaster auto
 
-# Debian
-
-Host alioth
-    Hostname alioth.debian.org
-    User jonny
-
-Host ravel
-    Hostname ravel.debian.org
-    User jonny
-
 # fdo
 
 Host annarchy
