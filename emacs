@@ -55,6 +55,11 @@
 
 (setq c-default-style "wayland")
 
+; show tabs and stuff
+(require 'whitespace)
+(global-whitespace-mode t)
+(setq whitespace-global-modes '(c-mode c++-mode))
+
 ; show trailing whitespace
 (setq-default show-trailing-whitespace t)
 (setq whitespace-style '(tabs tab-mark))
