@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# a prepare commit message hook to give appropriate headers to files
+# in the repository that have changed, been added, or been deleted. it
+# works well enough.
+
+files=$(git status -s | grep "^[AMD]" | awk '{ print $2 }')
+
+touch $1.new
+
+for file in $files; do
+    echo "$file: " >> $1.new
+done
+
+cat $1 >> $1.new
+mv $1.new $1
