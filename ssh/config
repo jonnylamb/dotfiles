@@ -8,16 +8,6 @@ Host annarchy
     Hostname annarchy.freedesktop.org
     User jonny
 
-# Home
-
-Host server
-    Hostname jonnylamb.no-ip.org
-    User jonny
-
-Host corelli
-    Hostname corelli.local
-    User jonny
-
 # Collabora
 
 Host jalfrezi
