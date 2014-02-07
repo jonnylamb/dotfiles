@@ -1,6 +1,0 @@
-#!/bin/zsh
-# -*- sh -*-
-
-re() {
-    source $ZDOTDIR/.zshrc
-}
