@@ -36,12 +36,6 @@
 ; this is nice
 (delete-selection-mode 1)
 
-; M-n to open a link at the cursor
-(setq gnus-button-url 'browse-url-generic
-      browse-url-generic-program "gnome-open"
-      browse-url-browser-function gnus-button-url)
-(global-set-key "\M-n" 'browse-url-at-point)
-
 ; use the X clipboard
 (setq x-select-enable-clipboard t)
 (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
