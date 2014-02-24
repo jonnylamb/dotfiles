@@ -7,12 +7,14 @@ git () {
 
         tmp=`mktemp`
 
-        dialog --menu "pick an email address" \
+        if ! dialog --menu "pick an email address" \
                11 50 4 \
                jonny@debian.org debian \
                jonny.lamb@collabora.co.uk collabora \
                jonnylamb@jonnylamb.com personal \
-               jonnylamb@gnome.org gnome 2> $tmp
+               jonnylamb@gnome.org gnome 2> $tmp; then
+            return
+        fi
 
         email=`cat $tmp`
         rm $tmp
