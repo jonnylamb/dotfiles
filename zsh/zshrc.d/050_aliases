@@ -56,6 +56,7 @@ alias icemake="PATH=/usr/bin:$PATH make CC=icecc -j6"
 alias vg='G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind --tool=memcheck --leak-check=full --leak-resolution=high --num-callers=20'
 alias fn="find -name"
 alias d="debcommit"
+alias msot="most"
 
 # Global aliases.
 alias -g ...="../.."
