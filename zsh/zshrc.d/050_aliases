@@ -36,6 +36,7 @@ alias gl="git log"
 alias ga="git add"
 alias gcp="EDITOR=true git commit --amend"
 alias gcpa="EDITOR=true git commit -a --amend"
+alias gcf="git commit --fixup"
 alias gpom="git pull --ff-only origin master"
 alias gpon="git pull --ff-only origin next"
 alias gpmm="git push annarchy master:master"
@@ -57,6 +58,8 @@ alias vg='G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind --tool=memcheck --l
 alias fn="find -name"
 alias d="debcommit"
 alias msot="most"
+alias sb="sublime"
+alias go="gnome-open"
 
 # Global aliases.
 alias -g ...="../.."
