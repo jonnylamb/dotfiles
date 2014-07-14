@@ -33,3 +33,5 @@
         smtpserver = mail.messagingengine.com
         smtpuser = jonnylamb@fastmail.fm
         smtpserverport = 465
+[rebase]
+        autosquash = true
