@@ -1,4 +1,4 @@
 #!/bin/zsh
 # -*- sh -*-
 
-. /etc/profile.d/vte.sh
+[ -f /etc/profile.d/vte.sh ] && . /etc/profile.d/vte.sh
