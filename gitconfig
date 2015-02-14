@@ -1,6 +1,6 @@
 [user]
 	name = Jonny Lamb
-	email = jonny@debian.org
+	email = jonnylamb@jonnylamb.com
 	signingkey = AD289755
 [giggle]
 	compact-mode = false
@@ -22,6 +22,8 @@
 	insteadof = dhansak:
 [url "ssh://alioth/git/"]
 	insteadof = alioth:
+[url "git://anongit.freedesktop.org/"]
+	insteadof = fdo:
 [alias]
 	wdiff = diff --color-words
 	wshow = show --color-words
