@@ -1,5 +1,7 @@
 ; -*- emacs-lisp -*-
 
+(require 's)
+
 ; misc useful functions
 (defun jonny/first-char (s)
   "first char of string"
@@ -8,7 +10,7 @@
 ; work out whether submodules are loaded
 (defun jonny/test-submodules/list ()
   "list of submodules"
-  (split-string (substring (shell-command-to-string "git submodule status") 0 -1) "\n"))
+  (split-string (s-trim-right (shell-command-to-string "git submodule status")) "\n"))
 
 (defun jonny/test-submodules/statuses ()
   "list of submodule statuses"
