@@ -50,7 +50,7 @@
 #$pgp_options = ['-us', '-uc'];
 
 # By default, do not build arch-all packages
-#$build_arch_all = 0;
+$build_arch_all = 1;
 
 # By default, the -s option only includes the .orig.tar.gz when needed
 # (i.e. when the Debian revision is 0 or 1).  By setting this option
@@ -109,7 +109,7 @@
 
 # Force APT to accept unauthenticated packages.
 # This is disabled by default: only enable it if you know what you are doing.
-$apt_allow_unauthenticated = 1;
+#$apt_allow_unauthenticated = 1;
 
 # APT policy.  1 to enable additional checking of package versions
 # available in the APT cache, or 0 to disable.  0 is the traditional
