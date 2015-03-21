@@ -3,3 +3,4 @@ authorized_keys
 known_hosts
 collabora_root*
 jenkins_beet*
+known_hosts.old
