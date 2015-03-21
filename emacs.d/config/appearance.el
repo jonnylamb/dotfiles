@@ -33,12 +33,10 @@
 (blink-cursor-mode 0)
 
 ; no tooltips
-(if window-system
-    (tooltip-mode 0))
+(tooltip-mode 0)
 
 ; no toolbar
-(if window-system
-    (tool-bar-mode 0))
+(tool-bar-mode 0)
 
 ; no menu bar
 (menu-bar-mode 0)
