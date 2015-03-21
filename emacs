@@ -1,6 +1,7 @@
 ; -*- emacs-lisp -*-
 
 ; core stuff
+(load "~/.emacs.d/config/dirs.el")
 (load "~/.emacs.d/config/utf8.el")
 (load "~/.emacs.d/config/appearance.el")
 (load "~/.emacs.d/config/x.el")
