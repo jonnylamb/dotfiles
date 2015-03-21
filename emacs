@@ -1,5 +1,8 @@
 ; -*- emacs-lisp -*-
 
+; before all else
+(load "~/.emacs.d/config/functions.el")
+
 ; core stuff
 (load "~/.emacs.d/config/dirs.el")
 (load "~/.emacs.d/config/utf8.el")
