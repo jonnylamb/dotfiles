@@ -4,8 +4,7 @@
 (setq auto-mode-alist (cons '("COMMIT_EDITMSG" . diff-mode) auto-mode-alist))
 
 ; git diff buffer
-(if (file-exists-p "~/src/emacs-git-gutter/")
-    (progn
-      (add-to-list 'load-path "~/src/emacs-git-gutter/")
-      (require 'git-gutter)
-      (global-git-gutter-mode t)))
+(when jonny/submodules
+  (progn
+    (require 'git-gutter)
+    (global-git-gutter-mode t)))
