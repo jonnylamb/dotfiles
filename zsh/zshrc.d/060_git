@@ -9,9 +9,9 @@ git () {
 
         if ! dialog --menu "pick an email address" \
                11 50 4 \
-               jonny@debian.org debian \
-               jonny.lamb@collabora.co.uk collabora \
                jonnylamb@jonnylamb.com personal \
+               jonny.lamb@collabora.co.uk collabora \
+               jonny@debian.org debian \
                jonnylamb@gnome.org gnome 2> $tmp; then
             return
         fi
