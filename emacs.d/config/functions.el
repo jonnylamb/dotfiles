@@ -5,7 +5,7 @@
 ; misc useful functions
 (defun jonny/first-char (s)
   "first char of string"
-  (substring s 0 1))
+  (s-left 1 s))
 
 ; work out whether submodules are loaded
 (defun jonny/test-submodules/list ()
@@ -14,10 +14,8 @@
 
 (defun jonny/test-submodules/statuses ()
   "list of submodule statuses"
-  (delete
-   " "
-   (mapcar 'jonny/first-char (jonny/test-submodules/list))))
+  (mapcar 'jonny/first-char (jonny/test-submodules/list)))
 
 (defun jonny/test-submodules ()
   "whether all submodules are in clean state in current working directory"
-  (= 0 (length (jonny/test-submodules/statuses))))
+  (s-blank? (s-trim (s-join "" (jonny/test-submodules/statuses)))))
