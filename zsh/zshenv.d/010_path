@@ -3,7 +3,6 @@
 
 export PATH="$HOME/bin/:$PATH"
 
-if [ "$(hostname)" = "reger" ]; then
-    export PATH="$PATH:/home/jonny/src/git-branch-tools"
-    export PATH="$PATH:/home/jonny/src/rpi-scripts"
+if [ -d "$HOME/src/git-branch-tools" ]; then
+    export PATH="$PATH:$HOME/src/git-branch-tools"
 fi
