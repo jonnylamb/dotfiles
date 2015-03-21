@@ -1,27 +1,27 @@
 ; -*- emacs-lisp -*-
 
 ; core stuff
-(load "~/.emacs.d/utf8.el")
-(load "~/.emacs.d/appearance.el")
-(load "~/.emacs.d/x.el")
-(load "~/.emacs.d/desktop.el")
-(load "~/.emacs.d/keys.el")
-(load "~/.emacs.d/server.el")
+(load "~/.emacs.d/config/utf8.el")
+(load "~/.emacs.d/config/appearance.el")
+(load "~/.emacs.d/config/x.el")
+(load "~/.emacs.d/config/desktop.el")
+(load "~/.emacs.d/config/keys.el")
+(load "~/.emacs.d/config/server.el")
 
 ; languages
-(load "~/.emacs.d/c.el")
-(load "~/.emacs.d/sh.el")
+(load "~/.emacs.d/config/c.el")
+(load "~/.emacs.d/config/sh.el")
 
 ; vcs
-(load "~/.emacs.d/vcs.el")
-(load "~/.emacs.d/git.el")
+(load "~/.emacs.d/config/vcs.el")
+(load "~/.emacs.d/config/git.el")
 
 ; formatting
-(load "~/.emacs.d/formatting.el")
-(load "~/.emacs.d/whitespace.el")
+(load "~/.emacs.d/config/formatting.el")
+(load "~/.emacs.d/config/whitespace.el")
 
 ; misc
-(load "~/.emacs.d/personal.el")
+(load "~/.emacs.d/config/personal.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
