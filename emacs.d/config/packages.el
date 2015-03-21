@@ -1,5 +1,8 @@
 ; -*- emacs-lisp -*-
 
+; remove gnu
+(setq package-archives nil)
+
 ; add marmalade
 (add-to-list
  'package-archives
