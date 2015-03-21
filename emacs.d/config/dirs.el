@@ -6,5 +6,5 @@
 (add-to-list 'load-path site-lisp-dir)
 
 ; set themes dir
-(add-to-list 'custom-theme-load-path
-             (expand-file-name "themes" user-emacs-directory))
+(setq jonny/themes-base-dir
+      (expand-file-name (file-name-as-directory "themes") user-emacs-directory))
