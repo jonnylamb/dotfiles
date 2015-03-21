@@ -5,6 +5,9 @@ sdhansak() {
     scp -C $@ jonny@dhansak.collabora.co.uk:public_html/ && echo "\nhttp://people.collabora.co.uk/~jonny/$(basename $1)"
 }
 
-slalo() {
-    scp -C $@ jonny@lalo.jonnylamb.com:/srv/jonnylamb.com/www/uploads/ && echo "\nhttp://jonnylamb.com/porn/$(basename $1)"
+sberg() {
+    chmod 644 $1
+    # use berg.jonnylamb.com here so we don't use the open connection
+    # as it's annoying if the other has debug on
+    scp -C $@ jonny@berg.jonnylamb.com:/srv/jonnylamb.com/www/uploads/ && echo "\nhttp://jonnylamb.com/porn/$(basename $1)"
 }
