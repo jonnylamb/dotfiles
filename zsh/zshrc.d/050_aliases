@@ -1,7 +1,7 @@
 #!/bin/zsh
 # -*- sh -*-
 
-alias irc="mosh lalo -- screen -ax"
+alias irc="mosh berg -- screen -ax"
 
 # Typos
 alias EXIT="exit"
