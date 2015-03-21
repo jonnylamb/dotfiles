@@ -27,3 +27,10 @@ Host lalo
 Host berg
     Hostname 213.138.114.80
     User jonny
+
+# Misc
+
+Host rf2-dev
+    Hostname localhost
+    User jonny
+    Port 5555
