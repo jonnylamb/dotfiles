@@ -2,6 +2,7 @@
 # -*- sh -*-
 
 sdhansak() {
+    chmod 644 $1
     scp -C $@ jonny@dhansak.collabora.co.uk:public_html/ && echo "\nhttp://people.collabora.co.uk/~jonny/$(basename $1)"
 }
 
