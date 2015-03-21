@@ -1,0 +1,9 @@
+#!/bin/zsh
+# -*- sh -*-
+
+# TODO: use the highlighter in the fizsh package
+if [ -d "$HOME/src/zsh-syntax-highlighting/" ]; then
+    source $HOME/src/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+    ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+fi
