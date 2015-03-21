@@ -1,10 +1,8 @@
 ; -*- emacs-lisp -*-
 
-; theme
+; set theme
 (when jonny/submodules
-  (progn
-    (add-to-list 'custom-theme-load-path (concat jonny/themes-base-dir "monokai"))
-    (load-theme 'monokai t)))
+  (load-theme 'monokai t))
 
 ; font
 (set-default-font "Inconsolata-11")
