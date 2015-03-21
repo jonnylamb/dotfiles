@@ -23,3 +23,7 @@ Host dhansak
 Host lalo
     Hostname 212.110.189.148
     User jonny
+
+Host berg
+    Hostname 213.138.114.80
+    User jonny
