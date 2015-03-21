@@ -4,3 +4,6 @@
 [submodule "emacs.d/themes/monokai"]
 	path = emacs.d/themes/monokai
 	url = https://github.com/oneKelvinSmith/monokai-emacs.git
+[submodule "emacs.d/site-lisp/s.el"]
+	path = emacs.d/site-lisp/s
+	url = https://github.com/magnars/s.el.git
