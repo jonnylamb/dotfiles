@@ -10,3 +10,9 @@ cdt () {
     cd $(mktemp -p $cdt_dir -td cdt.XXXXXX);
     echo "Moved to $(pwd)"
 }
+
+fcdt () {
+    for i in `find /tmp/ -name $1 2>/dev/null | grep "^/tmp/cdt"`; do
+        echo `dirname $i` → $i
+    done
+}
