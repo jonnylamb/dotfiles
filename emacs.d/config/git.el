@@ -4,7 +4,9 @@
 (setq auto-mode-alist (cons '("COMMIT_EDITMSG" . diff-mode) auto-mode-alist))
 
 ; git diff buffer
-(when jonny/submodules
-  (progn
-    (require 'git-gutter)
-    (global-git-gutter-mode t)))
+; disabled because it doesn't really work and it breaks the config
+; loading too
+;(when jonny/submodules
+;  (progn
+;    (require 'git-gutter)
+;    (global-git-gutter-mode t)))
