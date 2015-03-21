@@ -5,6 +5,7 @@
 
 ; git diff buffer
 (if (file-exists-p "~/src/emacs-git-gutter/")
-    (add-to-list 'load-path "~/src/emacs-git-gutter/")
-  (require 'git-gutter)
-  (global-git-gutter-mode t))
+    (progn
+      (add-to-list 'load-path "~/src/emacs-git-gutter/")
+      (require 'git-gutter)
+      (global-git-gutter-mode t)))

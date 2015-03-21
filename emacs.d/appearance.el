@@ -1,8 +1,10 @@
 ; -*- emacs-lisp -*-
 
 ; theme
-(add-to-list 'custom-theme-load-path "~/src/monokai-emacs/")
-(load-theme 'monokai t)
+(if (file-exists-p "~/src/monokai-emacs/")
+    (progn
+      (add-to-list 'custom-theme-load-path "~/src/monokai-emacs/")
+      (load-theme 'monokai t)))
 
 ; font
 (set-default-font "Inconsolata-11")
