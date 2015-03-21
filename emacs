@@ -12,6 +12,7 @@
 (load "~/.emacs.d/config/desktop.el")
 (load "~/.emacs.d/config/keys.el")
 (load "~/.emacs.d/config/server.el")
+(load "~/.emacs.d/config/packages.el")
 
 ; languages
 (load "~/.emacs.d/config/c.el")
