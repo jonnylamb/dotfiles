@@ -10,7 +10,7 @@
 ; work out whether submodules are loaded
 (defun jonny/test-submodules/list ()
   "list of submodules"
-  (split-string (s-trim-right (shell-command-to-string "git submodule status")) "\n"))
+  (s-lines (s-trim-right (shell-command-to-string "git submodule status"))))
 
 (defun jonny/test-submodules/statuses ()
   "list of submodule statuses"
