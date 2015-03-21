@@ -1,4 +1,4 @@
-; -*- emacs-lisp -*-
+;; -*- emacs-lisp -*-
 
 ; utf8
 (if (string-match "[Uu][Tt][Ff]-?8" (or (getenv "LC_ALL")

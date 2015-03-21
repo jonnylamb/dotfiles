@@ -1,13 +1,13 @@
-; -*- emacs-lisp -*-
+;; -*- emacs-lisp -*-
 
 (require 's)
 
-; misc useful functions
+;; misc useful functions
 (defun jonny/first-char (s)
   "first char of string"
   (s-left 1 s))
 
-; work out whether submodules are loaded
+;; work out whether submodules are loaded
 (defun jonny/test-submodules/list ()
   "list of submodules"
   (s-lines (s-trim-right (shell-command-to-string "git submodule status"))))

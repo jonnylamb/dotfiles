@@ -1,4 +1,4 @@
-; -*- emacs-lisp -*-
+;; -*- emacs-lisp -*-
 
-; desktop
+;; desktop
 (desktop-save-mode 1)

@@ -1,43 +1,43 @@
-; -*- emacs-lisp -*-
+;; -*- emacs-lisp -*-
 
-; set theme
+;; set theme
 (when jonny/submodules
   (load-theme 'monokai t))
 
-; font
+;; font
 (set-default-font "Inconsolata-11")
 
-; no line numbers
+;; no line numbers
 (global-linum-mode 0)
 
-; display the column number in the bottom
+;; display the column number in the bottom
 (column-number-mode t)
 
-; use "y" and "n" instead of "yes" and "no"
+;; use "y" and "n" instead of "yes" and "no"
 (fset 'yes-or-no-p 'y-or-n-p)
 
-; no scrollbar
+;; no scrollbar
 (scroll-bar-mode -1)
 
-; more misc
+;; more misc
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-echo-area-message "jonny")
 
-; syntax highlighing
+;; syntax highlighing
 (global-font-lock-mode t)
 (font-lock-mode 1)
 
-; stop the cursor blinking
+;; stop the cursor blinking
 (blink-cursor-mode 0)
 
-; no tooltips
+;; no tooltips
 (tooltip-mode 0)
 
-; no toolbar
+;; no toolbar
 (tool-bar-mode 0)
 
-; no menu bar
+;; no menu bar
 (menu-bar-mode 0)
 
-; don't show a cursor if the window isn't selected
+;; don't show a cursor if the window isn't selected
 (setq cursor-in-non-selected-windows nil)

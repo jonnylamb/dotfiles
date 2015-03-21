@@ -1,4 +1,4 @@
-; -*- emacs-lisp -*-
+;; -*- emacs-lisp -*-
 
-; follow symlinks
+;; follow symlinks
 (setq vc-follow-symlinks t)

@@ -1,6 +1,6 @@
-; -*- emacs-lisp -*-
+;; -*- emacs-lisp -*-
 
-; show tabs and stuff
+;; show tabs and stuff
 (require 'whitespace)
 (global-whitespace-mode t)
 (setq whitespace-global-modes '(c-mode c++-mode sh-mode emacs-lisp-mode))

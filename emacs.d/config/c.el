@@ -1,7 +1,7 @@
-; -*- emacs-lisp -*-
+;; -*- emacs-lisp -*-
 
-; telepathy coding style
-; http://telepathy.freedesktop.org/wiki/Style
+;; telepathy coding style
+;; http://telepathy.freedesktop.org/wiki/Style
 (c-add-style "telepathy"
 '("gnu"
   (indent-tabs-mode . nil)
@@ -9,13 +9,13 @@
    (arglist-intro . 4)
    (arglist-cont-nonempty . 4))))
 
-; wayland style
+;; wayland style
 (c-add-style "wayland"
 '("linux"
   (indent-tabs-mode . t)))
 
-; use wayland style by default
+;; use wayland style by default
 (setq c-default-style "wayland")
 
-; close brackets automatically
+;; close brackets automatically
 (add-hook 'c-mode-common-hook 'electric-pair-mode)
