@@ -2,6 +2,7 @@
 
 ; before all else
 (load "~/.emacs.d/config/functions.el")
+(load "~/.emacs.d/config/globals.el")
 
 ; core stuff
 (load "~/.emacs.d/config/dirs.el")
