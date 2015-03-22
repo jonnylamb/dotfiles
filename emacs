@@ -28,7 +28,7 @@
 (load (concat config-dir "git.el"))
 
 ;; formatting
-(load (concat config-dir "formatting.el"))
+(load (concat config-dir "behaviour.el"))
 (load (concat config-dir "whitespace.el"))
 
 ;; misc
