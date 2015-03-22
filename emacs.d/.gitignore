@@ -4,3 +4,4 @@ semanticdb
 .emacs.desktop.lock
 elpa
 saved-places
+.mc-lists.el
