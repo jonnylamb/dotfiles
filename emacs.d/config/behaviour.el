@@ -6,3 +6,8 @@
 
 ;; tabs off by default
 (setq-default indent-tabs-mode nil)
+
+;; save location of cursor
+(require 'saveplace)
+(setq save-place-file (expand-file-name "saved-places" user-emacs-directory))
+(setq-default save-place t)
