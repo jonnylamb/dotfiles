@@ -25,4 +25,4 @@
   (when (require name nil 'noerror)
     body))
 
-(provide 'custom-functions)
+(provide 'custom-defuns)

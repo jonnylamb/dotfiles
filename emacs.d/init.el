@@ -8,7 +8,7 @@
 (require 'dirs)
 
 ;; before all else
-(require 'custom-functions)
+(require 'custom-defuns)
 (require 'custom-globals)
 
 ;; core stuff
