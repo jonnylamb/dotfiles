@@ -4,6 +4,7 @@
 (setq auto-mode-alist (cons '("COMMIT_EDITMSG" . diff-mode) auto-mode-alist))
 
 ;; git diff buffer
-(jonny/when-installed
- 'git-gutter
- (global-git-gutter-mode t))
+;; this doesn't work and I don't know why
+;;(jonny/when-installed
+;; 'git-gutter
+;; (global-git-gutter-mode t))
