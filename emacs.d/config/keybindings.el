@@ -15,11 +15,18 @@
  'expand-region
  (global-set-key (kbd "C-=") 'er/expand-region))
 
+;; multiple cursors
 (jonny/when-installed
  'multiple-cursors
  (progn
    (global-set-key (kbd "C->") 'mc/mark-next-like-this)
    (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
    (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)))
+
+;; smex
+(jonny/when-installed
+ 'smex
+ (progn
+   (global-set-key (kbd "M-x") 'smex)))
 
 (provide 'keybindings)
