@@ -41,3 +41,18 @@
 
 ;; don't show a cursor if the window isn't selected
 (setq cursor-in-non-selected-windows nil)
+
+;; show current function
+(which-function-mode t)
+
+;; show matching parens
+(show-paren-mode t)
+
+;; only have one space at sentence ends
+(setq sentence-end-double-space nil)
+
+;; auto revert unmodified buffers
+(global-auto-revert-mode 1)
+
+;; don't defer screen updates when performing operations
+(setq redisplay-dont-pause t)
