@@ -1,31 +1,35 @@
 ;; -*- emacs-lisp -*-
 
-(load "~/.emacs.d/config/dirs.el")
+(setq config-dir
+      (file-name-as-directory
+       (expand-file-name "config" user-emacs-directory)))
+
+(load (concat config-dir "dirs.el"))
 
 ;; before all else
-(load "~/.emacs.d/config/functions.el")
-(load "~/.emacs.d/config/globals.el")
+(load (concat config-dir "functions.el"))
+(load (concat config-dir "globals.el"))
 
 ;; core stuff
-(load "~/.emacs.d/config/utf8.el")
-(load "~/.emacs.d/config/appearance.el")
-(load "~/.emacs.d/config/x.el")
-(load "~/.emacs.d/config/desktop.el")
-(load "~/.emacs.d/config/keys.el")
-(load "~/.emacs.d/config/server.el")
-(load "~/.emacs.d/config/packages.el")
+(load (concat config-dir "utf8.el"))
+(load (concat config-dir "appearance.el"))
+(load (concat config-dir "x.el"))
+(load (concat config-dir "desktop.el"))
+(load (concat config-dir "keys.el"))
+(load (concat config-dir "server.el"))
+(load (concat config-dir "packages.el"))
 
 ;; languages
-(load "~/.emacs.d/config/c.el")
-(load "~/.emacs.d/config/sh.el")
+(load (concat config-dir "c.el"))
+(load (concat config-dir "sh.el"))
 
 ;; vcs
-(load "~/.emacs.d/config/vcs.el")
-(load "~/.emacs.d/config/git.el")
+(load (concat config-dir "vcs.el"))
+(load (concat config-dir "git.el"))
 
 ;; formatting
-(load "~/.emacs.d/config/formatting.el")
-(load "~/.emacs.d/config/whitespace.el")
+(load (concat config-dir "formatting.el"))
+(load (concat config-dir "whitespace.el"))
 
 ;; misc
-(load "~/.emacs.d/config/personal.el")
+(load (concat config-dir "personal.el"))
