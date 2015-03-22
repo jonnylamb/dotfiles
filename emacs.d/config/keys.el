@@ -11,5 +11,6 @@
 (global-set-key [end] 'end-of-buffer)
 
 ;; expand region
-(when (require 'expand-region nil 'noerror)
-  (global-set-key (kbd "C-=") 'er/expand-region))
+(jonny/when-installed
+ 'expand-region
+ (global-set-key (kbd "C-=") 'er/expand-region))
