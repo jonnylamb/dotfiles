@@ -7,3 +7,6 @@
 [submodule "emacs.d/site-lisp/s.el"]
 	path = emacs.d/site-lisp/s
 	url = https://github.com/magnars/s.el.git
+[submodule "emacs.d/site-lisp/expand-region"]
+	path = emacs.d/site-lisp/expand-region
+	url = https://github.com/magnars/expand-region.el.git
