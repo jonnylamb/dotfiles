@@ -27,6 +27,7 @@
 (jonny/when-installed
  'smex
  (progn
+   (smex-initialize)
    (global-set-key (kbd "M-x") 'smex)))
 
 (provide 'keybindings)
