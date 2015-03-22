@@ -30,4 +30,12 @@
    (smex-initialize)
    (global-set-key (kbd "M-x") 'smex)))
 
+;; iy-go-to-char
+(jonny/when-installed
+ 'iy-go-to-char
+ (progn
+   (add-to-list 'mc/cursor-specific-vars 'iy-go-to-char-start-pos)
+   (global-set-key (kbd "C-c f") 'iy-go-to-char)
+   (global-set-key (kbd "C-c F") 'iy-go-to-char-backward)))
+
 (provide 'keybindings)
