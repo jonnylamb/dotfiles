@@ -13,3 +13,6 @@
 [submodule "emacs.d/site-lisp/multiple-cursors"]
 	path = emacs.d/site-lisp/multiple-cursors
 	url = https://github.com/magnars/multiple-cursors.el.git
+[submodule "emacs.d/site-lisp/smex"]
+	path = emacs.d/site-lisp/smex
+	url = https://github.com/nonsequitur/smex.git
