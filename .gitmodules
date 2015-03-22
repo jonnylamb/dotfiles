@@ -10,3 +10,6 @@
 [submodule "emacs.d/site-lisp/expand-region"]
 	path = emacs.d/site-lisp/expand-region
 	url = https://github.com/magnars/expand-region.el.git
+[submodule "emacs.d/site-lisp/multiple-cursors"]
+	path = emacs.d/site-lisp/multiple-cursors
+	url = https://github.com/magnars/multiple-cursors.el.git
