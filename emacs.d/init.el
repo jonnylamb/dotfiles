@@ -3,33 +3,33 @@
 (setq config-dir
       (file-name-as-directory
        (expand-file-name "config" user-emacs-directory)))
+(add-to-list 'load-path config-dir)
 
-(load (concat config-dir "dirs.el"))
+(require 'dirs)
 
 ;; before all else
-(load (concat config-dir "functions.el"))
-(load (concat config-dir "globals.el"))
+(require 'custom-functions)
+(require 'custom-globals)
 
 ;; core stuff
-(load (concat config-dir "utf8.el"))
-(load (concat config-dir "appearance.el"))
-(load (concat config-dir "x.el"))
-(load (concat config-dir "desktop.el"))
-(load (concat config-dir "keys.el"))
-(load (concat config-dir "server.el"))
-(load (concat config-dir "packages.el"))
+(require 'utf8)
+(require 'appearance)
+(require 'x)
+(require 'setup-desktop)
+(require 'keybindings)
+(require 'setup-packages)
 
 ;; languages
-(load (concat config-dir "c.el"))
-(load (concat config-dir "sh.el"))
+(require 'lang-c)
+(require 'lang-sh)
 
 ;; vcs
-(load (concat config-dir "vcs.el"))
-(load (concat config-dir "git.el"))
+(require 'setup-vcs)
+(require 'setup-git)
 
 ;; formatting
-(load (concat config-dir "behaviour.el"))
-(load (concat config-dir "whitespace.el"))
+(require 'behaviour)
+(require 'setup-whitespace)
 
 ;; misc
-(load (concat config-dir "personal.el"))
+(require 'personal)

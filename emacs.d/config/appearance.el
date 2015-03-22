@@ -56,3 +56,5 @@
 
 ;; don't defer screen updates when performing operations
 (setq redisplay-dont-pause t)
+
+(provide 'appearance)

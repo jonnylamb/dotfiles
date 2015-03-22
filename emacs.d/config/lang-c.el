@@ -19,3 +19,5 @@
 
 ;; close brackets automatically
 (add-hook 'c-mode-common-hook 'electric-pair-mode)
+
+(provide 'lang-c)

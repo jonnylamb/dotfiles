@@ -20,3 +20,5 @@
                (y-or-n-p (format "Directory `%s' does not exist! Create it?" parent-directory)))
       (make-directory parent-directory t))))
 (add-to-list 'find-file-not-found-functions 'my-create-non-existent-directory)
+
+(provide 'behaviour)
