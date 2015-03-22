@@ -19,3 +19,8 @@
 (defun jonny/test-submodules ()
   "whether all submodules are in clean state in current working directory"
   (s-blank? (s-trim (s-join "" (jonny/test-submodules/statuses)))))
+
+(defun jonny/when-installed (name &rest body)
+  "test whether a package is installed and if so, run body"
+  (when (require name nil 'noerror)
+    body))
