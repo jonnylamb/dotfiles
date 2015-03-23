@@ -26,9 +26,7 @@
 ;; smex
 (jonny/when-installed
  'smex
- (progn
-   (smex-initialize)
-   (global-set-key (kbd "M-x") 'smex)))
+ (global-set-key (kbd "M-x") 'smex))
 
 ;; iy-go-to-char
 (jonny/when-installed
