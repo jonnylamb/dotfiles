@@ -38,4 +38,4 @@
    (global-set-key (kbd "C-c f") 'iy-go-to-char)
    (global-set-key (kbd "C-c F") 'iy-go-to-char-backward)))
 
-(provide 'keybindings)
+(provide 'custom-keybindings)

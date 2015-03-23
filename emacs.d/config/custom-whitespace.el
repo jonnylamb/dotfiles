@@ -6,4 +6,4 @@
 (setq whitespace-global-modes '(c-mode c++-mode sh-mode emacs-lisp-mode makefile-mode))
 (setq whitespace-style '(face tabs spaces trailing space-before-tab empty space-after-tab::tab space-mark tab-mark))
 
-(provide 'setup-whitespace)
+(provide 'custom-whitespace)

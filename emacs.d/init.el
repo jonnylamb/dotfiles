@@ -16,7 +16,7 @@
 (require 'appearance)
 (require 'x)
 (require 'setup-desktop)
-(require 'keybindings)
+(require 'custom-keybindings)
 (require 'setup-packages)
 
 ;; languages
@@ -29,7 +29,7 @@
 
 ;; formatting
 (require 'behaviour)
-(require 'setup-whitespace)
+(require 'custom-whitespace)
 
 ;; misc
 (require 'personal)
