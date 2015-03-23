@@ -5,3 +5,5 @@ semanticdb
 elpa
 saved-places
 .mc-lists.el
+srecode-map.el
+smex-items
