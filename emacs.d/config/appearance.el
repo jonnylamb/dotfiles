@@ -5,7 +5,7 @@
   (load-theme 'monokai t))
 
 ;; font
-(set-default-font "Inconsolata-11")
+(set-default-font "Inconsolata-10")
 
 ;; no line numbers
 (global-linum-mode 0)
