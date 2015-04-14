@@ -22,6 +22,7 @@
 (load (concat config-dir "lang-c.el"))
 (load (concat config-dir "lang-sh.el"))
 (load (concat config-dir "lang-elisp.el"))
+(load (concat config-dir "lang-python.el"))
 
 ;; vcs
 (load (concat config-dir "vcs.el"))
