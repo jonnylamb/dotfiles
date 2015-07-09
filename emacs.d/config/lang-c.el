@@ -10,6 +10,12 @@
     (arglist-intro . 4)
     (arglist-cont-nonempty . 4))))
 
+;; gtk+ style
+(c-add-style
+ "gtk"
+ '("gnu"
+   (indent-tabs-mode . nil)))
+
 ;; wayland style
 (c-add-style
  "wayland"
