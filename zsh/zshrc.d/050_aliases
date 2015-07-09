@@ -59,6 +59,7 @@ alias d="debcommit"
 alias msot="most"
 alias sb="sublime"
 alias go="gnome-open"
+alias dirc="ssh berg screen -d"
 
 # Global aliases.
 alias -g ...="../.."
