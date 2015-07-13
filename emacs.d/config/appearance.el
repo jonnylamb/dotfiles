@@ -1,7 +1,7 @@
 ;; -*- emacs-lisp -*-
 
 ;; set theme
-(when jonny/submodules
+(when 'jonny/submodules
   (load-theme 'monokai t))
 
 ;; font
