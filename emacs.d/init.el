@@ -21,7 +21,7 @@
 ;; languages
 (load (concat config-dir "lang-c.el"))
 (load (concat config-dir "lang-sh.el"))
-(load (concat config-dir "lang-elisp.el"))
+(load (concat config-dir "lang-lisp.el"))
 (load (concat config-dir "lang-python.el"))
 
 ;; vcs
