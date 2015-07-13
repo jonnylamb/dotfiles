@@ -23,7 +23,7 @@
    (indent-tabs-mode . t)))
 
 ;; use wayland style by default
-(setq c-default-style "wayland")
+(setq c-default-style "gtk")
 
 ;; close brackets automatically
 (add-hook 'c-mode-common-hook 'electric-pair-mode)
