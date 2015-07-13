@@ -27,3 +27,27 @@
 
 ;; close brackets automatically
 (add-hook 'c-mode-common-hook 'electric-pair-mode)
+
+;; cedet
+(defun c-mode-semantic-hook ()
+  (progn
+    (set-default 'semantic-case-fold t)
+    (global-semanticdb-minor-mode 1)
+    (global-semantic-idle-scheduler-mode 1)
+    (semantic-mode 1)))
+
+(jonny/when-installed
+ 'semantic
+ (add-hook 'c-mode-common-hook 'c-mode-semantic-hook))
+
+;; code completion
+(defun c-mode-company-hook ()
+  (progn
+    ;; disable autocompletion
+    (setq company-idle-delay nil)
+    (company-mode)
+    (local-set-key (kbd "M-/") 'company-complete)))
+
+(jonny/when-installed
+ 'company
+ (add-hook 'c-mode-common-hook 'c-mode-company-hook))
