@@ -4,33 +4,36 @@
       (file-name-as-directory
        (expand-file-name "config" user-emacs-directory)))
 
-(load (concat config-dir "dirs.el"))
+(defun load-config (name)
+  (load (concat config-dir name ".el")))
+
+(load-config "dirs")
 
 ;; before all else
-(load (concat config-dir "defuns.el"))
-(load (concat config-dir "globals.el"))
+(load-config "defuns")
+(load-config "globals")
 
 ;; core stuff
-(load (concat config-dir "utf8.el"))
-(load (concat config-dir "appearance.el"))
-(load (concat config-dir "x.el"))
-(load (concat config-dir "desktop.el"))
-(load (concat config-dir "keybindings.el"))
-(load (concat config-dir "packages.el"))
+(load-config "utf8")
+(load-config "appearance")
+(load-config "x")
+(load-config "desktop")
+(load-config "keybindings")
+(load-config "packages")
 
 ;; languages
-(load (concat config-dir "lang-c.el"))
-(load (concat config-dir "lang-sh.el"))
-(load (concat config-dir "lang-lisp.el"))
-(load (concat config-dir "lang-python.el"))
+(load-config "lang-c")
+(load-config "lang-sh")
+(load-config "lang-lisp")
+(load-config "lang-python")
 
 ;; vcs
-(load (concat config-dir "vcs.el"))
-(load (concat config-dir "git.el"))
+(load-config "vcs")
+(load-config "git")
 
 ;; formatting
-(load (concat config-dir "behaviour.el"))
-(load (concat config-dir "whitespace.el"))
+(load-config "behaviour")
+(load-config "whitespace")
 
 ;; misc
-(load (concat config-dir "personal.el"))
+(load-config "personal")
