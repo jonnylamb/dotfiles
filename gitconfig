@@ -30,6 +30,7 @@
 [core]
 	autocrlf = false
 	filemode = false
+	excludesfile = ~/tmp/dotfiles/gitignore
 [sendemail]
         smtpencryption = ssl
         smtpserver = mail.messagingengine.com
