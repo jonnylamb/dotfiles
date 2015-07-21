@@ -5,7 +5,16 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("0eebf69ceadbbcdd747713f2f3f839fe0d4a45bd0d4d9f46145e40878fc9b098" default))))
+    ("0eebf69ceadbbcdd747713f2f3f839fe0d4a45bd0d4d9f46145e40878fc9b098" default)))
+ '(safe-local-variable-values
+   (quote
+    ((eval progn
+           (c-set-offset
+            (quote innamespace)
+            (quote 0))
+           (c-set-offset
+            (quote inline-open)
+            (quote 0)))))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
