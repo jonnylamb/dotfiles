@@ -2,5 +2,5 @@
 # -*- sh -*-
 
 re() {
-    source $ZDOTDIR/zshrc
+    source $ZDOTDIR/.zshrc
 }
