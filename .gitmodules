@@ -25,3 +25,6 @@
 [submodule "emacs.d/site-lisp/flycheck"]
 	path = emacs.d/site-lisp/flycheck
 	url = https://github.com/flycheck/flycheck
+[submodule "emacs.d/site-lisp/dash"]
+	path = emacs.d/site-lisp/dash
+	url = https://github.com/magnars/dash.el
