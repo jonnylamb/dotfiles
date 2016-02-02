@@ -2,6 +2,7 @@
 # -*- sh -*-
 
 alias irc="mosh berg -- screen -ax"
+alias dirc="ssh berg screen -d"
 
 # Typos
 alias EXIT="exit"
@@ -57,9 +58,7 @@ alias vg='G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind --tool=memcheck --l
 alias fn="find -name"
 alias d="debcommit"
 alias msot="most"
-alias sb="sublime"
 alias go="gnome-open"
-alias dirc="ssh berg screen -d"
 
 # Global aliases.
 alias -g ...="../.."
