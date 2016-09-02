@@ -28,3 +28,6 @@
 [submodule "emacs.d/site-lisp/dash"]
 	path = emacs.d/site-lisp/dash
 	url = https://github.com/magnars/dash.el
+[submodule "emacs.d/site-lisp/scala-mode"]
+	path = emacs.d/site-lisp/scala-mode
+	url = https://github.com/ensime/emacs-scala-mode
