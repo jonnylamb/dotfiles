@@ -1,0 +1,39 @@
+#!/bin/zsh
+# -*- sh -*-
+
+if [ "$(uname)" = "Darwin" ]; then
+
+    # replace some terrible BSD tools with their GNU counterparts
+    _ga () {
+        cmd="$1"
+
+        if which $cmd 2>&1 > /dev/null; then
+            alias $cmd="g$cmd"
+        fi
+    }
+
+    #_ga ls
+    #_ga cp
+    #_ga mv
+    #_ga rm
+    #_ga grep
+    #_ga egrep
+    #_ga sed
+    _ga find
+    #_ga head
+    #_ga tail
+    #_ga ln
+    #_ga tar
+    #_ga md5sum
+    _ga mktemp
+    #_ga readlink
+    #_ga date
+    #_ga tac
+
+    #LS=gls
+    #CP=gcp
+    #MV=gmv
+    #RM=grm
+    export FIND=gfind
+    #GREP=ggrep
+fi
