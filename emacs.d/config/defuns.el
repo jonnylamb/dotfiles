@@ -24,3 +24,7 @@
   "test whether a package is installed and if so, run body"
   (when (require name nil 'noerror)
     body))
+
+(defun jonny/is-mac (&rest body)
+  (if (string-equal system-name "darwin")
+      body))
