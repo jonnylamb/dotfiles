@@ -48,7 +48,7 @@ togglegit () {
 
 precmd () {
     # don't vcs_info if we're in a chroot or if it's been disabled
-    if [ ! -f /etc/debian_chroot ] && [ $ENABLE_VCS_INFO = "yes" ]; then
+    if [ ! -f /etc/debian_chroot ] && [ $ENABLE_VCS_INFO = "yes" ] && [ "$(git config --get core.usewatchman)" != "true" ]; then
         vcs_info
     else
         vcs_info_msg_0_=""
