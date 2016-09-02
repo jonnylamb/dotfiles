@@ -20,7 +20,7 @@ fi
 
 # show a normal prompt for normal sessions, otherwise include username
 # and make it red and bold in all other cases
-if [ $UID != 0 ] && [ $USER = jonny ]; then
+if [ $USER = jonny ] || [ $USER = jlamb ]; then
     PROMPT="%B%M%b${DEBIAN_CHROOT}${JHBUILD}:%~%# "
 else
     PROMPT="%{$fg_bold[red]%}%n@%B%M%b${DEBIAN_CHROOT}${JHBUILD}:%~%# "
