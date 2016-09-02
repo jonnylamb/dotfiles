@@ -7,14 +7,14 @@ src () {
     [ "$1" = "emp" ] && { 1=empathy; }
 
     if [ -d ~/src/telepathy-$1 ]; then
-	dir=~/src/telepathy-$1
+        dir=~/src/telepathy-$1
     else
-	dir=~/src/$1
+        dir=~/src/$1
     fi
 
     if [ -d $dir ]; then
-	cd $dir
+        cd $dir
     else
-	echo "E: No directory: $dir"
+        echo "E: No directory: $dir"
     fi
 }
