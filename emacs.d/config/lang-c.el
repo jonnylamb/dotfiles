@@ -29,22 +29,29 @@
 (add-hook 'c-mode-common-hook 'electric-pair-mode)
 
 ;; cedet
+(set-default 'semantic-case-fold t)
+
 (defun c-mode-semantic-hook ()
   (progn
-    (set-default 'semantic-case-fold t)
     (global-semanticdb-minor-mode 1)
     (global-semantic-idle-scheduler-mode 1)
-    (semantic-mode 1)))
+    (local-set-key (kbd "M-.") 'semantic-ia-fast-jump)
+    (semantic-mode t)))
 
 (jonny/when-installed
  'semantic
  (add-hook 'c-mode-common-hook 'c-mode-semantic-hook))
 
+;; some commonly used system headers
+;(semantic-add-system-include "/usr/include/gtk-3.0" 'c-mode)
+;(semantic-add-system-include "/usr/include/gtkmm-3.0" 'c++-mode)
+
 ;; code completion
+(setq company-idle-delay nil)
+
 (defun c-mode-company-hook ()
   (progn
     ;; disable autocompletion
-    (setq company-idle-delay nil)
     (company-mode)
     (local-set-key (kbd "M-/") 'company-complete)))
 
