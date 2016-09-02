@@ -8,11 +8,11 @@ if [ "$(uname)" = "Darwin" ]; then
         cmd="$1"
 
         if which $cmd 2>&1 > /dev/null; then
-            alias $cmd="g$cmd"
+            alias $cmd="g$cmd $2"
         fi
     }
 
-    #_ga ls
+    _ga ls --color
     #_ga cp
     #_ga mv
     #_ga rm
@@ -30,7 +30,7 @@ if [ "$(uname)" = "Darwin" ]; then
     #_ga date
     #_ga tac
 
-    #LS=gls
+    LS="gls --color"
     #CP=gcp
     #MV=gmv
     #RM=grm
