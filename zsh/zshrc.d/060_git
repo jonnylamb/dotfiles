@@ -8,6 +8,15 @@ if [ -d $HOME/src/zsh-git-escape-magic ]; then
 fi
 
 git () {
+
+    # if git doesn't point to /usr/bin/git, there are going to be big
+    # problems so don't bother going ahead
+    original="$(sh -c 'which git')"
+    if ! [ "$original" = "/usr/bin/git" ]; then
+        $original $@
+        return
+    fi
+
     if ! /usr/bin/git config --local --get user.email 2>&1 > /dev/null && \
        echo $1 | grep -E "^(commit|merge|rebase|am|cherry-pick|revert)$" 2>&1 > /dev/null; then
 
