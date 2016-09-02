@@ -8,13 +8,16 @@ if [ -d $HOME/src/zsh-git-escape-magic ]; then
 fi
 
 git () {
-
     # if git doesn't point to /usr/bin/git, there are going to be big
     # problems so don't bother going ahead
     original="$(sh -c 'which git')"
     if ! [ "$original" = "/usr/bin/git" ]; then
         $original $@
         return
+    fi
+
+    if [ "`/usr/bin/git config --local --get user.email`" = "jonny.lamb@collabora.co.uk" ]; then
+        /usr/bin/git config --local --unset user.email
     fi
 
     if ! /usr/bin/git config --local --get user.email 2>&1 > /dev/null && \
@@ -25,7 +28,6 @@ git () {
         if ! dialog --menu "pick an email address" \
                11 50 4 \
                jonnylamb@jonnylamb.com personal \
-               jonny.lamb@collabora.co.uk collabora \
                jonny@debian.org debian \
                jonnylamb@gnome.org gnome 2> $tmp; then
             return
