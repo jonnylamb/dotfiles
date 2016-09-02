@@ -5,7 +5,10 @@
   (load-theme 'monokai t))
 
 ;; font
-(set-default-font "Inconsolata-10")
+(set-default-font "Inconsolata-11")
+
+(when 'jonny/is-mac
+  (set-default-font "Monaco-12"))
 
 ;; no line numbers
 (global-linum-mode 0)
