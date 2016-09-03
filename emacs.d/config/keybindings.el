@@ -11,30 +11,25 @@
 (global-set-key [end] 'end-of-buffer)
 
 ;; expand region
-(jonny/when-installed
- 'expand-region
- (global-set-key (kbd "C-=") 'er/expand-region))
+(use-package expand-region
+  :bind ("C-=" . er/expand-region))
 
 ;; multiple cursors
-(jonny/when-installed
- 'multiple-cursors
- (progn
-   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)))
+(use-package multiple-cursors
+  :bind (("C->" . mc/mark-next-like-this)
+         ("C-<" . mc/mark-previous-like-this)
+         ("C-c C-<" . mc/mark-all-like-this)))
 
 ;; smex
-(jonny/when-installed
- 'smex
- (global-set-key (kbd "M-x") 'smex))
+(use-package smex
+  :bind ("M-x" . smex))
 
 ;; iy-go-to-char
-(jonny/when-installed
- 'iy-go-to-char
- (progn
-   (add-to-list 'mc/cursor-specific-vars 'iy-go-to-char-start-pos)
-   (global-set-key (kbd "C-c f") 'iy-go-to-char)
-   (global-set-key (kbd "C-c F") 'iy-go-to-char-backward)))
+(use-package iy-go-to-char
+  :bind (("C-c f" . iy-go-to-char)
+         ("C-c F" . iy-go-to-char-backward))
+  :config
+  (add-to-list 'mc/cursor-specific-vars 'iy-go-to-char-start-pos))
 
 ;; mac stuff
 (when 'jonny/is-mac

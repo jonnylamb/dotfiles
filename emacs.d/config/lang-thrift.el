@@ -1,3 +1,3 @@
 ;; -*- emacs-lisp -*-
 
-(require 'thrift-mode)
+(use-package thrift)

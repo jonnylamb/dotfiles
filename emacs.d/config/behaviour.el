@@ -32,3 +32,8 @@
         (goto-line (read-number "Goto line: ")))
     (linum-mode -1)))
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
+
+(use-package exec-path-from-shell
+  :if 'jonny/is-mac
+  :config
+  (exec-path-from-shell-initialize))

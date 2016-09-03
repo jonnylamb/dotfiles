@@ -46,7 +46,9 @@
 ;(semantic-add-system-include "/usr/include/gtkmm-3.0" 'c++-mode)
 
 ;; code completion
-(setq company-idle-delay nil)
+(use-package company
+  :config
+  (setq company-idle-delay nil))
 
 (defun c-mode-company-hook ()
   (progn
@@ -54,6 +56,4 @@
     (company-mode)
     (local-set-key (kbd "M-/") 'company-complete)))
 
-(jonny/when-installed
- 'company
- (add-hook 'c-mode-common-hook 'c-mode-company-hook))
+(add-hook 'c-mode-common-hook 'c-mode-company-hook)

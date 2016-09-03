@@ -12,27 +12,29 @@
 ;; before all else
 (load-config "defuns")
 
+;; package support
+(load-config "packages")
+
 ;; core stuff
 (load-config "utf8")
-(load-config "appearance")
 (load-config "x")
 (load-config "desktop")
+(load-config "appearance")
 (load-config "keybindings")
-(load-config "packages")
+(load-config "behaviour")
+(load-config "whitespace")
 
 ;; languages
 (load-config "lang-c")
 (load-config "lang-sh")
 (load-config "lang-lisp")
 (load-config "lang-python")
+(load-config "lang-scala")
+(load-config "lang-thrift")
 
 ;; vcs
 (load-config "vcs")
 (load-config "git")
-
-;; formatting
-(load-config "behaviour")
-(load-config "whitespace")
 
 ;; misc
 (load-config "personal")
