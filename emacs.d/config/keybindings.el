@@ -33,7 +33,9 @@
 
 ;; jumping around files
 (use-package ace-jump-mode
-  :bind ("C-c SPC" . ace-jump-mode))
+  :bind ("C-c SPC" . ace-jump-mode)
+  :config
+  (setq ace-jump-mode-case-fold t))
 
 ;; mac stuff
 (when 'jonny/is-mac
