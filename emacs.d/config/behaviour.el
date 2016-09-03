@@ -33,7 +33,10 @@
     (linum-mode -1)))
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
 
+;; use shell path
 (use-package exec-path-from-shell
   :if 'jonny/is-mac
   :config
   (exec-path-from-shell-initialize))
+
+(electric-pair-mode 1)
