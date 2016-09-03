@@ -41,10 +41,6 @@
 (require 'semantic)
 (add-hook 'c-mode-common-hook 'c-mode-semantic-hook)
 
-;; some commonly used system headers
-;(semantic-add-system-include "/usr/include/gtk-3.0" 'c-mode)
-;(semantic-add-system-include "/usr/include/gtkmm-3.0" 'c++-mode)
-
 ;; code completion
 (use-package company
   :config
