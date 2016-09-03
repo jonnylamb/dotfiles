@@ -31,6 +31,10 @@
   :config
   (add-to-list 'mc/cursor-specific-vars 'iy-go-to-char-start-pos))
 
+;; jumping around files
+(use-package ace-jump-mode
+  :bind ("C-c SPC" . ace-jump-mode))
+
 ;; mac stuff
 (when 'jonny/is-mac
   (setq mac-command-modifier 'meta))
