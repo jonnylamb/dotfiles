@@ -27,8 +27,6 @@
 ;; languages
 (load-config "lang-c")
 (load-config "lang-sh")
-(load-config "lang-lisp")
-(load-config "lang-python")
 (load-config "lang-scala")
 (load-config "lang-thrift")
 
