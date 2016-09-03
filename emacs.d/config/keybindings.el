@@ -35,3 +35,7 @@
    (add-to-list 'mc/cursor-specific-vars 'iy-go-to-char-start-pos)
    (global-set-key (kbd "C-c f") 'iy-go-to-char)
    (global-set-key (kbd "C-c F") 'iy-go-to-char-backward)))
+
+;; mac stuff
+(when 'jonny/is-mac
+  (setq mac-command-modifier 'meta))
