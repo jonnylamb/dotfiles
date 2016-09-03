@@ -38,9 +38,8 @@
     (local-set-key (kbd "M-.") 'semantic-ia-fast-jump)
     (semantic-mode t)))
 
-(jonny/when-installed
- 'semantic
- (add-hook 'c-mode-common-hook 'c-mode-semantic-hook))
+(require 'semantic)
+(add-hook 'c-mode-common-hook 'c-mode-semantic-hook)
 
 ;; some commonly used system headers
 ;(semantic-add-system-include "/usr/include/gtk-3.0" 'c-mode)
