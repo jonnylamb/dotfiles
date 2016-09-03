@@ -11,7 +11,6 @@
 
 ;; before all else
 (load-config "defuns")
-(load-config "globals")
 
 ;; core stuff
 (load-config "utf8")
