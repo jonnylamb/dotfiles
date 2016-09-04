@@ -41,7 +41,8 @@
 ;; code completion
 (use-package company
   :config
-  (setq company-idle-delay nil))
+  (setq company-idle-delay nil
+        company-global-modes nil))
 
 (defun c-mode-company-hook ()
   (progn
