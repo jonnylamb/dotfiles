@@ -39,4 +39,18 @@
   :config
   (exec-path-from-shell-initialize))
 
-(electric-pair-mode 1)
+;; automatically close brackets
+(use-package smartparens
+  :diminish smartparens-mode
+  :commands smartparens-strict-mode smartparens-mode sp-restrict-to-pairs-interactive sp-local-pair
+  :init
+  (setq sp-interactive-dwim t)
+  :config
+  (require 'smartparens-config)
+  (sp-use-smartparens-bindings)
+
+  (sp-pair "(" ")" :wrap "C-(") ;; how do people live without this?
+  ;; (sp-pair "[" "]" :wrap "s-[") ;; C-[ sends ESC
+  (sp-pair "{" "}" :wrap "C-{")
+
+  (smartparens-global-mode))
