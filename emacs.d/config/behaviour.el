@@ -52,3 +52,6 @@
   (sp-pair "{" "}" :wrap "C-{")
 
   (smartparens-global-mode))
+
+;; pretty coloured brackets
+(use-package "rainbow-delimiters")
