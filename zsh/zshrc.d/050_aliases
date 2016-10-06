@@ -4,14 +4,14 @@
 alias irc="mosh berg -- screen -ax"
 alias dirc="ssh berg screen -d"
 
-# Typos
+# typos
 alias EXIT="exit"
 alias sl="ls"
 alias Grep="grep"
 alias cd..="cd .."
 
-# Helpers: APT
-alias sagi="sudo apt-get install"
+# apt
+alias sagi="studo apt-get install"
 alias sagr="sudo apt-get remove"
 alias sagu="sudo apt-get update"
 alias acs="apt-cache search"
@@ -19,12 +19,14 @@ alias acsh="apt-cache show"
 alias afs="apt-file search -x"
 alias acp="apt-cache policy"
 
-# Helpers: Editors
+# editors
 alias e=$EDITOR
 alias se="sudo emacs -nw"
+alias ec="emacsclient -n"
 
-# Helpers: git
+# git
 alias gd="git diff"
+alias g="gd"
 alias gs="gis"
 alias gis="git --no-pager status -sb"
 alias gdc="git diff --cached"
@@ -41,7 +43,7 @@ alias gcf="git commit --fixup"
 alias gpom="git pull --ff-only origin master"
 alias gpmm="git push annarchy master:master"
 
-# Helpers: Misc.
+# misc
 alias s="sudo"
 alias ls="ls --color"
 alias l="ls"
@@ -53,19 +55,24 @@ alias stf="sudo tail -f"
 alias MAKE="make"
 alias m="colormake V=0"
 alias mc="make check"
-alias icemake="PATH=/usr/bin:$PATH make CC=icecc -j6"
-alias vg='G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind --tool=memcheck --leak-check=full --leak-resolution=high --num-callers=20'
 alias fn="find -name"
 alias d="debcommit"
 alias msot="most"
-alias go="gnome-open"
 
-# Global aliases.
+# ag
+alias ag="ag --path-to-agignore ~/.agignore"
+alias agmain="ag --ignore test"
+alias agtest="ag --ignore main"
+
+# global aliases
 alias -g ...="../.."
 alias -g ....="../../.."
 
-# Globbing
+# noglobbing
 alias curl="noglob curl"
 alias wget="noglob wget"
 alias epiphany="noglob epiphany"
 alias find="noglob find"
+
+# misc rubbish
+alias shipit='for i in /usr/local/share/cows/*.cow; do cowsay -f $i "Ship it"; done'
