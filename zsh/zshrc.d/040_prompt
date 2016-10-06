@@ -46,12 +46,19 @@ togglegit () {
     fi
 }
 
+# fast and super ugly git command(s)
+_git_branch () {
+    branchname=`cat $(git rev-parse --show-toplevel)/.git/HEAD`
+    echo ${branchname//ref: refs\/heads\//}
+}
+
 precmd () {
-    # don't vcs_info if we're in a chroot or if it's been disabled
-    if [ ! -f /etc/debian_chroot ] && [ $ENABLE_VCS_INFO = "yes" ] && [ "$(git config --get core.usewatchman)" != "true" ]; then
-        vcs_info
-    else
+    if [ -f /etc/debian_chroot ]; then
         vcs_info_msg_0_=""
+    elif [ "$(git config --get core.usewatchman)" = "true" ] || [ $ENABLE_VCS_INFO = "no" ]; then
+        vcs_info_msg_0_="%{$fg[grey]%}`_git_branch`%{$reset_color%}"
+    elif [ $ENABLE_VCS_INFO = "yes" ]; then
+        vcs_info
     fi
     RPROMPT=' %B${vcs_info_msg_0_}%b %(?..%?)'
 }
