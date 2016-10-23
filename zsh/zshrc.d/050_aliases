@@ -11,7 +11,7 @@ alias Grep="grep"
 alias cd..="cd .."
 
 # apt
-alias sagi="studo apt-get install"
+alias sagi="sudo apt-get install"
 alias sagr="sudo apt-get remove"
 alias sagu="sudo apt-get update"
 alias acs="apt-cache search"
