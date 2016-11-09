@@ -7,6 +7,19 @@ if [ -d $HOME/src/zsh-git-escape-magic ]; then
     git-escape-magic
 fi
 
+gcp () {
+    if [ "$(git reflog --pretty=%an -1)" != "Jonny Lamb" ]; then
+        echo "error: last commit is not by you; use git commit --amend manually."
+        return 1
+    fi
+
+    EDITOR=true git commit --amend $@
+}
+
+gcpa () {
+    gcp -a
+}
+
 git () {
     # if git doesn't point to /usr/bin/git, there are going to be big
     # problems so don't bother going ahead
