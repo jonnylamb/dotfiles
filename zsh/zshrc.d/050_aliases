@@ -58,7 +58,6 @@ alias d="debcommit"
 alias msot="most"
 
 # ag
-alias ag="ag --path-to-agignore ~/.agignore"
 alias agmain="ag --ignore test"
 alias agtest="ag --ignore main"
 
