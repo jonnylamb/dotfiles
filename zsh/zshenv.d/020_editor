@@ -4,5 +4,5 @@
 if [ -f "/home/jonny/bin/ec" ]; then
     export EDITOR="/home/jonny/bin/ec"
 else
-    export EDITOR="emacs -nw -Q"
+    export EDITOR="emacsclient"
 fi
