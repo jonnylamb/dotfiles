@@ -20,6 +20,7 @@
 (load-config "x")
 (load-config "desktop")
 (load-config "appearance")
+(load-config "ligatures")
 (load-config "keybindings")
 (load-config "behaviour")
 (load-config "whitespace")
