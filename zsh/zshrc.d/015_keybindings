@@ -1,0 +1,13 @@
+#!/bin/zsh
+# -*- sh -*-
+
+autoload -Uz select-word-style
+
+# <alt-backspace> deletes word separated by forward-slash
+_bash_backward_kill_word() {
+    select-word-style bash
+    zle backward-kill-word
+    select-word-style normal
+}
+zle -N _bash_backward_kill_word _bash_backward_kill_word
+bindkey '^[^?' _bash_backward_kill_word
