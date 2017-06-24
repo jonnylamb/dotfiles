@@ -1,15 +1,12 @@
 ;; -*- emacs-lisp -*-
 
 ;; set theme
-(use-package monokai-theme
+(use-package solarized-theme
   :config
-  (load-theme 'monokai t))
+  (load-theme 'solarized-dark t))
 
 ;; font
-(set-default-font "Inconsolata-11")
-
-(when 'jonny/is-mac
-  (set-default-font "Monaco-12"))
+(set-default-font "Fira code-14")
 
 ;; no line numbers
 (global-linum-mode 0)
