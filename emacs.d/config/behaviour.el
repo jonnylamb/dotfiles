@@ -35,6 +35,7 @@
 
 ;; use shell path
 (use-package exec-path-from-shell
+  ;; todo: maybe use something less mac-specific
   :if 'jonny/is-mac
   :config
   (exec-path-from-shell-initialize))
