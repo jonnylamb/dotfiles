@@ -30,6 +30,7 @@
 
 ;; languages
 (load-config "lang-c")
+(load-config "lang-hs")
 (load-config "lang-js")
 (load-config "lang-sh")
 (load-config "lang-scala")
