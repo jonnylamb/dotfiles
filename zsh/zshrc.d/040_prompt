@@ -1,64 +1,185 @@
 #!/bin/zsh
 # -*- sh -*-
 
-autoload -Uz vcs_info
-setopt PROMPT_SUBST
+# vim:ft=zsh ts=2 sw=2 sts=2
+#
+# agnoster's Theme - https://gist.github.com/3712874
+# A Powerline-inspired theme for ZSH
+#
+# # README
+#
+# In order for this theme to render correctly, you will need a
+# [Powerline-patched font](https://gist.github.com/1595572).
+#
+# In addition, I recommend the
+# [Solarized theme](https://github.com/altercation/solarized/) and, if you're
+# using it on Mac OS X, [iTerm 2](http://www.iterm2.com/) over Terminal.app -
+# it has significantly better color fidelity.
+#
+# # Goals
+#
+# The aim of this theme is to only show you *relevant* information. Like most
+# prompts, it will only show git information when in a git working directory.
+# However, it goes a step further: everything from the current user and
+# hostname to whether the last call exited with an error to whether background
+# jobs are running in this shell will all be displayed automatically when
+# appropriate.
 
-DEBIAN_CHROOT=""
-JHBUILD=""
+### Segment drawing
+# A few utility functions to make it easy and re-usable to draw segmented prompts
 
-# chroot
-if [ -r "/etc/debian_chroot" ]; then
-    local debian_chroot=$(cat /etc/debian_chroot)
-    DEBIAN_CHROOT="${debian_chroot:+/%S$debian_chroot%s}"
+DEFAULT_USER="jlamb"
+
+CURRENT_BG="NONE"
+if [[ -z "$PRIMARY_FG" ]]; then
+  PRIMARY_FG=black
 fi
 
-# jhbuild
-if [ "$UNDER_JHBUILD" = "true" ]; then
-    JHBUILD="/%{$fg_bold[green]%}jhbuild%{$reset_color%}"
-fi
+# Characters
+SEGMENT_SEPARATOR="\ue0b0"
+PLUSMINUS="\u00b1"
+BRANCH="\ue0a0"
+DETACHED="\u27a6"
+CROSS="\u2718"
+LIGHTNING="\u26a1"
+GEAR="\u2699"
 
-# show a normal prompt for normal sessions, otherwise include username
-# and make it red and bold in all other cases
-if [ $USER = jonny ] || [ $USER = jlamb ]; then
-    PROMPT="%B%M%b${DEBIAN_CHROOT}${JHBUILD}:%~%# "
-else
-    PROMPT="%{$fg_bold[red]%}%n@%B%M%b${DEBIAN_CHROOT}${JHBUILD}:%~%# "
-fi
+# Begin a segment
+# Takes two arguments, background and foreground. Both can be omitted,
+# rendering default background/foreground.
+prompt_segment() {
+  local bg fg
+  [[ -n $1 ]] && bg="%K{$1}" || bg="%k"
+  [[ -n $2 ]] && fg="%F{$2}" || fg="%f"
+  if [[ $CURRENT_BG != "NONE" && $1 != $CURRENT_BG ]]; then
+    print -n "%{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%}"
+  else
+    print -n "%{$bg%}%{$fg%}"
+  fi
+  CURRENT_BG=$1
+  [[ -n $3 ]] && print -n $3
+}
 
-# I can't remember what any of these do
-zstyle ':vcs_info:*' formats '%u%F{0}%b%f%c'
-zstyle ':vcs_info:*' actionformats '%u%F{1}%b/%a%f%c'
+# End the prompt, closing any open segments
+prompt_end() {
+  if [[ -n $CURRENT_BG ]]; then
+    print -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+  else
+    print -n "%{%k%}"
+  fi
+  print -n "%{%f%}"
+  CURRENT_BG=""
+}
 
-zstyle ':vcs_info:bzr:*' use-simple true
+### Prompt components
+# Each component will draw itself, and hide itself if no information needs to be shown
 
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' stagedstr '*'
-zstyle ':vcs_info:*' unstagedstr '*'
+# Context: user@hostname (who am I and where am I)
+prompt_context() {
+  local user=`whoami`
 
-# toggle so vcs_info can be switched off
-ENABLE_VCS_INFO="yes"
-togglegit () {
-    if [ "$ENABLE_VCS_INFO" = "yes" ]; then
-        ENABLE_VCS_INFO="no"
-    else
-        ENABLE_VCS_INFO="yes"
-    fi
+  if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
+    prompt_segment $PRIMARY_FG default " %(!.%{%F{yellow}%}.)$user@%m "
+  fi
+}
+
+_is_expensive_repo() {
+  toplevel=$(git rev-parse --show-toplevel 2>/dev/null)
+  test "$toplevel" = "/Users/jlamb/workspace/source"
 }
 
 # fast and super ugly git command(s)
 _git_branch () {
-    branchname=`cat $(git rev-parse --show-toplevel)/.git/HEAD`
-    echo ${branchname//ref: refs\/heads\//}
+  toplevel=$(git rev-parse --show-toplevel 2>/dev/null)
+
+  if [ -n "$toplevel" ]; then
+    branchname=$(cat $toplevel/.git/HEAD)
+    print -n ${branchname//ref: refs\/heads\//}
+  fi
 }
 
-precmd () {
-    if [ -f /etc/debian_chroot ]; then
-        vcs_info_msg_0_=""
-    elif [ "$(git config --get core.usewatchman)" = "true" ] || [ $ENABLE_VCS_INFO = "no" ]; then
-        vcs_info_msg_0_="%{$fg[grey]%}`_git_branch`%{$reset_color%}"
-    elif [ $ENABLE_VCS_INFO = "yes" ]; then
-        vcs_info
+# Git: branch/detached head, dirty status
+prompt_git() {
+  local color ref
+  is_dirty() {
+    test -n "$(git status --porcelain --ignore-submodules)"
+  }
+
+  ref="$vcs_info_msg_0_"
+  _is_expensive_repo && ref=$(_git_branch)
+
+  if [[ -n "$ref" ]]; then
+    if ! _is_expensive_repo && is_dirty; then
+      color=yellow
+      ref="${ref} $PLUSMINUS"
+    else
+      color=green
+      ref="${ref} "
     fi
-    RPROMPT=' %B${vcs_info_msg_0_}%b %(?..%?)'
+    if [[ "${ref/.../}" == "$ref" ]]; then
+      ref="$BRANCH $ref"
+    else
+      ref="$DETACHED ${ref/.../}"
+    fi
+    prompt_segment $color $PRIMARY_FG
+    print -Pn " $ref"
+  fi
 }
+
+# Dir: current working directory
+prompt_dir() {
+  prompt_segment blue $PRIMARY_FG ' %~ '
+}
+
+# Status:
+# - was there an error
+# - am I root
+# - are there background jobs?
+prompt_status() {
+  local symbols
+  symbols=()
+
+  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}$CROSS"
+  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}$LIGHTNING"
+  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}$GEAR"
+
+  [[ -n "$symbols" ]] && prompt_segment $PRIMARY_FG default " $symbols "
+}
+
+## Main prompt
+prompt_agnoster_main() {
+  CURRENT_BG='NONE'
+  prompt_status
+  prompt_context
+  prompt_dir
+  prompt_git
+  prompt_end
+}
+
+prompt_agnoster_precmd() {
+  # this needs to happen as early as possible to get the true value of
+  # $?. _is_expensive_repo makes other calls which lose it.
+  RETVAL="$?"
+
+  if ! _is_expensive_repo; then
+    vcs_info
+  fi
+
+  PROMPT="%{%f%b%k%}$(prompt_agnoster_main) "
+}
+
+prompt_agnoster_setup() {
+  autoload -Uz add-zsh-hook
+  autoload -Uz vcs_info
+
+  prompt_opts=(cr subst percent)
+
+  add-zsh-hook precmd prompt_agnoster_precmd
+
+  zstyle ':vcs_info:*' enable git
+  zstyle ':vcs_info:*' check-for-changes false
+  zstyle ':vcs_info:git*' formats '%b'
+  zstyle ':vcs_info:git*' actionformats '%b (%a)'
+}
+
+prompt_agnoster_setup "$@"
