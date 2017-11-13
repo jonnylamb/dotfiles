@@ -9,8 +9,10 @@
         c++-mode
         sh-mode
         emacs-lisp-mode
+        js2-mode
         makefile-mode
         python-mode
+        rjsx-mode
         scala-mode
         thrift-mode))
 
