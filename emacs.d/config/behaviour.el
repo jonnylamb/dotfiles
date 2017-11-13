@@ -54,4 +54,4 @@
   (smartparens-global-mode))
 
 ;; pretty coloured brackets
-(use-package "rainbow-delimiters")
+(use-package 'rainbow-delimiters)
