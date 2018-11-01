@@ -21,37 +21,43 @@ gcpa () {
 }
 
 git () {
-    # if git doesn't point to /usr/bin/git, there are going to be big
-    # problems so don't bother going ahead
-    original="$(sh -c 'which git')"
-    if ! [ "$original" = "/usr/bin/git" ]; then
-        $original $@
-        return
+    original_git="$(sh -c 'which git')"
+
+    # don't bother doing anything if not in a git repo
+    if [ -d .git ] || $original_git rev-parse --git-dir 2> /dev/null; then
+
+         # I don't even go here
+         if [ "$($original_git config --local --get user.email)" = "jonny.lamb@collabora.co.uk" ]; then
+             $original_git config --local --unset user.email
+         fi
+
+         if ! $original_git config --local --get user.email 2>&1 > /dev/null; then
+             case $1 in
+                 commit|merge|rebase|am|cherry-pick|revert)
+                     tmp=$(mktemp)
+
+                     dialog --menu "pick an email address" \
+                            11 50 4 \
+                            jlamb@twitter.com twitter \
+                            jonnylamb@jonnylamb.com personal \
+                            jonny@debian.org debian \
+                            jonnylamb@gnome.org gnome 2> $tmp
+
+                     if [ $? != 0 ]; then
+                         # dialog was cancelled
+                         return
+                     fi
+
+                     email=`cat $tmp`
+                     rm $tmp
+
+                     $original_git config --local user.email $email
+                     ;;
+                 *)
+                     ;;
+             esac
+         fi
     fi
 
-    if [ "`/usr/bin/git config --local --get user.email`" = "jonny.lamb@collabora.co.uk" ]; then
-        /usr/bin/git config --local --unset user.email
-    fi
-
-    if ! /usr/bin/git config --local --get user.email 2>&1 > /dev/null && \
-       echo $1 | grep -E "^(commit|merge|rebase|am|cherry-pick|revert)$" 2>&1 > /dev/null; then
-
-        tmp=`mktemp`
-
-        if ! dialog --menu "pick an email address" \
-               11 50 4 \
-               jonnylamb@jonnylamb.com personal \
-               jonny@debian.org debian \
-               jonnylamb@gnome.org gnome 2> $tmp; then
-            return
-        fi
-
-        email=`cat $tmp`
-        rm $tmp
-
-        /usr/bin/git config --local user.email $email
-
-    fi
-
-    /usr/bin/git $@
+    $original_git $@
 }
