@@ -24,7 +24,7 @@ git () {
     original_git="$(sh -c 'which git')"
 
     # don't bother doing anything if not in a git repo
-    if [ -d .git ] || $original_git rev-parse --git-dir 2> /dev/null; then
+    if [ -d .git ] || $original_git rev-parse --git-dir 2>&1 >/dev/null; then
 
          # I don't even go here
          if [ "$($original_git config --local --get user.email)" = "jonny.lamb@collabora.co.uk" ]; then
