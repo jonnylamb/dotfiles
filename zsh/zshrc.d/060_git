@@ -48,7 +48,7 @@ git () {
                          return
                      fi
 
-                     email=`cat $tmp`
+                     email=$(cat $tmp)
                      rm $tmp
 
                      $original_git config --local user.email $email

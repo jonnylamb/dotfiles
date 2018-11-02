@@ -12,7 +12,7 @@ cdt () {
 }
 
 fcdt () {
-    for i in `find /tmp/ -name $1 2>/dev/null | grep "^/tmp/cdt"`; do
-        echo `dirname $i` → $i
+    for i in $(find /tmp/ -name $1 2>/dev/null | grep "^/tmp/cdt"); do
+        echo $(dirname $i) → $i
     done
 }
