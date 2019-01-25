@@ -72,4 +72,4 @@ alias epiphany="noglob epiphany"
 alias find="noglob find"
 
 # misc rubbish
-alias shipit='for i in /usr/local/share/cows/*.cow; do cowsay -f $i "Ship it"; done'
+alias shipit='for i in /usr/share/cowsay/cows/*.cow; do cowsay -f $i "Ship it"; done'
