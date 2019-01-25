@@ -1,5 +1,0 @@
-#!/bin/zsh
-# -*- sh -*-
-
-# I do feel slightly bad for adding this but... así es la vida.
-export G_MESSAGES_DEBUG=all
