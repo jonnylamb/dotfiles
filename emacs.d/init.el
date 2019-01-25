@@ -25,6 +25,7 @@
 (load-config "appearance")
 (load-config "ligatures")
 (load-config "keybindings")
+(load-config "server")
 (load-config "behaviour")
 (load-config "whitespace")
 
