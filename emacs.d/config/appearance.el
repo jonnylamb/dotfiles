@@ -1,12 +1,12 @@
 ;; -*- emacs-lisp -*-
 
 ;; set theme
-(use-package solarized-theme
+(use-package tangotango-theme
   :config
-  (load-theme 'solarized-dark t))
+  (load-theme 'tangotango t))
 
 ;; font
-(set-default-font "Fira code-14")
+(set-default-font "Inconsolata-12")
 
 ;; no line numbers
 (global-linum-mode 0)
