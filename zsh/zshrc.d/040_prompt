@@ -85,7 +85,8 @@ prompt_context() {
 
 _is_expensive_repo() {
   toplevel=$(git rev-parse --show-toplevel 2>/dev/null)
-  test "$toplevel" = "/Users/jlamb/workspace/source"
+  # ugly but fast, hoepfully?
+  echo $toplevel | grep "/source$" >/dev/null
 }
 
 # fast and super ugly git command(s)
