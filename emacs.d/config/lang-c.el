@@ -30,30 +30,3 @@
 
 ;; use wayland style by default
 (setq c-default-style "gtk")
-
-;; cedet
-(set-default 'semantic-case-fold t)
-
-(defun c-mode-semantic-hook ()
-  (progn
-    (global-semanticdb-minor-mode 1)
-    (global-semantic-idle-scheduler-mode 1)
-    (local-set-key (kbd "M-.") 'semantic-ia-fast-jump)
-    (semantic-mode t)))
-
-(require 'semantic)
-(add-hook 'c-mode-common-hook 'c-mode-semantic-hook)
-
-;; code completion
-(use-package company
-  :config
-  (setq company-idle-delay nil
-        company-global-modes nil))
-
-(defun c-mode-company-hook ()
-  (progn
-    ;; disable autocompletion
-    (company-mode)
-    (local-set-key (kbd "M-/") 'company-complete)))
-
-(add-hook 'c-mode-common-hook 'c-mode-company-hook)
