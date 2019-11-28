@@ -22,6 +22,12 @@
  '("linux"
    (indent-tabs-mode . t)))
 
+(c-add-style
+ "gstreamer"
+ '("K&R"
+   (indent-tabs-mode . nil)
+   (c-basic-offset . 4)))
+
 ;; use wayland style by default
 (setq c-default-style "gtk")
 
