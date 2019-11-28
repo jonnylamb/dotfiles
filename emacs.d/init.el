@@ -31,6 +31,7 @@
 
 ;; languages
 (load-config "lang-c")
+(load-config "lang-go")
 (load-config "lang-hs")
 (load-config "lang-js")
 (load-config "lang-sh")
