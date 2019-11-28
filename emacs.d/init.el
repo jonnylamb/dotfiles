@@ -27,6 +27,7 @@
 (load-config "server")
 (load-config "behaviour")
 (load-config "whitespace")
+(load-config "lsp")
 
 ;; languages
 (load-config "lang-c")
