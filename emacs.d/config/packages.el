@@ -2,14 +2,10 @@
 
 (require 'package)
 
-;; remove gnu
-(setq package-archives nil)
-
 ;; add melpa
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
-;; go
 (package-initialize)
 
 ;; only do this if the archive isn't already there as updates are boring.
@@ -19,4 +15,6 @@
 
 ;; now use use-package after this
 (require 'use-package)
+
+;; so :ensure isn't required everywhere
 (setq use-package-always-ensure t)
