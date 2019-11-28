@@ -1,7 +1,6 @@
 ;; -*- emacs-lisp -*-
 
 (use-package dante
-  :ensure t
   :after haskell-mode
   :commands 'dante-mode
   :init
