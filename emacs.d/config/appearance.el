@@ -6,7 +6,7 @@
   (load-theme 'tangotango t))
 
 ;; font
-(set-default-font "Inconsolata-12")
+(set-frame-font "Inconsolata-13.5")
 
 ;; no line numbers
 (global-linum-mode 0)
