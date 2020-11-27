@@ -7,8 +7,6 @@
 (defun load-config (name)
   (load (concat config-dir name ".el")))
 
-(package-initialize)
-
 ;; set up directories to refer to later
 (load-config "dirs")
 
