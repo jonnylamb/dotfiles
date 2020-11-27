@@ -14,7 +14,8 @@
         python-mode
         rjsx-mode
         scala-mode
-        thrift-mode))
+        thrift-mode
+        go-mode))
 
 ;; don't enable everything (like end of line markers)
 (setq whitespace-style
