@@ -21,16 +21,16 @@
       (make-directory parent-directory t))))
 (add-to-list 'find-file-not-found-functions 'my-create-non-existent-directory)
 
-;; enable linum-mode only after having called goto-line
+;; enable display-line-numbers-modelinum-mode only after having called goto-line
 ;; http://whattheemacsd.com/key-bindings.el-01.html
 (defun goto-line-with-feedback ()
   "Show line numbers temporarily, while prompting for the line number input"
   (interactive)
   (unwind-protect
       (progn
-        (linum-mode 1)
+        (display-line-numbers-mode 1)
         (goto-line (read-number "Goto line: ")))
-    (linum-mode -1)))
+    (display-line-numbers-mode -1)))
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
 
 ;; use shell path

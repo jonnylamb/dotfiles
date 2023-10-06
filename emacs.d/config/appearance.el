@@ -9,7 +9,7 @@
 (set-frame-font "Inconsolata-13.5")
 
 ;; no line numbers
-(global-linum-mode 0)
+(global-display-line-numbers-mode 0)
 
 ;; display the column number in the bottom
 (column-number-mode t)
